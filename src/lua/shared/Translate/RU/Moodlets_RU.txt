@@ -1,0 +1,2 @@
+Moodlets_RU = {
+}

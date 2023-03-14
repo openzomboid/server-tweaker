@@ -1,0 +1,9 @@
+version=1
+id=
+title=Server Tweaker
+description=Adds additional server settings.
+description=
+description=[h1]Description[/h1]
+description=Server Tweaker is a modification to Project Zomboid with random tweaks.
+tags=Build 41;Multiplayer
+visibility=public

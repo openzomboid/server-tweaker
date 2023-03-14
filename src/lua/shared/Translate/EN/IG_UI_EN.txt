@@ -1,0 +1,7 @@
+IGUI_EN = {
+    -- New
+    IGUI_SafehouseUI_Area = "Safehouse Area:",
+    IGUI_UserPanel_HighlightSafehouse = "Highlight Safehouse",
+    IGUI_PlayerText_VehicleIsInSafehouse = "Vehicle is in someone's safehouse",
+    IGUI_SafehouseUI_Members = "Members:",
+}

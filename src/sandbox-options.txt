@@ -1,0 +1,43 @@
+VERSION = 1,
+
+option ServerTweaker.AllowAdminToolsForGM {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_AllowAdminToolsForGM
+}
+
+option ServerTweaker.DisableAimOutline {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_DisableAimOutline
+}
+
+option ServerTweaker.AllowDisassembleVehicle {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_AllowDisassembleVehicle
+}
+
+option ServerTweaker.ProtectVehicleInSafehouse {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_ProtectVehicleInSafehouse
+}
+
+option ServerTweaker.ScreenBlackoutOnDeath {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = ServerTweaker_ScreenBlackoutOnDeath
+}
+
+option ServerTweaker.HighlightSafehouse {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_HighlightSafehouse
+}

@@ -1,0 +1,5 @@
+Tooltip_EN = {
+    -- New
+    Tooltip_DisassembleVehicle = "Dismantling crashed car with a welding mask and propane torch will remove them from your path, and provide metal construction materials. <LINE> Higher Metalwork skills will retrieve more usable salvage.",
+    Tooltip_Count = "Count",
+}

@@ -1,0 +1,10 @@
+IGUI_RU = {
+    -- Fix
+    IGUI_PvpZone_NonPvpZone = "ВЫ НАХОДИТЕСЬ НА PVE ТЕРРИТОРИИ",
+
+    -- New
+    IGUI_SafehouseUI_Area = "Площадь убежища:",
+    IGUI_UserPanel_HighlightSafehouse = "Подсветить убежище",
+    IGUI_PlayerText_VehicleIsInSafehouse = "Транспорт находится в чьем-то убежище",
+    IGUI_SafehouseUI_Members = "Участники:",
+}

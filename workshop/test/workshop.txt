@@ -1,0 +1,16 @@
+version=1
+id=
+title=Server Tweaker Test
+description=Adds additional server settings.
+description=
+description=[h1]Description[/h1]
+description=Server Tweaker is a modification to Project Zomboid with random tweaks.
+description=
+description=[h1]Warning[/h1]
+description=THIS IS TEST. DON'T USE THIS MOD.
+description=THIS IS TEST. DON'T USE THIS MOD.
+description=THIS IS TEST. DON'T USE THIS MOD.
+description=
+description=Please use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=]Stable version[/url].
+tags=Build 41;Multiplayer
+visibility=unlisted

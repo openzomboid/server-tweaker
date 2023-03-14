@@ -1,0 +1,9 @@
+Sandbox_EN = {
+    Sandbox_ServerTweaker = "Server Tweaker",
+    Sandbox_AllowAdminToolsForGM = "Allow admin tools for GM",
+    Sandbox_DisableAimOutline = "Disable AimOutline",
+    Sandbox_AllowDisassembleVehicle = "Allow to disassemble vehicle",
+    Sandbox_ProtectVehicleInSafehouse = "Protect vehicle in safehouse",
+    Sandbox_ScreenBlackoutOnDeath = "Screen blackout on death",
+    Sandbox_HighlightSafehouse = "Highlight safehouse",
+}

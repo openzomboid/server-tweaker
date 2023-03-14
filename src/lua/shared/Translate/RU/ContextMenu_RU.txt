@@ -1,0 +1,8 @@
+ContextMenu_RU = {
+    -- Fix
+    ContextMenu_Uses = "(применение)",
+
+    -- New
+    ContextMenu_Opt = "(опционально)",
+    ContextMenu_DisassembleVehicle = "Разобрать автомобиль",
+}

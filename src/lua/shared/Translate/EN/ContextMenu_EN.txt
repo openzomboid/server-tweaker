@@ -1,0 +1,5 @@
+ContextMenu_EN = {
+    -- New
+    ContextMenu_Opt = "(optional)",
+    ContextMenu_DisassembleVehicle = "Disassemble Car",
+}
