@@ -1,4 +1,6 @@
 IGUI_EN = {
+    -- Fix
+
     -- New
     IGUI_SafehouseUI_Area = "Safehouse Area:",
     IGUI_UserPanel_HighlightSafehouse = "Highlight Safehouse",

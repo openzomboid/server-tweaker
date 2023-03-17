@@ -1,5 +1,5 @@
 version=1
-id=
+id=2947538737
 title=Server Tweaker Test
 description=Adds additional server settings.
 description=
@@ -12,5 +12,5 @@ description=THIS IS TEST. DON'T USE THIS MOD.
 description=THIS IS TEST. DON'T USE THIS MOD.
 description=
 description=Please use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=]Stable version[/url].
-tags=Build 41;Multiplayer
+tags=Build 41;Balance;Multiplayer
 visibility=unlisted

@@ -14,13 +14,6 @@ option ServerTweaker.DisableAimOutline {
   translation = ServerTweaker_DisableAimOutline
 }
 
-option ServerTweaker.AllowDisassembleVehicle {
-  type        = boolean,
-  default     = false,
-  page        = ServerTweaker,
-  translation = ServerTweaker_AllowDisassembleVehicle
-}
-
 option ServerTweaker.ProtectVehicleInSafehouse {
   type        = boolean,
   default     = false,
@@ -30,7 +23,7 @@ option ServerTweaker.ProtectVehicleInSafehouse {
 
 option ServerTweaker.ScreenBlackoutOnDeath {
   type        = boolean,
-  default     = true,
+  default     = false,
   page        = ServerTweaker,
   translation = ServerTweaker_ScreenBlackoutOnDeath
 }
@@ -40,4 +33,11 @@ option ServerTweaker.HighlightSafehouse {
   default     = false,
   page        = ServerTweaker,
   translation = ServerTweaker_HighlightSafehouse
+}
+
+option ServerTweaker.TweakFirearmsSoundRadius {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_TweakFirearmsSoundRadius
 }

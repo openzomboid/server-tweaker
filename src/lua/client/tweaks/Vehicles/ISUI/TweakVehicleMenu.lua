@@ -17,7 +17,6 @@ end
 TweakVehicleMenu = {
     Original = {
         doTowingMenu = ISVehicleMenu.doTowingMenu,
-        FillMenuOutsideVehicle = ISVehicleMenu.FillMenuOutsideVehicle,
         OnFillWorldObjectContextMenu = ISVehicleMenu.OnFillWorldObjectContextMenu,
         showRadialMenuOutside = ISVehicleMenu.showRadialMenuOutside,
         onEnter = ISVehicleMenu.onEnter,
@@ -26,38 +25,6 @@ TweakVehicleMenu = {
         onEnterAux2 = ISVehicleMenu.onEnterAux2,
     }
 }
-
--- GetVehicleInfo returns vehicle stats.
-TweakVehicleMenu.GetVehicleInfo = function(vehicle)
-    local info = {
-        Condition      = 0,
-        PartsTotal     = 0,
-        PartsInstalled = 0
-    }
-
-    if not vehicle then return
-        info;
-    end
-
-    for i=1, vehicle:getPartCount() do
-        local part = vehicle:getPartByIndex(i-1)
-
-        local cond = part:getCondition();
-        -- if we removed the item, condition should be 0
-        if part:getItemType() and not part:getItemType():isEmpty() and not part:getInventoryItem() then
-            cond = 0;
-        else
-            info.PartsInstalled = info.PartsInstalled + 1;
-        end
-
-        info.Condition = info.Condition + cond;
-        info.PartsTotal = info.PartsTotal + 1;
-    end
-
-    info.Condition = round(info.Condition / info.PartsTotal, 2)
-
-    return info
-end
 
 -- doTowingMenu rewrites original ISVehicleMenu.doTowingMenu function.
 -- hides "Attach" key from Radial Menu if user is not permitted.
@@ -345,54 +312,6 @@ TweakVehicleMenu.onEnterAux2 = function(playerObj, vehicle, seat)
     TweakVehicleMenu.Original.onEnterAux2(playerObj, vehicle, seat)
 end
 
--- FillMenuOutsideVehicle adds the "DisassembleVehicle" item to vehicle
--- context menu.
-TweakVehicleMenu.FillMenuOutsideVehicle = function(player, context, vehicle, test)
-    TweakVehicleMenu.Original.FillMenuOutsideVehicle(player, context, vehicle, test)
-
-    local playerObj = getSpecificPlayer(player)
-    local inventory = playerObj:getInventory()
-
-    local vehicleInfo = TweakVehicleMenu.GetVehicleInfo(vehicle)
-
-    local burnt = (string.match(vehicle:getScript():getName(), "Burnt") or string.match(vehicle:getScript():getName(), "Smashed"))
-
-    if SandboxVars.ServerTweaker.AllowDisassembleVehicle then
-        local allowed = (vehicleInfo.PartsInstalled <= 5 or vehicleInfo.Condition < 10) -- Allow only on thrash cars.
-        if ISBuildMenu.cheat or (not burnt and allowed) then
-            local option = context:addOption(getText("ContextMenu_DisassembleVehicle") , playerObj, TweakVehicleMenu.onDisassembleVehicle, vehicle)
-
-            local toolTip = ISToolTip:new();
-            toolTip:initialise();
-            toolTip:setVisible(false);
-            option.toolTip = toolTip;
-            toolTip:setName(getText("ContextMenu_DisassembleVehicle"));
-            toolTip.description = getText("Tooltip_DisassembleVehicle") .. " <LINE> <LINE> ";
-
-            if inventory:containsTypeRecurse("WeldingMask") then
-                toolTip.description = toolTip.description .. " <LINE> <RGB:1,1,1> " .. getItemNameFromFullType("Base.WeldingMask") .. " 1/1";
-            else
-                toolTip.description = toolTip.description .. " <LINE> <RGB:1,0,0> " .. getItemNameFromFullType("Base.WeldingMask") .. " 0/1";
-                option.notAvailable = true;
-            end
-
-            local blowTorch = ISBlacksmithMenu.getBlowTorchWithMostUses(inventory);
-            if blowTorch then
-                local blowTorchUseLeft = blowTorch:getDrainableUsesInt();
-                if blowTorchUseLeft >= BlowTorchDrainableUsesNeeded then
-                    toolTip.description = toolTip.description .. " <LINE> <RGB:1,1,1> " .. getItemNameFromFullType("Base.BlowTorch") .. getText("ContextMenu_Uses") .. " " .. blowTorchUseLeft .. "/" .. BlowTorchDrainableUsesNeeded;
-                else
-                    toolTip.description = toolTip.description .. " <LINE> <RGB:1,0,0> " .. getItemNameFromFullType("Base.BlowTorch") .. getText("ContextMenu_Uses") .. " " .. blowTorchUseLeft .. "/" .. BlowTorchDrainableUsesNeeded;
-                    option.notAvailable = true;
-                end
-            else
-                toolTip.description = toolTip.description .. " <LINE> <RGB:1,0,0> " .. getItemNameFromFullType("Base.BlowTorch") .. " 0/5";
-                option.notAvailable = true;
-            end
-        end
-    end
-end
-
 -- onDisassembleVehicle adds DisassembleVehicle operation to ISTimedActionQueue.
 function TweakVehicleMenu.onDisassembleVehicle(player, vehicle)
     if luautils.walkAdj(player, vehicle:getSquare()) then
@@ -411,7 +330,6 @@ ISVehicleMenu.onEnter = TweakVehicleMenu.onEnter;
 ISVehicleMenu.onEnter2 = TweakVehicleMenu.onEnter2;
 ISVehicleMenu.onEnterAux = TweakVehicleMenu.onEnterAux;
 ISVehicleMenu.onEnterAux2 = TweakVehicleMenu.onEnterAux2;
-ISVehicleMenu.FillMenuOutsideVehicle = TweakVehicleMenu.FillMenuOutsideVehicle;
 
 Events.OnFillWorldObjectContextMenu.Remove(ISVehicleMenu.OnFillWorldObjectContextMenu)
 Events.OnFillWorldObjectContextMenu.Add(TweakVehicleMenu.OnFillWorldObjectContextMenu)

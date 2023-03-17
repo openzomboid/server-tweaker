@@ -4,5 +4,4 @@ ContextMenu_RU = {
 
     -- New
     ContextMenu_Opt = "(опционально)",
-    ContextMenu_DisassembleVehicle = "Разобрать автомобиль",
 }
