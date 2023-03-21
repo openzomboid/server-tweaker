@@ -10,15 +10,19 @@ TweakChat = {
     }
 }
 
--- onToggleChatBox overrides the original ISChat.onToggleChatBox function
--- to change default chat steam to /all instead /say.
+-- onToggleChatBox overrides the original ISChat.onToggleChatBox function.
+-- Changes default chat steam to /all instead /say.
 TweakChat.onToggleChatBox = function(key)
-    if ISChat.instance==nil then return; end
-    if key == getCore():getKey("Toggle chat") or key == getCore():getKey("Alt toggle chat") then
-        if ISChat.fairLastChatCommand == nil then
-            ISChat.fairLastChatCommand = false
+    if ISChat.instance == nil then return; end
 
-            ISChat.instance.chatText.lastChatCommand = ISChat.allChatStreams[6].command;
+    if SandboxVars.ServerTweaker.SetGeneralChatStreamAsDefault then
+        if key == getCore():getKey("Toggle chat") or key == getCore():getKey("Alt toggle chat") then
+            if ISChat.fairLastChatCommand == nil then
+                ISChat.fairLastChatCommand = false
+
+                ISChat.instance.chatText.streamID = 6;
+                ISChat.instance.chatText.lastChatCommand = ISChat.allChatStreams[6].command;
+            end
         end
     end
 

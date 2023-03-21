@@ -41,3 +41,17 @@ option ServerTweaker.TweakFirearmsSoundRadius {
   page        = ServerTweaker,
   translation = ServerTweaker_TweakFirearmsSoundRadius
 }
+
+option ServerTweaker.SetGeneralChatStreamAsDefault {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_SetGeneralChatStreamAsDefault
+}
+
+option ServerTweaker.DisplayCharacterCoordinates {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_DisplayCharacterCoordinates
+}

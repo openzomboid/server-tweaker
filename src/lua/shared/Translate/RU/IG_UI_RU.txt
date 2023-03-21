@@ -1,6 +1,5 @@
 IGUI_RU = {
     -- Fix
-    IGUI_PvpZone_NonPvpZone = "ВЫ НАХОДИТЕСЬ НА PVE ТЕРРИТОРИИ",
 
     -- New
     IGUI_SafehouseUI_Area = "Площадь убежища:",
