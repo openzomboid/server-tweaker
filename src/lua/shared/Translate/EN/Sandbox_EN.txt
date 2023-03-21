@@ -8,4 +8,5 @@ Sandbox_EN = {
     Sandbox_TweakFirearmsSoundRadius = "Increase SoundRadius to firearms",
     Sandbox_SetGeneralChatStreamAsDefault = "Set General chat stream as default",
     Sandbox_DisplayCharacterCoordinates = "Display character coordinates",
+    Sandbox_AddSatelliteViewToMap = "Add satellite view to map",
 }

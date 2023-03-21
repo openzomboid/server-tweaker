@@ -8,4 +8,5 @@ Sandbox_RU = {
     Sandbox_TweakFirearmsSoundRadius = "”величить дальность шума огнестрельному оружию",
     Sandbox_SetGeneralChatStreamAsDefault = "—делать общий чат чатом по умолчанию",
     Sandbox_DisplayCharacterCoordinates = "ќтображать координаты персонажа",
+    Sandbox_AddSatelliteViewToMap = "ƒобавить отображение со спутника на карте",
 }

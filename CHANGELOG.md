@@ -4,34 +4,32 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
-### Fixed
-- Fixed safezone size calculation in custom safezone creation interface.
-
 ### Added
-- Added coordinates displaying to character info screen (needs Digital Watch in main inventory). To enable this tweak set `DisplayCharacterCoordinates` to true in sandbox options.
-- Added `DisableAimOutline` option to sandbox configuration. If enabled it disables AimOutline option to every client.
-- Added `TweakFirearmsSoundRadius` option to sandbox configuration. It returns ranged weapons sound radius to b41.56 values if enabled.
-- Added protection for Vehicles in safehouses. Hided Radial Menu, Forbidden to enter and click on "Vehicles Mechanics". To enable this tweak set `ProtectVehicleInSafehouse` to true in sandbox options.
-- Added possibility to teleport on world map to Moderators and GM. To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
-- Added admin tools context menu for GM users. To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
-- Added blackout the screen upon death. To enable this tweak set `ScreenBlackoutOnDeath` to true in sandbox options.
-- Added safehouses highlight. To enable this tweak set `HighlightSafehouse` to true in sandbox options.
-- Added possibility to create custom safezone by Moderator.
-- Added possibility to add members when create safezone.
-- Added possibility to create safezone with area=1.
+- Added storage for client options. The values of the checkboxes in the client menu are saved and the player does not need to change options after rejoining the server.
+- Added tweak to change default chat stream to /all instead /say. To enable this tweak set `SetGeneralChatStreamAsDefault` to true in sandbox options.
+- Added tweak to display coordinates in character info screen (needs Digital Watch in main inventory). To enable this tweak set `DisplayCharacterCoordinates` to true in sandbox options.
+- Added tweak to forced disabling of Aim Outline client option. To enable this tweak set `DisableAimOutline` to true in sandbox options.
+- Added tweak to returning ranged weapons sound radius as in b41.56 values. To enable this tweak set `TweakFirearmsSoundRadius` to true in sandbox options.
+- Added tweak to protection Vehicles in safehouses. It hides Radial Menu, Forbids to enter vehicle and forbids to click on "Vehicles Mechanics". To enable this tweak set `ProtectVehicleInSafehouse` to true in sandbox options.
+- Added tweak to allowing Moderators and GM to make teleports on world map (M). To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
+- Added tweak to allowing GMs to use admin tools in context menu. To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
+- Added tweak to set blackout the screen upon death. To enable this tweak set `ScreenBlackoutOnDeath` to true in sandbox options.
+- Added tweak to color highlight safehouses for members. To enable this tweak set `HighlightSafehouse` to true in sandbox options. If enabled players can switch this in client panel.
+- Added a "satellite" view switch to the map interface (M). It makes the map display closer to the one on the online map (https://map.projectzomboid.com/). To enable this tweak set `AddSatelliteViewToMap` to true in sandbox options.
+- 
 - Added safehouse area to Safehouse view interface.
-- Added a "satellite" view switch to the map interface (M). It makes the map display closer to the one on the online map (https://map.projectzomboid.com/).
-
-# Changed
-- Changed default chat stream to /all instead /say. To enable this tweak set `SetGeneralChatStreamAsDefault` to true in sandbox options.
-- Recolored "YOU'RE IN A NON PVP ZONE" text from red to green.
-- Renamed skill books to improve sorting by Vol. (English).
-- Renamed paints to improve sorting (English).
-- Renamed light bulbs to improve sorting (English).
-- Renamed seeds and seeds packets to improve sorting (English).
-- Disabled `See Server Options` button in client menu.
-- Disabled `Show connection info` checkbox in client menu and pinned to `true` value.
-- Disabled `Show server info` checkbox in client menu and pinned to `false` value.
-- Changed connection info message to more readable format.
+- Added allowing to create custom safezone by Moderator.
+- Added change min area size to 1 in custom safezone creation interface.
+- Added possibility to set members in custom safezone creation interface.
+- Added fix for safezone size calculation in custom safezone creation interface.
+- Added "YOU'RE IN A NON PVP ZONE" text to right bottom corner.
+- Added renaming skill books to improve sorting (English).
+- Added renaming paints to improve sorting (English).
+- Added renaming light bulbs to improve sorting (English).
+- Added renaming seeds and seeds packets to improve sorting (English).
+- Added changing connection info message on right bottom corner to more readable format.
+- Added disabling `See Server Options` button in client menu.
+- Added disabling `Show connection info` checkbox in client menu and pinned to `true` value.
+- Added disabling `Show server info` checkbox in client menu and pinned to `false` value.
 
 [Unreleased]: https://github.com/openzomboid/server-tweaker/compare/d4868cbb05ad290ba3f0431e82592894d999bd56...HEAD

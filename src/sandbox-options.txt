@@ -55,3 +55,10 @@ option ServerTweaker.DisplayCharacterCoordinates {
   page        = ServerTweaker,
   translation = ServerTweaker_DisplayCharacterCoordinates
 }
+
+option ServerTweaker.AddSatelliteViewToMap {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_AddSatelliteViewToMap
+}

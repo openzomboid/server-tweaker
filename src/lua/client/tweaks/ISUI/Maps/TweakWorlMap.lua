@@ -61,12 +61,12 @@ TweakWorldMap.createChildren = function(self)
     self.buttonPanel:addChild(self.perspectiveBtn)
     table.insert(buttons, 1, self.perspectiveBtn)
 
-    --if getDebug() then
+    if SandboxVars.ServerTweaker.AddSatelliteViewToMap or getDebug() then
         self.pyramidBtn = ISButton:new(buttons[1].x - 20 - btnSize, 0, btnSize, btnSize, "", self, self.onTogglePyramid)
         self.pyramidBtn:setImage(self.texViewPyramid)
         self.buttonPanel:addChild(self.pyramidBtn)
         table.insert(buttons, 1, self.pyramidBtn)
-    --end
+    end
 
     self.optionBtn = ISButton:new(buttons[1].x - 20 - btnSize, 0, btnSize, btnSize, "OPT", self, self.onChangeOptions)
     self.buttonPanel:addChild(self.optionBtn)
