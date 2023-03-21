@@ -23,13 +23,13 @@ All notable changes to this project will be documented in this file.
 - Added possibility to set members in custom safezone creation interface.
 - Added fix for safezone size calculation in custom safezone creation interface.
 - Added "YOU'RE IN A NON PVP ZONE" text to right bottom corner.
-- Added renaming skill books to improve sorting (English).
-- Added renaming paints to improve sorting (English).
-- Added renaming light bulbs to improve sorting (English).
-- Added renaming seeds and seeds packets to improve sorting (English).
 - Added changing connection info message on right bottom corner to more readable format.
 - Added disabling `See Server Options` button in client menu.
 - Added disabling `Show connection info` checkbox in client menu and pinned to `true` value.
 - Added disabling `Show server info` checkbox in client menu and pinned to `false` value.
+- Added renaming skill books to improve sorting (English).
+- Added renaming paints to improve sorting (English).
+- Added renaming light bulbs to improve sorting (English).
+- Added renaming seeds and seeds packets to improve sorting (English).
 
 [Unreleased]: https://github.com/openzomboid/server-tweaker/compare/d4868cbb05ad290ba3f0431e82592894d999bd56...HEAD
