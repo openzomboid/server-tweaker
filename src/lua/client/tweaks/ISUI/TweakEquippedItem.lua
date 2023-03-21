@@ -13,7 +13,7 @@ TweakEquippedItem = {
 }
 
 -- prerender rewrites original TweakEquippedItem.prerender function.
--- Adds server public name, hide strange serverTime and 32 players warning.
+-- Adds server public name, hides strange serverTime and 32 players warning.
 TweakEquippedItem.prerender = function(self)
     local drawTextRight = self.drawTextRight
     self.drawTextRight = function() end

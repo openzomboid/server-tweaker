@@ -9,4 +9,5 @@ Sandbox_EN = {
     Sandbox_SetGeneralChatStreamAsDefault = "Set General chat stream as default",
     Sandbox_DisplayCharacterCoordinates = "Display character coordinates",
     Sandbox_AddSatelliteViewToMap = "Add satellite view to map",
+    Sandbox_DisplaySafehouseAreaSize = "Display safehouse area size",
 }

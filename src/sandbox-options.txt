@@ -62,3 +62,10 @@ option ServerTweaker.AddSatelliteViewToMap {
   page        = ServerTweaker,
   translation = ServerTweaker_AddSatelliteViewToMap
 }
+
+option ServerTweaker.DisplaySafehouseAreaSize {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_DisplaySafehouseAreaSize
+}

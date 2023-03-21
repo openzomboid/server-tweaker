@@ -9,4 +9,5 @@ Sandbox_RU = {
     Sandbox_SetGeneralChatStreamAsDefault = "Сделать общий чат чатом по умолчанию",
     Sandbox_DisplayCharacterCoordinates = "Отображать координаты персонажа",
     Sandbox_AddSatelliteViewToMap = "Добавить отображение со спутника на карте",
+    Sandbox_DisplaySafehouseAreaSize = "Отображать площадь убежища",
 }

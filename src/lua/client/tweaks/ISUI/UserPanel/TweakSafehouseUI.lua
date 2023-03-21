@@ -72,17 +72,19 @@ TweakSafehouseUI.initialise = function(self)
     self.pos:instantiate()
     self:addChild(self.pos)
 
+    -- Monkey patch 1: Add safehouse size.
     local areaLbl = ISLabel:new(10, posLbl:getBottom() + 7, FONT_HGT_SMALL, getText("IGUI_SafehouseUI_Area"), 1, 1, 1, 1, UIFont.Small, true)
-    areaLbl:initialise()
-    areaLbl:instantiate()
-    self:addChild(areaLbl)
+    if SandboxVars.ServerTweaker.DisplaySafehouseAreaSize then
+        areaLbl:initialise()
+        areaLbl:instantiate()
+        self:addChild(areaLbl)
 
-    -- Add safehouse size.
-    local squareValue = self.safehouse:getW() * self.safehouse:getH()
+        local squareValue = self.safehouse:getW() * self.safehouse:getH()
 
-    self.area = ISLabel:new(areaLbl:getRight() + 8, areaLbl.y, FONT_HGT_SMALL, tostring(squareValue), 0.6, 0.6, 0.8, 1.0, UIFont.Small, true)
-    self.area:instantiate()
-    self:addChild(self.area)
+        self.area = ISLabel:new(areaLbl:getRight() + 8, areaLbl.y, FONT_HGT_SMALL, tostring(squareValue), 0.6, 0.6, 0.8, 1.0, UIFont.Small, true)
+        self.area:instantiate()
+        self:addChild(self.area)
+    end
 
     self.releaseSafehouse = ISButton:new(10, 0, 70, btnHgt, getText("IGUI_SafehouseUI_Release"), self, ISSafehouseUI.onClick);
     self.releaseSafehouse.internal = "RELEASE";
@@ -102,7 +104,13 @@ TweakSafehouseUI.initialise = function(self)
     self.changeOwnership.parent = self;
     self.changeOwnership:setVisible(false);
 
-    local playersLbl = ISLabel:new(10, areaLbl:getBottom() + 25, FONT_HGT_SMALL, getText("IGUI_SafehouseUI_Players"), 1, 1, 1, 1, UIFont.Small, true)
+    -- Monkey patch 2: Continue to add safehouse size.
+    local playersLblBottom = posLbl:getBottom() + 20
+    if SandboxVars.ServerTweaker.DisplaySafehouseAreaSize then
+        playersLblBottom = areaLbl:getBottom() + 25
+    end
+
+    local playersLbl = ISLabel:new(10, playersLblBottom, FONT_HGT_SMALL, getText("IGUI_SafehouseUI_Players"), 1, 1, 1, 1, UIFont.Small, true)
     playersLbl:initialise()
     playersLbl:instantiate()
     self:addChild(playersLbl)
