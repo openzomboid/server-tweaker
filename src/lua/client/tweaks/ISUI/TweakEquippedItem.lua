@@ -58,7 +58,6 @@ TweakEquippedItem.prerender = function(self)
 end
 
 -- ticks adds ticker for highlight players safehouses.
--- TODO: Fix FPS.
 TweakEquippedItem.ticks = function(ticks)
     local character = getPlayer()
     if not character then
@@ -73,25 +72,28 @@ TweakEquippedItem.ticks = function(ticks)
         return
     end
 
-    local cell = getCell()
+    local storage = ClientTweaker.Storage
 
-    local safehouseList = SafeHouse.getSafehouseList();
-    for i = 0, safehouseList:size() - 1 do
-        local safehouse = safehouseList:get(i);
+    if storage then
+        local safehouses = storage.GetSafehouses()
 
-        if openutils.HasPermission(character, "gm") or openutils.IsPlayerMemmberOfSafehouse(character, safehouse) then
-            local x1 = safehouse:getX()
-            local x2 = safehouse:getX() + safehouse:getW() - 1
-            local y1 = safehouse:getY()
-            local y2 = safehouse:getY() + safehouse:getH() - 1
+        if safehouses then
+            local cell = getCell()
 
-            for x = x1, x2 do
-                for y = y1, y2 do
-                    local sq = cell:getGridSquare(x, y, 0)
-                    if sq and sq:getFloor() then
-                        local obj = sq:getFloor()
-                        obj:setHighlighted(true)
-                        obj:setHighlightColor(FLOOR_HIGHLIGHT_COLOR);
+            for _, safehouse in pairs(safehouses) do
+                local x1 = safehouse:getX()
+                local x2 = safehouse:getX() + safehouse:getW() - 1
+                local y1 = safehouse:getY()
+                local y2 = safehouse:getY() + safehouse:getH() - 1
+
+                for x = x1, x2 do
+                    for y = y1, y2 do
+                        local sq = cell:getGridSquare(x, y, 0)
+                        if sq and sq:getFloor() then
+                            local obj = sq:getFloor()
+                            obj:setHighlighted(true)
+                            obj:setHighlightColor(FLOOR_HIGHLIGHT_COLOR);
+                        end
                     end
                 end
             end
