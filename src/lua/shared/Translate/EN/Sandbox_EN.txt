@@ -10,4 +10,5 @@ Sandbox_EN = {
     Sandbox_DisplayCharacterCoordinates = "Display character coordinates",
     Sandbox_AddSatelliteViewToMap = "Add satellite view to map",
     Sandbox_DisplaySafehouseAreaSize = "Display safehouse area size",
+    Sandbox_CustomSafezoneAdminTweaks = "Custom Safezone admin tweaks",
 }

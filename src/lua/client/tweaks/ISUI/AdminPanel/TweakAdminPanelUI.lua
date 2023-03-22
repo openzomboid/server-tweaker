@@ -16,6 +16,10 @@ TweakAdminPanelUI = {
 TweakAdminPanelUI.create = function(self)
     TweakAdminPanelUI.Original.create(self)
 
+    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        return
+    end
+
     if getAccessLevel() == "moderator" then
         self.safezoneBtn.enable = true;
     end
@@ -25,6 +29,10 @@ end
 -- Allows to create safehouse by Moderator.
 TweakAdminPanelUI.updateButtons = function(self)
     TweakAdminPanelUI.Original.updateButtons(self)
+
+    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        return
+    end
 
     if getAccessLevel() == "moderator" then
         self.safezoneBtn.enable = true;

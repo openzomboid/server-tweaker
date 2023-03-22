@@ -69,3 +69,10 @@ option ServerTweaker.DisplaySafehouseAreaSize {
   page        = ServerTweaker,
   translation = ServerTweaker_DisplaySafehouseAreaSize
 }
+
+option ServerTweaker.CustomSafezoneAdminTweaks {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ServerTweaker_CustomSafezoneAdminTweaks
+}

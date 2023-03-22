@@ -6,7 +6,7 @@
 
 -- WARNING: Monkey Patching!
 -- Base game functions are copyrighted to Project Zomboid authors.
--- TODO: Refactor me and remove monkey pathing.
+-- TODO: Refactor me and remove monkey patching.
 
 TweakSafehouseUI = {
     Original = {

@@ -17,11 +17,11 @@ All notable changes to this project will be documented in this file.
 - Added tweak to color highlight safehouses for members. To enable this tweak set `HighlightSafehouse` to true in sandbox options. If enabled players can switch this in client panel.
 - Added a "satellite" view switch to the map interface (M). It makes the map display closer to the one on the online map (https://map.projectzomboid.com/). To enable this tweak set `AddSatelliteViewToMap` to true in sandbox options.
 - Added safehouse area size to Safehouse view interface. To enable this tweak set `DisplaySafehouseAreaSize` to true in sandbox options.
+- Added allowing to create custom safezone by Moderator. To enable this tweak set `CustomSafezoneAdminTweaks` to true in sandbox options.
+- Added changing min area size to 1 in custom safezone creation interface. To enable this tweak set `CustomSafezoneAdminTweaks` to true in sandbox options.
+- Added possibility to set members in custom safezone creation interface. To enable this tweak set `CustomSafezoneAdminTweaks` to true in sandbox options.
+- Added fix for safezone size calculation in custom safezone creation interface. To enable this tweak set `CustomSafezoneAdminTweaks` to true in sandbox options.
 - 
-- Added allowing to create custom safezone by Moderator.
-- Added changing min area size to 1 in custom safezone creation interface.
-- Added possibility to set members in custom safezone creation interface.
-- Added fix for safezone size calculation in custom safezone creation interface.
 - Added "YOU'RE IN A NON PVP ZONE" text to right bottom corner.
 - Added changing connection info message on right bottom corner to more readable format.
 - Added disabling `See Server Options` button in client menu.

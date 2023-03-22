@@ -6,7 +6,7 @@
 
 -- WARNING: Monkey Patching!
 -- Base game functions are copyrighted to Project Zomboid authors.
--- TODO: Refactor me and remove monkey pathing.
+-- TODO: Refactor me and remove monkey patching.
 
 TweakAddSafeZoneUI = {
     Original = {
@@ -21,6 +21,11 @@ TweakAddSafeZoneUI = {
 -- checkIfAdmin overrides the original ISAddSafeZoneUI:updateButtons() function.
 -- Allows to create safehouse by Moderator.
 TweakAddSafeZoneUI.checkIfAdmin = function(self)
+    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        TweakAddSafeZoneUI.Original.checkIfAdmin(self)
+        return
+    end
+
     if self.character:getAccessLevel() ~= "Admin" and self.character:getAccessLevel() ~= "Moderator" then self:close(); end;
 end
 
@@ -28,6 +33,11 @@ end
 -- Allows to create safehouse with area=1.
 -- Allows to create safehouse by Moderator.
 TweakAddSafeZoneUI.updateButtons = function(self)
+    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        TweakAddSafeZoneUI.Original.updateButtons(self)
+        return
+    end
+
     self.ok.enable = self.size >= 0
         and string.trim(self.ownerEntry:getInternalText()) ~= ""
         and string.trim(self.titleEntry:getInternalText()) ~= ""
@@ -37,7 +47,13 @@ end
 
 -- prerender overrides the original ISAddSafeZoneUI:prerender() function.
 -- Fixes ZoneSize calculation.
+-- Adds possibility to set members in custom safezone creation interface.
 TweakAddSafeZoneUI.prerender = function(self)
+    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        TweakAddSafeZoneUI.Original.prerender(self)
+        return
+    end
+
     local z = 10;
     local splitPoint = self.width / 2;
     local x = 10;
@@ -115,7 +131,13 @@ end
 
 -- initialise overrides the original ISAddSafeZoneUI:initialise() function.
 -- Allows to create safehouse by Moderator.
+-- Adds possibility to set members in custom safezone creation interface.
 TweakAddSafeZoneUI.initialise = function(self)
+    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        TweakAddSafeZoneUI.Original.initialise(self)
+        return
+    end
+
     ISPanel.initialise(self);
     if self.character:getAccessLevel() ~= "Admin" and self.character:getAccessLevel() ~= "Moderator" then self:close(); return; end;
 
@@ -182,7 +204,14 @@ TweakAddSafeZoneUI.initialise = function(self)
     self:addChild(self.claimOptions);
 end
 
+-- onClick overrides the original ISAddSafeZoneUI:onClick() function.
+-- Adds possibility to set members in custom safezone creation interface.
 TweakAddSafeZoneUI.onClick = function(self, button)
+    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        TweakAddSafeZoneUI.Original.onClick(self, button)
+        return
+    end
+
     if button.internal == "OK" then
         self.creatingZone = false;
         self:setVisible(false);

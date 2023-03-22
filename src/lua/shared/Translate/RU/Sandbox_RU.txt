@@ -10,4 +10,5 @@ Sandbox_RU = {
     Sandbox_DisplayCharacterCoordinates = "Отображать координаты персонажа",
     Sandbox_AddSatelliteViewToMap = "Добавить отображение со спутника на карте",
     Sandbox_DisplaySafehouseAreaSize = "Отображать площадь убежища",
+    Sandbox_CustomSafezoneAdminTweaks = "Улучшения в интерфейсе создания кастомных убежищ",
 }
