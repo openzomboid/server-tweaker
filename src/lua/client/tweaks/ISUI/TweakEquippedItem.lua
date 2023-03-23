@@ -15,6 +15,11 @@ TweakEquippedItem = {
 -- prerender rewrites original TweakEquippedItem.prerender function.
 -- Adds server public name, hides strange serverTime and 32 players warning.
 TweakEquippedItem.prerender = function(self)
+    if not SandboxVars.ServerTweaker.TweakOverlayText then
+        TweakEquippedItem.Original.prerender(self)
+        return
+    end
+
     local drawTextRight = self.drawTextRight
     self.drawTextRight = function() end
     pcall(TweakEquippedItem.Original.prerender, self)

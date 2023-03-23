@@ -47,14 +47,21 @@ local function OnGameStart()
         getCore():setOptionAimOutline(1);
     end
 
-    local player = getPlayer();
-    if player then
-        ClientTweaker.Storage = OpenUserStorage:new(player:getUsername())
+    if SandboxVars.ServerTweaker.AddClientCache then
+        local player = getPlayer();
+        if player then
+            ClientTweaker.Storage = OpenUserStorage:new(player:getUsername())
+        end
     end
 
-    setShowConnectionInfo(true);
-    setShowServerInfo(false);
-    setShowPingInfo(ClientTweaker.Options.GetBool("show_ping"));
+    if SandboxVars.ServerTweaker.TweakOverlayText then
+        setShowConnectionInfo(true);
+        setShowServerInfo(false);
+    end
+
+    if SandboxVars.ServerTweaker.SaveClientOptions then
+        setShowPingInfo(ClientTweaker.Options.GetBool("show_ping"));
+    end
 end
 
 TweakFirearmsSoundRadius()

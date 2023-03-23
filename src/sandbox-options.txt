@@ -1,78 +1,106 @@
 VERSION = 1,
 
+option ServerTweaker.SaveClientOptions {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = SaveClientOptions
+}
+
+option ServerTweaker.AddClientCache {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = AddClientCache
+}
+
 option ServerTweaker.AllowAdminToolsForGM {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
-  translation = ServerTweaker_AllowAdminToolsForGM
+  translation = AllowAdminToolsForGM
 }
 
 option ServerTweaker.DisableAimOutline {
   type        = boolean,
   default     = false,
   page        = ServerTweaker,
-  translation = ServerTweaker_DisableAimOutline
+  translation = DisableAimOutline
 }
 
 option ServerTweaker.ProtectVehicleInSafehouse {
   type        = boolean,
   default     = false,
   page        = ServerTweaker,
-  translation = ServerTweaker_ProtectVehicleInSafehouse
+  translation = ProtectVehicleInSafehouse
 }
 
 option ServerTweaker.ScreenBlackoutOnDeath {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
-  translation = ServerTweaker_ScreenBlackoutOnDeath
+  translation = ScreenBlackoutOnDeath
 }
 
 option ServerTweaker.HighlightSafehouse {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
-  translation = ServerTweaker_HighlightSafehouse
+  translation = HighlightSafehouse
 }
 
 option ServerTweaker.TweakFirearmsSoundRadius {
   type        = boolean,
   default     = false,
   page        = ServerTweaker,
-  translation = ServerTweaker_TweakFirearmsSoundRadius
+  translation = TweakFirearmsSoundRadius
 }
 
 option ServerTweaker.SetGeneralChatStreamAsDefault {
   type        = boolean,
   default     = false,
   page        = ServerTweaker,
-  translation = ServerTweaker_SetGeneralChatStreamAsDefault
+  translation = SetGeneralChatStreamAsDefault
 }
 
 option ServerTweaker.DisplayCharacterCoordinates {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
-  translation = ServerTweaker_DisplayCharacterCoordinates
+  translation = DisplayCharacterCoordinates
 }
 
 option ServerTweaker.AddSatelliteViewToMap {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
-  translation = ServerTweaker_AddSatelliteViewToMap
+  translation = AddSatelliteViewToMap
 }
 
 option ServerTweaker.DisplaySafehouseAreaSize {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
-  translation = ServerTweaker_DisplaySafehouseAreaSize
+  translation = DisplaySafehouseAreaSize
 }
 
 option ServerTweaker.CustomSafezoneAdminTweaks {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
-  translation = ServerTweaker_CustomSafezoneAdminTweaks
+  translation = CustomSafezoneAdminTweaks
+}
+
+option ServerTweaker.TweakOverlayText {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = TweakOverlayText
+}
+
+option ServerTweaker.HideServerOptionsFromPlayers {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = HideServerOptionsFromPlayers
 }
