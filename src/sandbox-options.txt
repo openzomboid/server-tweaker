@@ -98,6 +98,13 @@ option ServerTweaker.TweakOverlayText {
   translation = TweakOverlayText
 }
 
+option ServerTweaker.PinOverlayServerInfoText {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = PinOverlayServerInfoText
+}
+
 option ServerTweaker.HideServerOptionsFromPlayers {
   type        = boolean,
   default     = true,

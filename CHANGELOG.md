@@ -22,8 +22,8 @@ All notable changes to this project will be documented in this file.
 - Added fix for safezone size calculation in custom safezone creation interface. To enable this tweak set `CustomSafezoneAdminTweaks` to true in sandbox options.
 - Added "YOU'RE IN A NON PVP ZONE" text to right bottom corner. To enable this tweak set `TweakOverlayText` to true in sandbox options.
 - Added changing connection info message on right bottom corner to more readable format. To enable this tweak set `TweakOverlayText` to true in sandbox options.
-- Added disabling `Show connection info` checkbox in client menu and pinned to `true` value. To enable this tweak set `TweakOverlayText` to true in sandbox options.
-- Added disabling `Show server info` checkbox in client menu and pinned to `false` value. To enable this tweak set `TweakOverlayText` to true in sandbox options.
+- Added disabling `Show connection info` checkbox in client menu and pinned to `true` value. To enable this tweak set `PinOverlayServerInfoText` to true in sandbox options.
+- Added disabling `Show server info` checkbox in client menu and pinned to `false` value. To enable this tweak set `PinOverlayServerInfoText` to true in sandbox options.
 - Added disabling `See Server Options` button in client menu. To enable this tweak set `HideServerOptionsFromPlayers` to true in sandbox options.
 - Added storage for client options. The values of the checkboxes in the client menu are saved and the player does not need to change options after rejoining the server. To enable this tweak set `SaveClientOptions` to true in sandbox options.
 - Added client cache. To enable this tweak set `AddClientCache` to true in sandbox options.

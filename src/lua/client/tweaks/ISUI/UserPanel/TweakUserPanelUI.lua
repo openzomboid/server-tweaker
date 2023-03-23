@@ -26,7 +26,7 @@ TweakUserPanelUI.create = function(self)
     end
 
     -- Disable showConnectionInfo and showServerInfo.
-    if SandboxVars.ServerTweaker.TweakOverlayText then
+    if SandboxVars.ServerTweaker.PinOverlayServerInfoText then
         self.showConnectionInfo.enable = false;
         self.showServerInfo.enable = false;
     end
