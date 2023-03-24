@@ -37,12 +37,9 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * **PinOverlayServerInfoText** `(default=true)` - a separate setting that prevents players from changing the "Show connection info" and "Show server info" switches in the client settings. The ping display toggle remains enabled and its position is remembered by the game across restarts.
 * **HideServerOptionsFromPlayers** `(default=true)` - a separate setting that prevents players from viewing the server settings in the client settings.
 
-## Existing saves
-The mod should be compatible with existing saves and safe for remove.
-
 ## Compatibility
 Game version: Build 41.78+ (Multiplayer)  
-There is practically no rough patching in the mod with a complete replacement of the vanilla functions code, so good compatibility with all mods from the workshop is assumed.
+There is practically no rough patching in the mod with a complete replacement of the vanilla functions code, so good compatibility with all mods from the workshop is assumed. The mod is compatible with existing saves and safe for remove.
 
 ## License
 MIT License, see [LICENCE](LICENSE)  
