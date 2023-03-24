@@ -1,5 +1,5 @@
 version=1
-id=
+id=2951816996
 title=Server Tweaker
 description=Server Tweaker contains careful edits that do not affect significant game mechanics and fixes some annoying bugs. First of all, the mod will be interesting for the owners of their servers, since all the changes are intended to improve the quality of life in multiplayer mode. Server Tweaker is developed for the need of [url=https://last-day.wargm.ru]Last Day[/url] server.
 description=
@@ -47,7 +47,7 @@ description=Game version: Build 41.78+ (Multiplayer)
 description=There is practically no rough patching in the mod with a complete replacement of the vanilla functions code, so good compatibility with all mods from the workshop is assumed. Also, the mod is compatible with existing saves and safe for remove.
 description=
 description=[h1]Warning[/h1]
-description=If you think you have found a bug, write about it in the [url=https://steamcommunity.com/workshop/filedetails/discussion/2947538737/1628538005508940194/]bug reporting topic[/url]
+description=If you think you have found a bug, write about it in [url=https://steamcommunity.com/workshop/filedetails/discussion/2951816996/3824159062917518549/]bug reporting topic[/url]
 description=the Steam workshop or create issue in [url=https://github.com/openzomboid/server-tweaker]GitHub repository[/url]
 description=
 description=[b]Server Tweaker is under development and can be updated frequently.[/b]

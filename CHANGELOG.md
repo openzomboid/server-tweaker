@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.1.0] - 2023-03-25
 ### Added
 - Added tweak to change default chat stream to /all instead /say. To enable this tweak set `SetGeneralChatStreamAsDefault` to true in sandbox options.
 - Added tweak to display coordinates in character info screen (needs Digital Watch in main inventory). To enable this tweak set `DisplayCharacterCoordinates` to true in sandbox options.
@@ -32,4 +34,5 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/d4868cbb05ad290ba3f0431e82592894d999bd56...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.1.0...HEAD
+[v0.1.0]: https://github.com/openzomboid/server-tweaker/compare/d4868cbb05ad290ba3f0431e82592894d999bd56...v0.1.0
