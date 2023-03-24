@@ -1,13 +1,10 @@
 # Server Tweaker
 [![Steam Workshop](assets/steam.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=2947538737)
 
-Server Tweaker contains careful edits that do not affect significant game mechanics and fixes some annoying bugs.
-
-## Description
-The Server Tweaker mod will primarily be of interest to the owners of their servers, since all the changes are intended to fix bugs and improve the experience of playing in multiplayer mode.
+Server Tweaker contains careful edits that do not affect significant game mechanics and fixes some annoying bugs. First of all, the mod will be interesting for the owners of their servers, since all the changes are intended to improve the quality of life in multiplayer mode. Server Tweaker is developed for the need of [Last Day](https://last-day.wargm.ru) server.
 
 ## Features
-* Remembering the selection of radio buttons in the "Client" menu. Players can customize them for themselves (within what is available).
+* Store the selection of radio buttons in the "Client" menu. Players can customize them for themselves (within what is available).
 * Added caching of some "heavy" frequently requested data. It should have a positive effect on FPS. At the moment, caching is used only by the Server Tweaker mod itself, but in the future it is planned to switch to cache and original vanilla mechanics.
 * The utilities located in the shared directory are designed in such a way that they can be easily used in other mods. There is no need to copy pieces of code, just call the functions themselves from shared libraries.
 * Fixed some game bugs.
@@ -44,7 +41,7 @@ The Server Tweaker mod will primarily be of interest to the owners of their serv
 The mod should be compatible with existing saves and safe for remove.
 
 ## Compatibility
-Game version: Build 41.78+ (Multiplayer)
+Game version: Build 41.78+ (Multiplayer)  
 There is practically no rough patching in the mod with a complete replacement of the vanilla functions code, so good compatibility with all mods from the workshop is assumed.
 
 ## License
