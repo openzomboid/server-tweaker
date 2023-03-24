@@ -4,14 +4,14 @@
 Server Tweaker contains careful edits that do not affect significant game mechanics and fixes some annoying bugs. First of all, the mod will be interesting for the owners of their servers, since all the changes are intended to improve the quality of life in multiplayer mode. Server Tweaker is developed for the need of [Last Day](https://last-day.wargm.ru) server.
 
 ## Features
-* Store the selection of radio buttons in the "Client" menu. Players can customize them for themselves (within what is available).
+* Store the selection of checkboxes in the "Client" menu.
 * Added caching of some "heavy" frequently requested data. It should have a positive effect on FPS. At the moment, caching is used only by the Server Tweaker mod itself, but in the future it is planned to switch to cache and original vanilla mechanics.
 * The utilities located in the shared directory are designed in such a way that they can be easily used in other mods. There is no need to copy pieces of code, just call the functions themselves from shared libraries.
 * Fixed some game bugs.
-* Many small (and not only) interface improvements that increase the convenience of the gameplay and administration.
+* Many interface improvements that increase the convenience of the gameplay and administration.
 * Changed the names of books, paints, colored bulbs and seeds to improve their sort order.
-* Redistribution of the role model, allowing GMs and Moderators to use some of the features previously available only to Administrators.
-* All improvements provided in this mod (except renamed items) can be turned off in the sandbox settings. Do not require a server restart, and most of them do not require a client restart either.
+* Redistribution of the role model: allowing GMs and Moderators to use some features previously available only to Administrators.
+* All improvements (except renamed items) can be turned off in the sandbox settings. Don't require a server restart, and most of them don't require a client restart either.
 
 ## Server Sandbox Options
 * **SaveClientOptions** `(default=true)` - adds storage for client options. The values of the checkboxes in the client menu are saved and the player does not need to change options after rejoining the server. In the original game, these settings are reset after restarting the game on the client.
