@@ -1,5 +1,5 @@
 # Server Tweaker
-[![Steam Workshop](assets/steam.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=2947538737)
+[![Steam Workshop](https://raw.githubusercontent.com/openzomboid/server-tweaker/master/assets/steam.svg)](https://steamcommunity.com/sharedfiles/filedetails/?id=2951816996)
 
 Server Tweaker содержит осторожные правки, которые не затрагивают значительных механик игры и исправляют некоторые надоевшие баги. В первую очередь мод будет интересным владельцам своих серверов, так как все изменения предназначены улучшения качества жизни в режиме мультиплеер. Server Tweaker разработан для нужд сервера [Last Day](https://last-day.wargm.ru).
 
