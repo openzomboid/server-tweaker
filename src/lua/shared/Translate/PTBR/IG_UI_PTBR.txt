@@ -1,0 +1,9 @@
+IGUI_PTBR = {
+    -- Fix
+
+    -- Novo
+    IGUI_SafehouseUI_Area = "Zona segura (esconderijo):",
+    IGUI_UserPanel_HighlightSafehouse = "Destaque zona segura",
+    IGUI_PlayerText_VehicleIsInSafehouse = "O veículo está no esconderijo de alguém",
+    IGUI_SafehouseUI_Members = "Membros:",
+}

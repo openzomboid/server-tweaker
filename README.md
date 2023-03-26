@@ -9,9 +9,8 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * The utilities located in the shared directory are designed in such a way that they can be easily used in other mods. There is no need to copy pieces of code, just call the functions themselves from shared libraries.
 * Fixed some game bugs.
 * Many interface improvements that increase the convenience of the gameplay and administration.
-* Changed the names of books, paints, colored bulbs and seeds to improve their sort order.
 * Redistribution of the role model: allowing GMs and Moderators to use some features previously available only to Administrators.
-* All improvements (except renamed items) can be turned off in the sandbox settings. Don't require a server restart, and most of them don't require a client restart either.
+* All improvements can be turned off in the sandbox settings. Don't require a server restart, and most of them don't require a client restart either.
 
 ## Server Sandbox Options
 * **SaveClientOptions** `(default=true)` - adds storage for client options. The values of the checkboxes in the client menu are saved and the player does not need to change options after rejoining the server. In the original game, these settings are reset after restarting the game on the client.
