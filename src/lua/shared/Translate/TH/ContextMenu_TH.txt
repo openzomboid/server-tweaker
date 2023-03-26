@@ -1,0 +1,6 @@
+ContextMenu_TH = {
+    -- Fix
+
+    -- New
+    ContextMenu_Opt = "(ทางเลือก)",
+}
