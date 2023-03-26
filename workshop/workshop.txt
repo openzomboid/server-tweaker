@@ -46,6 +46,16 @@ description=[h1]Compatibility[/h1]
 description=Game version: Build 41.78+ (Multiplayer)
 description=There is practically no rough patching in the mod with a complete replacement of the vanilla functions code, so good compatibility with all mods from the workshop is assumed. Also, the mod is compatible with existing saves and safe for remove.
 description=
+description=[h1]Translations[/h1]
+description=This mod has full translations to following languages:
+description=[list]
+description=    [*]English (EN)
+description=    [*]Russian (RU)
+description=    [*]Thai (TH) - Thanks to [url=https://github.com/rikoprushka]rikoprushka[/url]
+description=    [*]Brazilian Portuguese (PTBR) - Thanks to [url=https://steamcommunity.com/id/BryanXim]Xim[/url]
+description=[/list]
+description=If you'd like to translate this mod, post your translations to [url=https://steamcommunity.com/workshop/filedetails/discussion/2951816996/3824159062924268441]translations topic[/url] and I will add it with credits in-place.
+description=
 description=[h1]Warning[/h1]
 description=If you think you have found a bug, write about it in [url=https://steamcommunity.com/workshop/filedetails/discussion/2951816996/3824159062917518549/]bug reporting topic[/url]
 description=the Steam workshop or create issue in [url=https://github.com/openzomboid/server-tweaker]GitHub repository[/url]

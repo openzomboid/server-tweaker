@@ -40,5 +40,15 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 Game version: Build 41.78+ (Multiplayer)  
 There is practically no rough patching in the mod with a complete replacement of the vanilla functions code, so good compatibility with all mods from the workshop is assumed. The mod is compatible with existing saves and safe for remove.
 
+## Translations
+This mod has full translations to following languages:
+
+* English (EN)
+* Russian (RU)
+* Thai (TH) - Thanks to [rikoprushka](https://github.com/rikoprushka)
+* Brazilian Portuguese (PTBR) - Thanks to [Xim](https://steamcommunity.com/id/BryanXim)
+
+If you'd like to translate this mod, post your translations to [translations topic](https://steamcommunity.com/workshop/filedetails/discussion/2951816996/3824159062924268441) and I will add it with credits in-place.
+
 ## License
 MIT License, see [LICENCE](LICENSE)  
