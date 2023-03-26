@@ -1,5 +1,0 @@
-Moodles_EN = {
-    -- Fix
-
-    -- New
-}

@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Removed
+- Removed changing the names of books, paints, colored bulbs and seeds.
 
 ## [v0.1.0] - 2023-03-25
 ### Added

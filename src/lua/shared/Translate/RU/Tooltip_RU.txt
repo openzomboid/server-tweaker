@@ -1,6 +1,0 @@
-Tooltip_RU = {
-    -- Fix
-
-    -- New
-    Tooltip_Count = "Количество",
-}

@@ -1,5 +1,0 @@
-Moodlets_RU = {
-    -- Fix
-
-    -- New
-}

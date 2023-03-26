@@ -1,6 +1,0 @@
-ContextMenu_EN = {
-    -- Fix
-
-    -- New
-    ContextMenu_Opt = "(optional)",
-}
