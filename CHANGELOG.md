@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Added Thai translation. Thanks [rikoprushka](https://github.com/rikoprushka) for first PR!
+
 ### Removed
 - Removed changing the names of books, paints, colored bulbs and seeds.
 
