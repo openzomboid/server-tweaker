@@ -1,0 +1,6 @@
+ContentMenu_TH = {
+    -- Fix
+
+    -- New
+    ContextMenu_NotAvailableOnTheServer = "ไม่มีในเซิร์ฟเวอร์",
+}

@@ -1,0 +1,6 @@
+ContextMenu_EN = {
+    -- Fix
+
+    -- New
+    ContextMenu_NotAvailableOnTheServer = "Not available on the server",
+}

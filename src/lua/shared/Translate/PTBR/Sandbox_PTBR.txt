@@ -1,9 +1,13 @@
 Sandbox_PTBR = {
+    -- Fix
+
+    -- Novo
     Sandbox_ServerTweaker = "Servidor Tweaker",
     Sandbox_SaveClientOptions = "Salvar opções do cliente",
 	Sandbox_AddClientCache = "Adicionar cache do cliente",
 	Sandbox_AllowAdminToolsForGM = "Permitir ferramentas de administração para o GM",
 	Sandbox_DisableAimOutline = "Desativar AimOutline (NÃO RECOMENDADO)",
+	Sandbox_DisableTradeWithPlayers = "Desativar comércio com jogadores",
 	Sandbox_ProtectVehicleInSafehouse = "Proteger veículo na zona segura",
 	Sandbox_ScreenBlackoutOnDeath = "Tela preta na morte",
 	Sandbox_HighlightSafehouse = "Destacar casa segura (cache do cliente necessário)",

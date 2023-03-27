@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added Thai translation. Thanks [rikoprushka](https://github.com/rikoprushka) for first PR!
 - Added Brazilian Portuguese translation. Thanks [BryanXim](https://steamcommunity.com/id/BryanXim).
+- Added tweak to disable direct trade with players. To enable this tweak set `DisableTradeWithPlayers` to true in sandbox options.
 
 ### Removed
 - Removed changing the names of books, paints, colored bulbs and seeds.

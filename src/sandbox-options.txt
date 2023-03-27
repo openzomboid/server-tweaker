@@ -28,6 +28,13 @@ option ServerTweaker.DisableAimOutline {
   translation = DisableAimOutline
 }
 
+option ServerTweaker.DisableTradeWithPlayers {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = DisableTradeWithPlayers
+}
+
 option ServerTweaker.ProtectVehicleInSafehouse {
   type        = boolean,
   default     = false,

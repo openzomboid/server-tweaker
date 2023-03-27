@@ -1,9 +1,13 @@
 Sandbox_RU = {
+    -- Fix
+
+    -- New
     Sandbox_ServerTweaker = "Server Tweaker",
     Sandbox_SaveClientOptions = "Сохранять настройки клиента",
     Sandbox_AddClientCache = "Добавить кеширование на клиенте",
     Sandbox_AllowAdminToolsForGM = "Разрешить admin tools для GM",
     Sandbox_DisableAimOutline = "Отключить контур цели (НЕ РЕКОМЕНДУЕТСЯ)",
+    Sandbox_DisableTradeWithPlayers = "Отключить интерфейс торговли с игроками",
     Sandbox_ProtectVehicleInSafehouse = "Защищать транспорт в привате",
     Sandbox_ScreenBlackoutOnDeath = "Затемнять экран при смерти",
     Sandbox_HighlightSafehouse = "Подсветка убежищ (необходимо кеширование на клиенте)",

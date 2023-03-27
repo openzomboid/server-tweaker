@@ -1,9 +1,13 @@
 Sandbox_TH = {
+    -- Fix
+
+    -- New
     Sandbox_ServerTweaker = "เครื่องมือปรับแต่งเซิร์ฟเวอร์",
     Sandbox_SaveClientOptions = "บันทึกตัวเลือกไคลเอนต์",
     Sandbox_AddClientCache = "เพิ่มเคชบนไคลเอนต์",
     Sandbox_AllowAdminToolsForGM = "อนุญาตให้ GM ใช้เครื่องมือแอดมิน",
     Sandbox_DisableAimOutline = "ปิดใช้งานไฮไลต์รอบซอมบี้เมื่อเล็ง (ไม่แนะนำ)",
+    Sandbox_DisableTradeWithPlayers = "ปิดการแลกเปลี่ยนกับผู้เล่น",
     Sandbox_ProtectVehicleInSafehouse = "ปกป้องรถในเซฟเฮาส์",
     Sandbox_ScreenBlackoutOnDeath = "หน้าจอเป็นสีดำเมื่อตาย",
     Sandbox_HighlightSafehouse = "ไฮไลต์เซฟเฮาส์ (ต้องเปิดใช้งานเคชบนไคลเอนต์)",

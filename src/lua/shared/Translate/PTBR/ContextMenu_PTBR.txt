@@ -1,0 +1,6 @@
+ContextMenu_PTBR = {
+    -- Fix
+
+    -- Novo
+    ContextMenu_NotAvailableOnTheServer = "Não disponível no servidor",
+}

@@ -1,9 +1,13 @@
 Sandbox_EN = {
+    -- Fix
+
+    -- New
     Sandbox_ServerTweaker = "Server Tweaker",
     Sandbox_SaveClientOptions = "Save client options",
     Sandbox_AddClientCache = "Add client cache",
     Sandbox_AllowAdminToolsForGM = "Allow admin tools for GM",
     Sandbox_DisableAimOutline = "Disable AimOutline (NOT RECOMMENDED)",
+    Sandbox_DisableTradeWithPlayers = "Disable trade with players",
     Sandbox_ProtectVehicleInSafehouse = "Protect vehicle in safehouse",
     Sandbox_ScreenBlackoutOnDeath = "Screen blackout on death",
     Sandbox_HighlightSafehouse = "Highlight safehouse (client cache required)",

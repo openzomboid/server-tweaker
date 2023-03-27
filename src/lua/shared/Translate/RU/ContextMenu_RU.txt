@@ -1,0 +1,6 @@
+ContextMenu_RU = {
+    -- Fix
+
+    -- New
+    ContextMenu_NotAvailableOnTheServer = "Недоступно на сервере",
+}
