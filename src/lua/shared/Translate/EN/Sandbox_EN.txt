@@ -6,6 +6,7 @@ Sandbox_EN = {
     Sandbox_SaveClientOptions = "Save client options",
     Sandbox_AddClientCache = "Add client cache",
     Sandbox_AllowAdminToolsForGM = "Allow admin tools for GM",
+    Sandbox_DisallowSpawnItemsForObservers = "Disallow spawn items for Observers",
     Sandbox_DisableAimOutline = "Disable AimOutline (NOT RECOMMENDED)",
     Sandbox_DisableTradeWithPlayers = "Disable trade with players",
     Sandbox_ProtectVehicleInSafehouse = "Protect vehicle in safehouse",

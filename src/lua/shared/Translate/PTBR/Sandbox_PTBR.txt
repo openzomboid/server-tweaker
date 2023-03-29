@@ -6,6 +6,7 @@ Sandbox_PTBR = {
     Sandbox_SaveClientOptions = "Salvar opções do cliente",
 	Sandbox_AddClientCache = "Adicionar cache do cliente",
 	Sandbox_AllowAdminToolsForGM = "Permitir ferramentas de administração para o GM",
+    Sandbox_DisallowSpawnItemsForObservers = "Proibir itens de spawn para Observadores",
 	Sandbox_DisableAimOutline = "Desativar AimOutline (NÃO RECOMENDADO)",
 	Sandbox_DisableTradeWithPlayers = "Desativar comércio com jogadores",
 	Sandbox_ProtectVehicleInSafehouse = "Proteger veículo na zona segura",

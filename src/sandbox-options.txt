@@ -21,6 +21,13 @@ option ServerTweaker.AllowAdminToolsForGM {
   translation = AllowAdminToolsForGM
 }
 
+option ServerTweaker.DisallowSpawnItemsForObservers {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = DisallowSpawnItemsForObservers
+}
+
 option ServerTweaker.DisableAimOutline {
   type        = boolean,
   default     = false,

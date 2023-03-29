@@ -16,12 +16,16 @@ TweakAdminPanelUI = {
 TweakAdminPanelUI.create = function(self)
     TweakAdminPanelUI.Original.create(self)
 
-    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
-        return
+    if SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        if getAccessLevel() == "moderator" then
+            self.safezoneBtn.enable = true;
+        end
     end
 
-    if getAccessLevel() == "moderator" then
-        self.safezoneBtn.enable = true;
+    if SandboxVars.ServerTweaker.DisallowSpawnItemsForObservers then
+        if getAccessLevel() == "observer" then
+            self.itemListBtn.enable = false;
+        end
     end
 end
 
@@ -30,12 +34,16 @@ end
 TweakAdminPanelUI.updateButtons = function(self)
     TweakAdminPanelUI.Original.updateButtons(self)
 
-    if not SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
-        return
+    if SandboxVars.ServerTweaker.CustomSafezoneAdminTweaks then
+        if getAccessLevel() == "moderator" then
+            self.safezoneBtn.enable = true;
+        end
     end
 
-    if getAccessLevel() == "moderator" then
-        self.safezoneBtn.enable = true;
+    if SandboxVars.ServerTweaker.DisallowSpawnItemsForObservers then
+        if getAccessLevel() == "observer" then
+            self.itemListBtn.enable = false;
+        end
     end
 end
 
