@@ -12,7 +12,7 @@ openutils = {
         Red = "<RGB:1,0,0>"
     },
     Role = {
-        ["admin"] = 4, ["moderator"] = 3, ["gm"] = 2, ["observer"] = 1, ["none"] = 0,
+        ["admin"] = 5, ["moderator"] = 4, ["overseer"]= 3, ["gm"] = 2, ["observer"] = 1, ["none"] = 0,
     },
 }
 
