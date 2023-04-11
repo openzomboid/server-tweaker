@@ -23,4 +23,4 @@ package.path = pzPath.."/media/lua/client/" .. "?.lua;" .. package.path
 -- This test is test nothing yet.
 print("> " .. "No tests available")
 
-os.remove("client-options.ini");
+os.remove("client-options-test.ini");

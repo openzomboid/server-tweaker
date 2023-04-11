@@ -1,0 +1,3 @@
+SandboxVars = {}
+
+SandboxVars.ServerTweaker = {}

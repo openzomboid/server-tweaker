@@ -5,4 +5,4 @@
 .env
 
 config-local.sh
-client-options.ini
+client-options-test.ini
