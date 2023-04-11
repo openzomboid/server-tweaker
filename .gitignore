@@ -3,3 +3,6 @@
 
 .tmp/
 .env
+
+config-local.sh
+client-options.ini
