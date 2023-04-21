@@ -6,12 +6,11 @@
 
 ClientTweaker = {
     Version = openutils.Version,
-    -- Client options. Can be changed by every user.
     Options = OpenOptions:new("client-options", {
-        -- Default values for options.
         ["highlight_safehouse"] = {type = "bool", value = "false"},
         ["show_ping"] = {type = "bool", value = "true"},
     }),
+    AdminOptions = OpenOptions:new("admin-options", {}),
     Items = OpenItemTweaker:new(),
     Storage = nil,
 }

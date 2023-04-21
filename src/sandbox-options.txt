@@ -125,3 +125,10 @@ option ServerTweaker.HideServerOptionsFromPlayers {
   page        = ServerTweaker,
   translation = HideServerOptionsFromPlayers
 }
+
+option ServerTweaker.HideTicketsFromPlayers {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = HideTicketsFromPlayers
+}

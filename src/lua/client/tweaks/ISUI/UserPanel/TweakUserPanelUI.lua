@@ -25,6 +25,11 @@ TweakUserPanelUI.create = function(self)
         self.serverOptionBtn.enable = false;
     end
 
+    -- Disable tickets button.
+    if SandboxVars.ServerTweaker.HideTicketsFromPlayers then
+        self.ticketsBtn.enable = false;
+    end
+
     -- Disable showConnectionInfo and showServerInfo.
     if SandboxVars.ServerTweaker.PinOverlayServerInfoText then
         self.showConnectionInfo.enable = false;

@@ -21,4 +21,5 @@ Sandbox_RU = {
     Sandbox_TweakOverlayText = "Модификация наложенного текста в правом нижнем углу",
     Sandbox_PinOverlayServerInfoText = "Заблокировать настройки наложенного текста о сервере",
     Sandbox_HideServerOptionsFromPlayers = "Скрыть настройки сервера от игроков",
+    Sandbox_HideTicketsFromPlayers = "Скрыть тикеты от игроков",
 }

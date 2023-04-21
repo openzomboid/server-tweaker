@@ -37,6 +37,7 @@ Server Tweaker contains careful edits that do not affect significant game mechan
     - lines with information about the server are combined into one more compact and informative one.
 * **PinOverlayServerInfoText** `(default=true)` - a separate setting that prevents players from changing the "Show connection info" and "Show server info" switches in the client settings. The ping display toggle remains enabled and its position is remembered by the game across restarts.
 * **HideServerOptionsFromPlayers** `(default=true)` - a separate setting that prevents players from viewing the server settings in the client settings.
+* **HideTicketsFromPlayers** `(default=true)` - a separate setting that prevents players from creating tickets in the client panel.
 
 ## Compatibility
 Game version: Build 41.78+ (Multiplayer)  

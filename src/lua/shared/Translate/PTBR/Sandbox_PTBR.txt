@@ -21,4 +21,5 @@ Sandbox_PTBR = {
 	Sandbox_TweakOverlayText = "Ajustar texto de sobreposição no canto inferior direito",
 	Sandbox_PinOverlayServerInfoText = "Fixar texto de informações do servidor na sobreposição",
 	Sandbox_HideServerOptionsFromPlayers = "Ocultar opções do servidor dos jogadores",
+    Sandbox_HideTicketsFromPlayers = "Ocultar tickets dos jogadores",
 }

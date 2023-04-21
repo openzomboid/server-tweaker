@@ -21,4 +21,5 @@ Sandbox_TH = {
     Sandbox_TweakOverlayText = "ปรับแต่งข้อความที่มุมล่างขวา",
     Sandbox_PinOverlayServerInfoText = "ปักหมุดข้อความแสดงข้อมูลเซิร์ฟเวอร์",
     Sandbox_HideServerOptionsFromPlayers = "ซ่อนตัวเลือกเซิร์ฟเวอร์จากผู้เล่น",
+    Sandbox_HideTicketsFromPlayers = "ซ่อนตั๋วจากผู้เล่น",
 }

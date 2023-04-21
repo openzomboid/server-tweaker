@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Added disabling `Tickets` button in client menu. To enable this tweak set `HideTicketsFromPlayers` to true in sandbox options.
 
 ## [v0.2.0] - 2023-03-29
 ### Added
