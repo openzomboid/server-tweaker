@@ -87,7 +87,8 @@ function OpenOptions:new(name, options)
     end
 
     function instance.GetString(key)
-        local value = instance.options[key].value;
+        local option = instance.options[key] or {}
+        local value = option.value or "";
         if value == nil then
             value = ""
         end
@@ -96,7 +97,8 @@ function OpenOptions:new(name, options)
     end
 
     function instance.GetBool(key)
-        local value = instance.options[key].value;
+        local option = instance.options[key] or {}
+        local value = option.value or false;
         if value == "true" or value == true then
             return true
         end
@@ -105,7 +107,8 @@ function OpenOptions:new(name, options)
     end
 
     function instance.GetInt(key)
-        local value = instance.options[key].value;
+        local option = instance.options[key] or {}
+        local value = option.value or 0;
         return tonumber(value) or 0
     end
 

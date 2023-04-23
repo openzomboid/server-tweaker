@@ -4,6 +4,7 @@ Sandbox_PTBR = {
     -- Novo
     Sandbox_ServerTweaker = "Servidor Tweaker",
     Sandbox_SaveClientOptions = "Salvar opções do cliente",
+    Sandbox_SaveAdminPower = "Salvar poderes administrativos",
 	Sandbox_AddClientCache = "Adicionar cache do cliente",
 	Sandbox_AllowAdminToolsForGM = "Permitir ferramentas de administração para o GM",
     Sandbox_DisallowSpawnItemsForObservers = "Proibir itens de spawn para Observadores",

@@ -4,6 +4,7 @@ Sandbox_RU = {
     -- New
     Sandbox_ServerTweaker = "Server Tweaker",
     Sandbox_SaveClientOptions = "Сохранять настройки клиента",
+    Sandbox_SaveAdminPower = "Сохранять способности администратора",
     Sandbox_AddClientCache = "Добавить кеширование на клиенте",
     Sandbox_AllowAdminToolsForGM = "Разрешить admin tools для GM",
     Sandbox_DisallowSpawnItemsForObservers = "Запретить для Observer спавнить предметы",

@@ -42,6 +42,7 @@ description=    [*] [b]ProtectVehicleInSafehouse[/b]
 description=    [*] [b]TweakFirearmsSoundRadius[/b]
 description=    [*] [b]SetGeneralChatStreamAsDefault[/b]
 description=    [*] [b]DisallowSpawnItemsForObservers[/b]
+description=    [*] [b]SaveAdminPower[/b]
 description=[/list]
 description=
 description=[h1]Compatibility[/h1]

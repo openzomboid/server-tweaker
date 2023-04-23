@@ -10,7 +10,28 @@ ClientTweaker = {
         ["highlight_safehouse"] = {type = "bool", value = "false"},
         ["show_ping"] = {type = "bool", value = "true"},
     }),
-    AdminOptions = OpenOptions:new("admin-options", {}),
+    AdminOptions = OpenOptions:new("admin-options", {
+        ["ShowAdminTag"] = {type = "bool", value = "true"},
+        ["Invisible"] = {type = "bool", value = "true"},
+        ["GodMode"] = {type = "bool", value = "true"},
+        ["GhostMode"] = {type = "bool", value = "true"},
+        ["NoClip"] = {type = "bool", value = "false"},
+        ["TimedActionInstantCheat"] = {type = "bool", value = "false"},
+        ["UnlimitedCarry"] = {type = "bool", value = "false"},
+        ["UnlimitedEndurance"] = {type = "bool", value = "false"},
+        ["FastMove"] = {type = "bool", value = "false"},
+        ["BuildCheat"] = {type = "bool", value = "false"},
+        ["FarmingCheat"] = {type = "bool", value = "false"},
+        ["HealthCheat"] = {type = "bool", value = "false"},
+        ["MechanicsCheat"] = {type = "bool", value = "false"},
+        ["MovablesCheat"] = {type = "bool", value = "false"},
+        ["CanSeeAll"] = {type = "bool", value = "false"},
+        ["NetworkTeleportEnabled"] = {type = "bool", value = "false"},
+        ["CanHearAll"] = {type = "bool", value = "false"},
+        ["ZombiesDontAttack"] = {type = "bool", value = "false"},
+        ["ShowMPInfos"] = {type = "bool", value = "false"},
+        ["BrushTool"] = {type = "bool", value = "false"},
+    }),
     Items = OpenItemTweaker:new(),
     Storage = nil,
 }
@@ -40,6 +61,53 @@ local function TweakFirearmsSoundRadius()
     ClientTweaker.Items.Add("Base.HuntingRifle", "SoundRadius", "150");
 end
 
+local function SetAdminPower()
+    if not SandboxVars.ServerTweaker.SaveAdminPower then
+        return
+    end
+
+    local character = getPlayer();
+
+    if isClient() and character and openutils.HasPermission(character, "observer") then
+        character:setInvisible(ClientTweaker.AdminOptions.GetBool("Invisible"));
+        character:setGodMod(ClientTweaker.AdminOptions.GetBool("GodMode"));
+        character:setGhostMode(ClientTweaker.AdminOptions.GetBool("GhostMode"));
+        character:setNoClip(ClientTweaker.AdminOptions.GetBool("NoClip"));
+        character:setTimedActionInstantCheat(ClientTweaker.AdminOptions.GetBool("TimedActionInstantCheat"));
+        character:setUnlimitedCarry(ClientTweaker.AdminOptions.GetBool("UnlimitedCarry"));
+        character:setUnlimitedEndurance(ClientTweaker.AdminOptions.GetBool("UnlimitedEndurance"));
+
+        ISFastTeleportMove.cheat = ClientTweaker.AdminOptions.GetBool("FastMove");
+
+        ISBuildMenu.cheat = ClientTweaker.AdminOptions.GetBool("BuildCheat");
+        character:setBuildCheat(ClientTweaker.AdminOptions.GetBool("BuildCheat"));
+
+        ISFarmingMenu.cheat = ClientTweaker.AdminOptions.GetBool("FarmingCheat");
+        character:setFarmingCheat(ClientTweaker.AdminOptions.GetBool("FarmingCheat"));
+
+        ISHealthPanel.cheat = ClientTweaker.AdminOptions.GetBool("HealthCheat");
+        character:setHealthCheat(ClientTweaker.AdminOptions.GetBool("HealthCheat"));
+
+        ISVehicleMechanics.cheat = ClientTweaker.AdminOptions.GetBool("MechanicsCheat");
+        character:setMechanicsCheat(ClientTweaker.AdminOptions.GetBool("MechanicsCheat"));
+
+        ISMoveableDefinitions.cheat = ClientTweaker.AdminOptions.GetBool("MovablesCheat");
+        character:setMovablesCheat(ClientTweaker.AdminOptions.GetBool("MovablesCheat"));
+
+        character:setNetworkTeleportEnabled(ClientTweaker.AdminOptions.GetBool("NetworkTeleportEnabled"));
+        character:setCanSeeAll(ClientTweaker.AdminOptions.GetBool("CanSeeAll"));
+        character:setCanHearAll(ClientTweaker.AdminOptions.GetBool("CanHearAll"));
+        character:setZombiesDontAttack(ClientTweaker.AdminOptions.GetBool("ZombiesDontAttack"));
+        character:setShowMPInfos(ClientTweaker.AdminOptions.GetBool("ShowMPInfos"));
+
+        BrushToolManager.cheat = ClientTweaker.AdminOptions.GetBool("BrushTool");
+
+        character:setShowAdminTag(ClientTweaker.AdminOptions.GetBool("ShowAdminTag"));
+
+        sendPlayerExtraInfo(character);
+    end
+end
+
 -- OnGameStart adds callback for OnGameStart global event.
 local function OnGameStart()
     if SandboxVars.ServerTweaker.DisableAimOutline then
@@ -63,7 +131,28 @@ local function OnGameStart()
     end
 end
 
+-- OnCreatePlayer adds callback for player OnCreatePlayerData event.
+local function OnCreatePlayer(id)
+    if not SandboxVars.ServerTweaker.SaveAdminPower then
+        return
+    end
+
+    local ticker = {}
+
+    ticker.OnTick = function()
+        local character = getPlayer();
+
+        if character then
+            Events.OnTick.Remove(ticker.OnTick);
+            SetAdminPower();
+        end
+    end
+
+    Events.OnTick.Add(ticker.OnTick);
+end
+
 TweakFirearmsSoundRadius()
 
 Events.OnGameStart.Add(OnGameStart);
+Events.OnCreatePlayer.Add(OnCreatePlayer);
 Events.OnGameBoot.Add(ClientTweaker.Items.Apply());

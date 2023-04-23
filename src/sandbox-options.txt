@@ -7,6 +7,13 @@ option ServerTweaker.SaveClientOptions {
   translation = SaveClientOptions
 }
 
+option ServerTweaker.SaveAdminPower {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = SaveAdminPower
+}
+
 option ServerTweaker.AddClientCache {
   type        = boolean,
   default     = true,

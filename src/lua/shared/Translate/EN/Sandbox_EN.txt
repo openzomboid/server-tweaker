@@ -4,6 +4,7 @@ Sandbox_EN = {
     -- New
     Sandbox_ServerTweaker = "Server Tweaker",
     Sandbox_SaveClientOptions = "Save client options",
+    Sandbox_SaveAdminPower = "Save admin powers",
     Sandbox_AddClientCache = "Add client cache",
     Sandbox_AllowAdminToolsForGM = "Allow admin tools for GM",
     Sandbox_DisallowSpawnItemsForObservers = "Disallow spawn items for Observers",

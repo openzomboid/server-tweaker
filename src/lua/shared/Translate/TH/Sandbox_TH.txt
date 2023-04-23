@@ -4,6 +4,7 @@ Sandbox_TH = {
     -- New
     Sandbox_ServerTweaker = "เครื่องมือปรับแต่งเซิร์ฟเวอร์",
     Sandbox_SaveClientOptions = "บันทึกตัวเลือกไคลเอนต์",
+    Sandbox_SaveAdminPower = "บันทึกอำนาจของผู้ดูแลระบบ",
     Sandbox_AddClientCache = "เพิ่มเคชบนไคลเอนต์",
     Sandbox_AllowAdminToolsForGM = "อนุญาตให้ GM ใช้เครื่องมือแอดมิน",
     Sandbox_DisallowSpawnItemsForObservers = "ไม่อนุญาตรายการวางไข่สำหรับ Observers",
