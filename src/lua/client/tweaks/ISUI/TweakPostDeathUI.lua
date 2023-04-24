@@ -5,10 +5,7 @@
 --
 
 TweakPostDeathUI = {
-    Original = {
-        OnPlayerDeath = ISPostDeathUI.OnPlayerDeath,
-        onRespawn = ISPostDeathUI.onRespawn,
-    },
+    Original = {},
     IsDead = false
 }
 
