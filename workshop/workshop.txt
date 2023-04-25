@@ -32,6 +32,7 @@ description=    [*] [b]TweakOverlayText[/b]
 description=    [*] [b]PinOverlayServerInfoText[/b]
 description=    [*] [b]HideServerOptionsFromPlayers[/b]
 description=    [*] [b]HideTicketsFromPlayers[/b]
+description=    [*] [b]AddSafehouseToSpawnLocations[/b]
 description=[/list]
 description=
 description=[h2]Disabled by default[/h2]

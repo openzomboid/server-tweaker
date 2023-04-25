@@ -1,0 +1,6 @@
+UI_PTBR = {
+    -- Fix
+
+    -- Novo
+    UI_mapspawn_SafehouseDescription = "Safehouse <LINE> <LINE> Respawn em seu safehouse.",
+}

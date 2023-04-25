@@ -23,4 +23,5 @@ Sandbox_EN = {
     Sandbox_PinOverlayServerInfoText = "Pin overlay server info text",
     Sandbox_HideServerOptionsFromPlayers = "Hide server options from players",
     Sandbox_HideTicketsFromPlayers = "Hide tickets from players",
+    Sandbox_AddSafehouseToSpawnLocations = "Add Safehouse to spawn locations",
 }

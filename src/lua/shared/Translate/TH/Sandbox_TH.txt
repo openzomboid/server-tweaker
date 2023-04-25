@@ -23,4 +23,5 @@ Sandbox_TH = {
     Sandbox_PinOverlayServerInfoText = "ปักหมุดข้อความแสดงข้อมูลเซิร์ฟเวอร์",
     Sandbox_HideServerOptionsFromPlayers = "ซ่อนตัวเลือกเซิร์ฟเวอร์จากผู้เล่น",
     Sandbox_HideTicketsFromPlayers = "ซ่อนตั๋วจากผู้เล่น",
+    Sandbox_AddSafehouseToSpawnLocations = "เพิ่ม Safehouse เพื่อวางไข่",
 }

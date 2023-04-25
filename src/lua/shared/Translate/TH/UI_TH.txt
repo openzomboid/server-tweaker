@@ -1,0 +1,6 @@
+UI_TH = {
+    -- Fix
+
+    -- New
+    UI_mapspawn_SafehouseDescription = "Safehouse <LINE> <LINE> เกิดใหม่ในเซฟเฮาส์ของคุณ",
+}

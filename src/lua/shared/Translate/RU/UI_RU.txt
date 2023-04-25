@@ -1,0 +1,6 @@
+UI_RU = {
+    -- Fix
+
+    -- New
+    UI_mapspawn_SafehouseDescription = "Убежище <LINE> <LINE> Возрождение в вашем убежище.",
+}

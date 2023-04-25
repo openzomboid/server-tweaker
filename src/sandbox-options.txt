@@ -139,3 +139,10 @@ option ServerTweaker.HideTicketsFromPlayers {
   page        = ServerTweaker,
   translation = HideTicketsFromPlayers
 }
+
+option ServerTweaker.AddSafehouseToSpawnLocations {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = AddSafehouseToSpawnLocations
+}
