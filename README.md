@@ -40,6 +40,7 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * **HideServerOptionsFromPlayers** `(default=true)` - a separate setting that prevents players from viewing the server settings in the client settings.
 * **HideTicketsFromPlayers** `(default=true)` - a separate setting that prevents players from creating tickets in the client panel.
 * **AddSafehouseToSpawnLocations** `(default=true)` - Adds Safehouse to spawn locations and moves it as first location.
+* **AdminsFreeAddToSafehouse** `(default=true)` - Allows for GM (and higher levelled users) to add anyone to safehouse without limits.
 
 ## Compatibility
 Game version: Build 41.78+ (Multiplayer)  

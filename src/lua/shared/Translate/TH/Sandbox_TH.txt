@@ -24,4 +24,5 @@ Sandbox_TH = {
     Sandbox_HideServerOptionsFromPlayers = "ซ่อนตัวเลือกเซิร์ฟเวอร์จากผู้เล่น",
     Sandbox_HideTicketsFromPlayers = "ซ่อนตั๋วจากผู้เล่น",
     Sandbox_AddSafehouseToSpawnLocations = "เพิ่ม Safehouse เพื่อวางไข่",
+    Sandbox_AdminsFreeAddToSafehouse = "ไม่มีขีดจำกัดสำหรับ GM ในการเพิ่มผู้เล่นใน Safehouse",
 }

@@ -24,4 +24,5 @@ Sandbox_EN = {
     Sandbox_HideServerOptionsFromPlayers = "Hide server options from players",
     Sandbox_HideTicketsFromPlayers = "Hide tickets from players",
     Sandbox_AddSafehouseToSpawnLocations = "Add Safehouse to spawn locations",
+    Sandbox_AdminsFreeAddToSafehouse = "No limits for GM to add players to Safehouse",
 }

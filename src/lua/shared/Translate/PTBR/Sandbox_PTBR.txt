@@ -24,4 +24,5 @@ Sandbox_PTBR = {
 	Sandbox_HideServerOptionsFromPlayers = "Ocultar opções do servidor dos jogadores",
     Sandbox_HideTicketsFromPlayers = "Ocultar tickets dos jogadores",
     Sandbox_AddSafehouseToSpawnLocations = "Adicionar Safehouse aos locais de desova",
+    Sandbox_AdminsFreeAddToSafehouse = "Não há limites para o GM adicionar jogadores ao Safehouse",
 }

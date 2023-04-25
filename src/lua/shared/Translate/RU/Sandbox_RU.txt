@@ -24,4 +24,5 @@ Sandbox_RU = {
     Sandbox_HideServerOptionsFromPlayers = "Скрыть настройки сервера от игроков",
     Sandbox_HideTicketsFromPlayers = "Скрыть тикеты от игроков",
     Sandbox_AddSafehouseToSpawnLocations = "Добавьте убежище в места возрождения",
+    Sandbox_AdminsFreeAddToSafehouse = "Нет ограничений для GM на добавление игроков в Safehouse",
 }

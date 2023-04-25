@@ -146,3 +146,10 @@ option ServerTweaker.AddSafehouseToSpawnLocations {
   page        = ServerTweaker,
   translation = AddSafehouseToSpawnLocations
 }
+
+option ServerTweaker.AdminsFreeAddToSafehouse {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = AdminsFreeAddToSafehouse
+}
