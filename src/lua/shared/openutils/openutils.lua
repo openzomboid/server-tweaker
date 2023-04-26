@@ -34,6 +34,25 @@ function openutils.PrintObject(o)
     return tostring(o)
 end
 
+-- PrintTableRecursive prints whole table to console.
+function openutils.PrintTableRecursive(tbl, indent, depth)
+    if not indent then indent = 0 end
+
+    if depth ~= 0 and indent >= depth then
+        return
+    end
+
+    for k, v in pairs(tbl) do
+        formatting = string.rep("  ", indent) .. k .. ": "
+        if type(v) == "table" then
+            print(formatting)
+            openutils.PrintTableIndent(v, indent+1, depth)
+        else
+            print(formatting .. tostring(v))
+        end
+    end
+end
+
 -- PrintEvents prints loaded events to console.
 function openutils.PrintEvents()
     print (openutils.PrintObject(Events));
