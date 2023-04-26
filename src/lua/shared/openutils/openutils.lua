@@ -16,6 +16,50 @@ openutils = {
     },
 }
 
+-- PrintObject prints object to console.
+function openutils.PrintObject(o)
+    if type(o) == 'table' then
+        local str = '{\n';
+        for k, v in pairs(o) do
+            str = str .. k .. "\n";
+        end
+
+        return str .. '}\n'
+    end
+
+    if type(o) == "string" then
+        return '"' .. tostring(o) .. '"'
+    end
+
+    return tostring(o)
+end
+
+-- PrintEvents prints loaded events to console.
+function openutils.PrintEvents()
+    print (openutils.PrintObject(Events));
+end
+
+-- RemoveDuplicates removes duplicates from list.
+function openutils.RemoveDuplicates(list)
+    local result, seen = {}, {}
+
+    for _, item in ipairs(list) do
+        if not seen[item] then
+            seen[item] = true
+            table.insert(result, item)
+        end
+    end
+
+    return result
+end
+
+-- IsPointInRectangle returns true if XY point is inside the rectangle.
+function openutils.IsPointInRectangle(x, y, x_top, y_top, x_bottom, y_bottom)
+    return (x >= x_top and x <= x_bottom and y >= y_top and y <= y_bottom) or false;
+end
+
+-- HasPermission returns true if character's access level equal or greater
+-- then needle. Otherwise returns false.
 function openutils.HasPermission(character, needle)
     if character == nil then
         return false
@@ -35,11 +79,6 @@ function openutils.HasPermission(character, needle)
     return true;
 end
 
--- IsPointInRectangle returns true if XY point is inside the rectangle.
-function openutils.IsPointInRectangle(x, y, x_top, y_top, x_bottom, y_bottom)
-    return (x >= x_top and x <= x_bottom and y >= y_top and y <= y_bottom) or false;
-end
-
 -- GetSafehouseByXY returns safehouse by XY point.
 function openutils.GetSafehouseByXY(x, y)
     local safehouses = SafeHouse.getSafehouseList();
@@ -55,6 +94,10 @@ function openutils.GetSafehouseByXY(x, y)
     return nil
 end
 
+-- IsPlayerMemmberOfSafehouse returns true if character is a member of safehouse.
+-- There is an unexpected behavior that admins and other privileged users equated
+-- to members.
+-- TODO: Research this behavior. Maybe it will be better to split admins from players.
 function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     local username = character:getUsername();
 
@@ -76,6 +119,7 @@ function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     return false;
 end
 
+-- SetSafehouseData creates new SafeHouse.
 function openutils.SetSafehouseData(_title, _owner, _members, _x, _y, _w, _h)
     local playerObj = getSpecificPlayer(0);
     local safeObj = SafeHouse.addSafeHouse(_x, _y, _w, _h, _owner, false);
@@ -94,15 +138,11 @@ function openutils.SetSafehouseData(_title, _owner, _members, _x, _y, _w, _h)
     safeObj:syncSafehouse();
 end
 
-function openutils.RemoveDuplicates(list)
-    local result, seen = {}, {}
+-- Suicide kills player who called this function.
+function openutils.Suicide()
+    local character = getPlayer()
 
-    for _, item in ipairs(list) do
-        if not seen[item] then
-            seen[item] = true
-            table.insert(result, item)
-        end
+    if character then
+        character:setHealth(0);
     end
-
-    return result
 end
