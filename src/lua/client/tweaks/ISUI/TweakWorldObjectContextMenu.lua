@@ -7,6 +7,7 @@
 TweakWorldObjectContextMenu = {
     Original = {
         createMenu = ISWorldObjectContextMenu.createMenu,
+        --onTakeSafeHouse = ISWorldObjectContextMenu.onTakeSafeHouse,
     }
 }
 
@@ -28,7 +29,47 @@ TweakWorldObjectContextMenu.createMenu = function(player, worldobjects, x, y, te
         end
     end
 
+    if SandboxVars.ServerTweaker.SafehouseAreaLimit > 0 then
+        local character = getSpecificPlayer(player)
+
+        local object = worldobjects[1];
+        local square = object:getSquare()
+        local squareTest = clickedSquare
+
+        for i=1, #context.options do
+            local option = context.options[i];
+
+            if option.onSelect == ISWorldObjectContextMenu.onTakeSafeHouse then
+                if not safehouse and clickedSquare:getBuilding() and clickedSquare:getBuilding():getDef() then
+                    local reason = SafeHouse.canBeSafehouse(clickedSquare, character);
+
+                    if reason == "" then
+                        local toolTip = ISWorldObjectContextMenu.addToolTip();
+                        toolTip:setVisible(false);
+                        toolTip.description = reason;
+                        option.notAvailable = true;
+                        option.toolTip = toolTip;
+                    end
+                end
+            end
+        end
+    end
+
     return context
+end
+
+ISWorldObjectContextMenu.canBeSafehouse = function(square, player)
+    local house = square:getBuilding():getDef()
+    if not house then
+        return "Not a building"
+    end
+
+    local areaSize = house:getW() * house:getH()
+    if SandboxVars.ServerTweaker.SafehouseAreaLimit ~= 0 and areaSize > SandboxVars.ServerTweaker.SafehouseAreaLimit then
+        return "Building is too big"
+    end
+
+    return ""
 end
 
 ISWorldObjectContextMenu.createMenu = TweakWorldObjectContextMenu.createMenu;
