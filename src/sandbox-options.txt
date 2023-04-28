@@ -180,8 +180,8 @@ option ServerTweaker.CheckSafehouseIntersections {
 option ServerTweaker.SafehouseDeadZone {
   type        = integer,
   min         = 0,
-  max         = 10000,
-  default     = 100,
+  max         = 100,
+  default     = 0,
   page        = ServerTweaker,
   translation = SafehouseDeadZone
 }
