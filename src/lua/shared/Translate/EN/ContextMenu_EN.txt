@@ -3,4 +3,7 @@ ContextMenu_EN = {
 
     -- New
     ContextMenu_NotAvailableOnTheServer = "Not available on the server",
+    ContextMenu_NotBuilding = "Not a building",
+    ContextMenu_BuildingIsTooBig = "Building is too big",
+    ContextMenu_IntersectsWithAnotherSafehouse = "Intersects with another safehouse",
 }

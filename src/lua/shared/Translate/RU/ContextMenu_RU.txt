@@ -3,4 +3,7 @@ ContextMenu_RU = {
 
     -- New
     ContextMenu_NotAvailableOnTheServer = "Недоступно на сервере",
+    ContextMenu_NotBuilding = "Не является зданием",
+    ContextMenu_BuildingIsTooBig = "Здание слишком большое",
+    ContextMenu_IntersectsWithAnotherSafehouse = "Пересекается с другим убежищем",
 }

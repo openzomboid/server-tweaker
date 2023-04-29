@@ -25,4 +25,8 @@ Sandbox_TH = {
     Sandbox_HideTicketsFromPlayers = "ซ่อนตั๋วจากผู้เล่น",
     Sandbox_AddSafehouseToSpawnLocations = "เพิ่ม Safehouse เพื่อวางไข่",
     Sandbox_AdminsFreeAddToSafehouse = "ไม่มีขีดจำกัดสำหรับ GM ในการเพิ่มผู้เล่นใน Safehouse",
+    Sandbox_TakeSafehouseLimitations = "ใช้ข้อ จำกัด ของ Safehouse",
+    Sandbox_SafehouseAreaLimit = "จำกัดพื้นที่เซฟเฮาส์",
+    Sandbox_CheckSafehouseIntersections = "ตรวจสอบทางแยก Safehouse",
+    Sandbox_SafehouseDeadZone = "เซฟเฮาส์เดดโซน",
 }

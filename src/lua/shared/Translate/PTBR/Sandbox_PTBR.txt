@@ -25,4 +25,8 @@ Sandbox_PTBR = {
     Sandbox_HideTicketsFromPlayers = "Ocultar tickets dos jogadores",
     Sandbox_AddSafehouseToSpawnLocations = "Adicionar Safehouse aos locais de desova",
     Sandbox_AdminsFreeAddToSafehouse = "Não há limites para o GM adicionar jogadores ao Safehouse",
+    Sandbox_TakeSafehouseLimitations = "Aceitar as limitações do Safehouse",
+    Sandbox_SafehouseAreaLimit = "Limite de área de segurança",
+    Sandbox_CheckSafehouseIntersections = "Verifique as interseções Safehouse",
+    Sandbox_SafehouseDeadZone = "Zona morta da casa segura",
 }

@@ -3,4 +3,7 @@ ContextMenu_PTBR = {
 
     -- Novo
     ContextMenu_NotAvailableOnTheServer = "Não disponível no servidor",
+    ContextMenu_NotBuilding = "Não é um prédio",
+    ContextMenu_BuildingIsTooBig = "O prédio é muito grande",
+    ContextMenu_IntersectsWithAnotherSafehouse = "Cruza com outro esconderijo",
 }

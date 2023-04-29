@@ -3,4 +3,7 @@ ContentMenu_TH = {
 
     -- New
     ContextMenu_NotAvailableOnTheServer = "ไม่มีในเซิร์ฟเวอร์",
+    ContextMenu_NotBuilding = "ไม่ใช่อาคาร",
+    ContextMenu_BuildingIsTooBig = "ตึกใหญ่เกินไป",
+    ContextMenu_IntersectsWithAnotherSafehouse = "ตัดกับที่ซ่อนอีกแห่ง",
 }

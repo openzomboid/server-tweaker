@@ -113,6 +113,80 @@ function openutils.GetSafehouseByXY(x, y)
     return nil
 end
 
+-- SetSafehouseData creates new SafeHouse.
+function openutils.SetSafehouseData(_title, _owner, _members, _x, _y, _w, _h)
+    local playerObj = getSpecificPlayer(0);
+    local safeObj = SafeHouse.addSafeHouse(_x, _y, _w, _h, _owner, false);
+    safeObj:setTitle(_title);
+    safeObj:setOwner(_owner);
+
+    local members = luautils.split(_members, ",")
+
+    if #members > 0 then
+        for i = 1, #members do
+            safeObj:addPlayer(members[i]);
+        end
+    end
+
+    safeObj:updateSafehouse(playerObj);
+    safeObj:syncSafehouse();
+end
+
+-- IsIntersectingAnotherSafehouse returns true if coordinates belongs to another Safehouse.
+function openutils.IsIntersectingAnotherSafehouse(X1, Y1, X2, Y2)
+    for xVal = X1, X2-1 do
+        for yVal = Y1, Y2-1 do
+            local sqObj = getCell():getOrCreateGridSquare(xVal, yVal, 0);
+            if sqObj then
+                if SafeHouse.getSafeHouse(sqObj) then
+                    return true;
+                end
+            end
+        end
+    end
+
+    return false;
+end
+
+-- CanBeSafehouse checks a building in square to see if it can be a Safehouse.
+function openutils.CanBeSafehouse(square, character, options)
+    options = options or {
+        SafehouseAreaLimit = 0,
+        CheckSafehouseIntersections = false,
+        SafehouseDeadZone = 0,
+    }
+
+    local building = square:getBuilding()
+    if not building then
+        return getText("ContextMenu_NotBuilding")
+    end
+
+    local def = building:getDef()
+    if not def then
+        return getText("ContextMenu_NotBuilding")
+    end
+
+    if options.SafehouseAreaLimit > 0 then
+        local areaSize = def:getW() * def:getH()
+        if areaSize > options.SafehouseAreaLimit then
+            return getText("ContextMenu_BuildingIsTooBig")
+        end
+    end
+
+    if options.CheckSafehouseIntersections then
+        local x1 = def:getX()-2-options.SafehouseDeadZone;
+        local y1 = def:getY()-2-options.SafehouseDeadZone;
+        local x2 = def:getX2()+2+options.SafehouseDeadZone;
+        local y2 = def:getY2()+2+options.SafehouseDeadZone;
+
+        if openutils.IsIntersectingAnotherSafehouse(x1, y1, x2, y2) then
+            return getText("ContextMenu_IntersectsWithAnotherSafehouse")
+        end
+    end
+
+    return ""
+end
+
 -- IsPlayerMemmberOfSafehouse returns true if character is a member of safehouse.
 -- There is an unexpected behavior that admins and other privileged users equated
 -- to members.
@@ -136,25 +210,6 @@ function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     end
 
     return false;
-end
-
--- SetSafehouseData creates new SafeHouse.
-function openutils.SetSafehouseData(_title, _owner, _members, _x, _y, _w, _h)
-    local playerObj = getSpecificPlayer(0);
-    local safeObj = SafeHouse.addSafeHouse(_x, _y, _w, _h, _owner, false);
-    safeObj:setTitle(_title);
-    safeObj:setOwner(_owner);
-
-    local members = luautils.split(_members, ",")
-
-    if #members > 0 then
-        for i = 1, #members do
-            safeObj:addPlayer(members[i]);
-        end
-    end
-
-    safeObj:updateSafehouse(playerObj);
-    safeObj:syncSafehouse();
 end
 
 -- Suicide kills player who called this function.

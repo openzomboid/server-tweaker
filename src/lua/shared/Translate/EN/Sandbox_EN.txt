@@ -25,4 +25,8 @@ Sandbox_EN = {
     Sandbox_HideTicketsFromPlayers = "Hide tickets from players",
     Sandbox_AddSafehouseToSpawnLocations = "Add Safehouse to spawn locations",
     Sandbox_AdminsFreeAddToSafehouse = "No limits for GM to add players to Safehouse",
+    Sandbox_TakeSafehouseLimitations = "Take Safehouse limitations",
+    Sandbox_SafehouseAreaLimit = "Safehouse area limit",
+    Sandbox_CheckSafehouseIntersections = "Check Safehouse intersections",
+    Sandbox_SafehouseDeadZone = "Safehouse dead zone",
 }

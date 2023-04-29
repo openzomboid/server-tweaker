@@ -153,3 +153,35 @@ option ServerTweaker.AdminsFreeAddToSafehouse {
   page        = ServerTweaker,
   translation = AdminsFreeAddToSafehouse
 }
+
+option ServerTweaker.TakeSafehouseLimitations {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = TakeSafehouseLimitations
+}
+
+option ServerTweaker.SafehouseAreaLimit {
+  type        = integer,
+  min         = 0,
+  max         = 10000,
+  default     = 600,
+  page        = ServerTweaker,
+  translation = SafehouseAreaLimit
+}
+
+option ServerTweaker.CheckSafehouseIntersections {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = CheckSafehouseIntersections
+}
+
+option ServerTweaker.SafehouseDeadZone {
+  type        = integer,
+  min         = 0,
+  max         = 10000,
+  default     = 100,
+  page        = ServerTweaker,
+  translation = SafehouseDeadZone
+}
