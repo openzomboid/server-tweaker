@@ -165,14 +165,14 @@ option ServerTweaker.SafehouseAreaLimit {
   type        = integer,
   min         = 0,
   max         = 10000,
-  default     = 600,
+  default     = 0,
   page        = ServerTweaker,
   translation = SafehouseAreaLimit
 }
 
 option ServerTweaker.CheckSafehouseIntersections {
   type        = boolean,
-  default     = false,
+  default     = true,
   page        = ServerTweaker,
   translation = CheckSafehouseIntersections
 }

@@ -4,12 +4,14 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.3.0] - 2023-04-30
 ### Added
 - Added disabling `Tickets` button in client menu. To enable this tweak set `HideTicketsFromPlayers` to true in sandbox options.
 - Added storage for admin powers. The values of the checkboxes in the admin powers window are saved and powered user does not need to change options after rejoining the server. Also adds "Show admin tag" option to Admin Powers checkboxes. To enable this tweak set `SaveAdminPower` to true in sandbox options.
 - Added Safehouse to spawn locations and moved it as first location. To enable this tweak set `AddSafehouseToSpawnLocations` to true in sandbox options.
 - Added allowing for GM (and higher levelled users) to add anyone to safehouse without limits. To enable this tweak set `AdminsFreeAddToSafehouse` to true in sandbox options.
-- Added limits to take Safehouse function. It's include Safahouse Area limit, intersection with another Safehouses and dead zone between Safehouses.
+- Added limits to take Safehouse function. It's include Safehouse area limit, intersection with another Safehouses and dead zone between Safehouses. To enable this tweak set `TakeSafehouseLimitations` to true in sandbox options.
 
 ## [v0.2.0] - 2023-03-29
 ### Added
@@ -50,6 +52,7 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/openzomboid/server-tweaker/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/openzomboid/server-tweaker/compare/v0.1.0...v0.2.0
 [v0.1.0]: https://github.com/openzomboid/server-tweaker/compare/d4868cbb05ad290ba3f0431e82592894d999bd56...v0.1.0

@@ -41,6 +41,10 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * **HideTicketsFromPlayers** `(default=true)` - a separate setting that prevents players from creating tickets in the client panel.
 * **AddSafehouseToSpawnLocations** `(default=true)` - Adds Safehouse to spawn locations and moves it as first location.
 * **AdminsFreeAddToSafehouse** `(default=true)` - Allows for GM (and higher levelled users) to add anyone to safehouse without limits.
+* **TakeSafehouseLimitations** `(default=true)` - Turns on limits to take Safehouse function. It's include Safehouse area limit, intersection with another Safehouses and dead zone between Safehouses.
+* **SafehouseAreaLimit** `(default=0)` - Sets the maximum size of the Safehouse in tiles. If the building has a larger area than `SafehouseAreaLimit`, it cannot be taken as a Safehouse. For enable this tweak `TakeSafehouseLimitations` must be true in sandbox options. If `SafehouseAreaLimit` is 0, no limit applies.
+* **CheckSafehouseIntersections** `(default=true)` - Disables "Take Safehouse" option if the building intersects with another Safehouse. There ara a lot of such buildings in Louisville. For enable this tweak `TakeSafehouseLimitations` must be true in sandbox options.
+* **SafehouseDeadZone** `(default=0)` - Disables "Take Safehouse" option if the building is nearby with another Safehouse. For enable this tweak `TakeSafehouseLimitations` and `CheckSafehouseIntersections` must be true in sandbox options.
 
 ## Compatibility
 Game version: Build 41.78+ (Multiplayer)  
