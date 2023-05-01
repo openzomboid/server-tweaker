@@ -4,6 +4,8 @@
 -- that can be found in the LICENSE file.
 --
 
+if not isClient() then return end
+
 TweakISAdminPowerUI = {
     Original = {
         addOption = ISAdminPowerUI.addOption,
