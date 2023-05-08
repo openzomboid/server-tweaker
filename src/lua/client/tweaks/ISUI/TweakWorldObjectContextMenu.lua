@@ -16,7 +16,8 @@ TweakWorldObjectContextMenu = {
 TweakWorldObjectContextMenu.createMenu = function(player, worldobjects, x, y, test)
     local context = TweakWorldObjectContextMenu.Original.createMenu(player, worldobjects, x, y, test)
 
-    if not SandboxVars.ServerTweaker then return context end
+    -- Fix for Joypads.
+    if context == nil then return context end
 
     if SandboxVars.ServerTweaker.DisableTradeWithPlayers then
         for i=1, #context.options do
