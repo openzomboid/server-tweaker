@@ -7,11 +7,11 @@ All notable changes to this project will be documented in this file.
 
 ## [v0.3.2] - 2023-05-09
 ### Fixed
-- Fixed TweakWorldObjectContextMenu for Joypads.
+- Fixed TweakWorldObjectContextMenu for Joypads #3.
 
 ## [v0.3.1] - 2023-05-02
 ### Fixed
-- Fixed "attempted index: addOption of non-table" on TweakISAdminPowerUI #1.
+- Fixed "attempted index: addOption of non-table" on TweakISAdminPowerUI #2.
 
 ## [v0.3.0] - 2023-04-30
 ### Added
