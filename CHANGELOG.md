@@ -4,8 +4,10 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.3.2] - 2023-05-09
 ### Fixed
-- Fixed TweakWorldObjectContextMenu for Joypds.
+- Fixed TweakWorldObjectContextMenu for Joypads.
 
 ## [v0.3.1] - 2023-05-02
 ### Fixed
@@ -58,7 +60,8 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.3.2...HEAD
+[v0.3.2]: https://github.com/openzomboid/server-tweaker/compare/v0.3.1...v0.3.2
 [v0.3.1]: https://github.com/openzomboid/server-tweaker/compare/v0.3.0...v0.3.1
 [v0.3.0]: https://github.com/openzomboid/server-tweaker/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/openzomboid/server-tweaker/compare/v0.1.0...v0.2.0
