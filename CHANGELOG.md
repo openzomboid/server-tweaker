@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fixed function getSpawnRegions when file server_spawnregions.lua returns nothing.
+
+### Changed
+- Default value of option "Add Safehouse to spawn locations" sets to false.
 
 ## [v0.3.2] - 2023-05-09
 ### Fixed

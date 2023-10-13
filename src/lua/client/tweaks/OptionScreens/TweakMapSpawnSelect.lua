@@ -27,6 +27,10 @@ TweakMapSpawnSelect.getSpawnRegions = function(self)
     regions = self:getSafehouseSpawnRegion() or {}
     local spawnRegions = SpawnRegionMgr.getSpawnRegions()
 
+    if not spawnRegions or spawnRegions == {} then
+        return regions
+    end
+
     for _, v in ipairs(spawnRegions) do
         table.insert(regions, v)
     end

@@ -39,7 +39,7 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * **PinOverlayServerInfoText** `(default=true)` - a separate setting that prevents players from changing the "Show connection info" and "Show server info" switches in the client settings. The ping display toggle remains enabled and its position is remembered by the game across restarts.
 * **HideServerOptionsFromPlayers** `(default=true)` - a separate setting that prevents players from viewing the server settings in the client settings.
 * **HideTicketsFromPlayers** `(default=true)` - a separate setting that prevents players from creating tickets in the client panel.
-* **AddSafehouseToSpawnLocations** `(default=true)` - Adds Safehouse to spawn locations and moves it as first location.
+* **AddSafehouseToSpawnLocations** `(default=false)` - Adds Safehouse to spawn locations and moves it as first location.
 * **AdminsFreeAddToSafehouse** `(default=true)` - Allows for GM (and higher levelled users) to add anyone to safehouse without limits.
 * **TakeSafehouseLimitations** `(default=true)` - Turns on limits to take Safehouse function. It's include Safehouse area limit, intersection with another Safehouses and dead zone between Safehouses.
 * **SafehouseAreaLimit** `(default=0)` - Sets the maximum size of the Safehouse in tiles. If the building has a larger area than `SafehouseAreaLimit`, it cannot be taken as a Safehouse. For enable this tweak `TakeSafehouseLimitations` must be true in sandbox options. If `SafehouseAreaLimit` is 0, no limit applies.
