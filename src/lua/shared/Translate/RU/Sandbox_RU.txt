@@ -9,6 +9,7 @@ Sandbox_RU = {
     Sandbox_AllowAdminToolsForGM = "Разрешить admin tools для GM",
     Sandbox_DisallowSpawnItemsForObservers = "Запретить для Observer спавнить предметы",
     Sandbox_DisableAimOutline = "Отключить контур цели (НЕ РЕКОМЕНДУЕТСЯ)",
+    Sandbox_HideTradeWithInvisiblePlayers = "Скрыть опцию торговли с невидимыми игроками",
     Sandbox_DisableTradeWithPlayers = "Отключить интерфейс торговли с игроками",
     Sandbox_ProtectVehicleInSafehouse = "Защищать транспорт в привате",
     Sandbox_ScreenBlackoutOnDeath = "Затемнять экран при смерти",

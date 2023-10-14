@@ -10,6 +10,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Default value of option "Add Safehouse to spawn locations" sets to false.
 
+### Added
+- Added tweak to hide trade option with invisible players. To enable this tweak set `HideTradeWithInvisiblePlayers` to true in sandbox options.
+
 ## [v0.3.2] - 2023-05-09
 ### Fixed
 - Fixed TweakWorldObjectContextMenu for Joypads #3.

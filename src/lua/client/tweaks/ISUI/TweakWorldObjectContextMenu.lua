@@ -19,6 +19,16 @@ TweakWorldObjectContextMenu.createMenu = function(player, worldobjects, x, y, te
     -- Fix for Joypads.
     if context == nil or type(context) == "boolean" then return context end
 
+    if SandboxVars.ServerTweaker.HideTradeWithInvisiblePlayers then
+        for i=1, #context.options do
+            local option = context.options[i];
+
+            if option.onSelect == ISWorldObjectContextMenu.onTrade then
+                option:setVisible(false);
+            end
+        end
+    end
+
     if SandboxVars.ServerTweaker.DisableTradeWithPlayers then
         for i=1, #context.options do
             local option = context.options[i];
