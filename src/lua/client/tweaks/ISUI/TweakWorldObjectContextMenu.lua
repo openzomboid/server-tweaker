@@ -20,11 +20,15 @@ TweakWorldObjectContextMenu.createMenu = function(player, worldobjects, x, y, te
     if context == nil or type(context) == "boolean" then return context end
 
     if SandboxVars.ServerTweaker.HideTradeWithInvisiblePlayers then
-        for i=1, #context.options do
-            local option = context.options[i];
+        local character = getSpecificPlayer(player)
 
-            if option.onSelect == ISWorldObjectContextMenu.onTrade then
-                option:setVisible(false);
+        if character:isInvisible() then
+            for i=1, #context.options do
+                local option = context.options[i];
+
+                if option ~= nil and option.onSelect == ISWorldObjectContextMenu.onTrade then
+                    table.remove(context.options, i);
+                end
             end
         end
     end
