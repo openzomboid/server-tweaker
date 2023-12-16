@@ -19,6 +19,7 @@ TweakWorldObjectContextMenu.createMenu = function(player, worldobjects, x, y, te
     -- Fix for Joypads.
     if context == nil or type(context) == "boolean" then return context end
 
+    -- FIXME: HideTradeWithInvisiblePlayers does not work.
     if SandboxVars.ServerTweaker.HideTradeWithInvisiblePlayers then
         local character = getSpecificPlayer(player)
 
