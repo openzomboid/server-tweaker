@@ -15,8 +15,7 @@ TweakISSafehouseAddPlayerUI = {
 -- Allows admin to add anyone to safehouse.
 TweakISSafehouseAddPlayerUI.drawPlayers = function(self, y, item, alt)
     if not SandboxVars.ServerTweaker.AdminsFreeAddToSafehouse then
-        TweakISSafehouseAddPlayerUI.Original.drawPlayers(self, y, item, alt)
-        return
+        return TweakISSafehouseAddPlayerUI.Original.drawPlayers(self, y, item, alt)
     end
 
     local a = 0.9;
