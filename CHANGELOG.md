@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Fixed
 - Fixed function getSpawnRegions when file server_spawnregions.lua returns nothing.
-- Fixed function TweakISSafehouseAddPlayerUI.drawPlayers when option AdminsFreeAddToSafehouse is false.
+- Fixed function TweakISSafehouseAddPlayerUI.drawPlayers when option AdminsFreeAddToSafehouse is false. Thanks DaNiG for report and fix.
 
 ### Changed
 - Default value of option "Add Safehouse to spawn locations" sets to false.
