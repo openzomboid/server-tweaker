@@ -19,16 +19,40 @@ TweakWorldObjectContextMenu.createMenu = function(player, worldobjects, x, y, te
     -- Fix for Joypads.
     if context == nil or type(context) == "boolean" then return context end
 
-    -- FIXME: HideTradeWithInvisiblePlayers does not work.
     if SandboxVars.ServerTweaker.HideTradeWithInvisiblePlayers then
         local character = getSpecificPlayer(player)
 
-        if character:isInvisible() then
+        local clickedPlayer = nil
+
+        for _, v in ipairs(worldobjects) do
+            if instanceof(v, "IsoPlayer") and (v ~= character) and v:isInvisible() then
+                clickedPlayer = v;
+            end
+
+            if v:getSquare() then
+                -- help detecting a player by checking nearby squares
+                for x1 = v:getSquare():getX()-1, v:getSquare():getX()+1 do
+                    for y1 = v:getSquare():getY()-1, v:getSquare():getY()+1 do
+                        local sq = getCell():getGridSquare(x1, y1, v:getSquare():getZ());
+                        if sq then
+                            for i = 0, sq:getMovingObjects():size()-1 do
+                                local o = sq:getMovingObjects():get(i)
+                                if instanceof(o, "IsoPlayer") and (o ~= character) and o:isInvisible() then
+                                    clickedPlayer = o
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+
+        if clickedPlayer then
             for i=1, #context.options do
                 local option = context.options[i];
 
                 if option ~= nil and option.onSelect == ISWorldObjectContextMenu.onTrade then
-                    table.remove(context.options, i);
+                    context:removeOptionByName(option.name)
                 end
             end
         end
