@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.4.0] - 2023-12-21
 ### Fixed
 - Fixed function getSpawnRegions when file server_spawnregions.lua returns nothing.
 - Fixed function TweakISSafehouseAddPlayerUI.drawPlayers when option AdminsFreeAddToSafehouse is false. Thanks DaNiG for report and fix.
@@ -12,7 +14,8 @@ All notable changes to this project will be documented in this file.
 - Default value of option "Add Safehouse to spawn locations" sets to false.
 
 ### Added
-- Added tweak to hide trade option with invisible players. To enable this tweak set `HideTradeWithInvisiblePlayers` to true in sandbox options.
+- Added tweak to hide trade option and medical check option with invisible players. To enable this tweak set `ContextMenuClickedPlayersInvisibleFix` to true in sandbox options.
+- Added tweak to selecting a player to interact with in the context menu. To enable this tweak set `ContextMenuClickedPlayersSelection` to true in sandbox options.
 
 ## [v0.3.2] - 2023-05-09
 ### Fixed

@@ -42,11 +42,18 @@ option ServerTweaker.DisableAimOutline {
   translation = DisableAimOutline
 }
 
-option ServerTweaker.HideTradeWithInvisiblePlayers {
+option ServerTweaker.ContextMenuClickedPlayersInvisibleFix {
   type        = boolean,
   default     = true,
   page        = ServerTweaker,
-  translation = HideTradeWithInvisiblePlayers
+  translation = ContextMenuClickedPlayersInvisibleFix
+}
+
+option ServerTweaker.ContextMenuClickedPlayersSelection {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ContextMenuClickedPlayersSelection
 }
 
 option ServerTweaker.DisableTradeWithPlayers {

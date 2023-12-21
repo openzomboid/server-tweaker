@@ -16,6 +16,16 @@ openutils = {
     },
 }
 
+-- ObjectLen returns count of elements in list.
+function openutils.ObjectLen(items)
+    local count = 0
+    for _, item in pairs(items) do
+        count = count + 1
+    end
+
+    return count
+end
+
 -- PrintObject prints object to console.
 function openutils.PrintObject(o)
     if type(o) == 'table' then
