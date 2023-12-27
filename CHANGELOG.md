@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.4.1] - 2023-12-28
 ### Fixed
 - Fixed "attempted index: item of non-table: null" error in MapSpawnSelect.lua.
 
@@ -74,7 +76,9 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.4.1...HEAD
+[v0.4.1]: https://github.com/openzomboid/server-tweaker/compare/v0.4.0...v0.4.1
+[v0.4.0]: https://github.com/openzomboid/server-tweaker/compare/v0.3.2...v0.4.0
 [v0.3.2]: https://github.com/openzomboid/server-tweaker/compare/v0.3.1...v0.3.2
 [v0.3.1]: https://github.com/openzomboid/server-tweaker/compare/v0.3.0...v0.3.1
 [v0.3.0]: https://github.com/openzomboid/server-tweaker/compare/v0.2.0...v0.3.0
