@@ -15,8 +15,7 @@ TweakMapSpawnSelect = {
 -- Adds Safehouse to spawn locations.
 TweakMapSpawnSelect.getSpawnRegions = function(self)
     if not SandboxVars.ServerTweaker.AddSafehouseToSpawnLocations then
-        TweakMapSpawnSelect.Original.getSpawnRegions(self)
-        return
+        return TweakMapSpawnSelect.Original.getSpawnRegions(self)
     end
 
     local regions = self:getFixedSpawnRegion() or self:getChallengeSpawnRegion()

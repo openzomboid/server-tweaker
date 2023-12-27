@@ -6,7 +6,7 @@
 
 -- openutils contains shared defines.
 openutils = {
-    Version = "0.4.0", -- in semantic versioning (http://semver.org/)
+    Version = "0.4.1", -- in semantic versioning (http://semver.org/)
     Color = {
         White = "<RGB:1,1,1>",
         Red = "<RGB:1,0,0>"

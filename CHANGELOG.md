@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fixed "attempted index: item of non-table: null" error in MapSpawnSelect.lua.
 
 ## [v0.4.0] - 2023-12-21
 ### Fixed
