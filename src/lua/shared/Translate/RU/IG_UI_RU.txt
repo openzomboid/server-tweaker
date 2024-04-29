@@ -6,4 +6,5 @@ IGUI_RU = {
     IGUI_UserPanel_HighlightSafehouse = "Подсветить убежище",
     IGUI_PlayerText_VehicleIsInSafehouse = "Транспорт находится в чьем-то убежище",
     IGUI_SafehouseUI_Members = "Участники:",
+    IGUI_Coordinates = "Координаты",
 }

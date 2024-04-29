@@ -32,7 +32,7 @@ TweakCharacterScreen.render = function(self)
             self:drawRect(30, z, self.width - 60, 1, self.borderColor.a, self.borderColor.r, self.borderColor.g, self.borderColor.b);
             z = z + 6;
 
-            self:drawTextRight("Coordinates", x, z, 1,1,1,1, UIFont.Small);
+            self:drawTextRight(getText("IGUI_Coordinates"), x, z, 1,1,1,1, UIFont.Small);
             self:drawText(string.format("%04d,%04d,%01d",self.char:getX(),self.char:getY(),self.char:getZ()), x + 10, z, 1,1,1,0.5, UIFont.Small);
         end
     end

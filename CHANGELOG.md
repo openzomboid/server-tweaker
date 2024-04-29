@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Added translation to Coordinates block on characters detail view.
 
 ## [v0.4.1] - 2023-12-28
 ### Fixed

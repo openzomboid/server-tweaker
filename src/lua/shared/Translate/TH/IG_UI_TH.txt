@@ -6,4 +6,5 @@ IGUI_TH = {
     IGUI_UserPanel_HighlightSafehouse = "ไฮไลต์เซฟเฮาส์",
     IGUI_PlayerText_VehicleIsInSafehouse = "รถอยู่ในเซฟเฮาส์ของคนอื่น",
     IGUI_SafehouseUI_Members = "สมาชิก:",
+    IGUI_Coordinates = "พิกัด",
 }
