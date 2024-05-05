@@ -13,6 +13,7 @@ Sandbox_RU = {
     Sandbox_ContextMenuClickedPlayersSelection = "Выбор игрока для взаимодействия в контекстном меню",
     Sandbox_DisableTradeWithPlayers = "Отключить интерфейс торговли с игроками",
     Sandbox_ProtectVehicleInSafehouse = "Защищать транспорт в привате",
+    Sandbox_VehicleMechanicsTweaks = "Добавить админам новые возможности в окне механики транспорта",
     Sandbox_ScreenBlackoutOnDeath = "Затемнять экран при смерти",
     Sandbox_HighlightSafehouse = "Подсветка убежищ (необходимо кеширование на клиенте)",
     Sandbox_TweakFirearmsSoundRadius = "Увеличить дальность шума огнестрельному оружию",

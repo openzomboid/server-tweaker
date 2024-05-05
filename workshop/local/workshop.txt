@@ -1,0 +1,6 @@
+version=1
+id=
+title=Server Tweaker Local
+description=THIS IS TEST. DON'T USE THIS MOD.
+tags=Build 41;Balance;Multiplayer
+visibility=unlisted

@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Added translation to Coordinates block on characters detail view.
 
+### Added
+- Added new features to admins in the vehicle mechanics window. Now admins can reset truck repairs count and can change engine quality. Thanks Di-Crash for basic implementation!
+
 ## [v0.4.1] - 2023-12-28
 ### Fixed
 - Fixed "attempted index: item of non-table: null" error in MapSpawnSelect.lua.

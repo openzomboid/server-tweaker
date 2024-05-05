@@ -70,6 +70,13 @@ option ServerTweaker.ProtectVehicleInSafehouse {
   translation = ProtectVehicleInSafehouse
 }
 
+option ServerTweaker.VehicleMechanicsTweaks {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = VehicleMechanicsTweaks
+}
+
 option ServerTweaker.ScreenBlackoutOnDeath {
   type        = boolean,
   default     = true,

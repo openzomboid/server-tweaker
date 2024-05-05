@@ -7,4 +7,5 @@ IGUI_RU = {
     IGUI_PlayerText_VehicleIsInSafehouse = "Транспорт находится в чьем-то убежище",
     IGUI_SafehouseUI_Members = "Участники:",
     IGUI_Coordinates = "Координаты",
+    IGUI_Vehicle_TruckRepairs = "Количество починок: ",
 }

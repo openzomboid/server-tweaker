@@ -7,4 +7,5 @@ IGUI_PTBR = {
     IGUI_PlayerText_VehicleIsInSafehouse = "O veículo está no esconderijo de alguém",
     IGUI_SafehouseUI_Members = "Membros:",
     IGUI_Coordinates = "Coordenadas",
+    IGUI_Vehicle_TruckRepairs = "Valor dos reparos: ",
 }

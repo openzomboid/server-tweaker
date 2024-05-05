@@ -13,6 +13,7 @@ Sandbox_TH = {
     Sandbox_Sandbox_ContextMenuClickedPlayersSelection = "การเลือกผู้เล่นที่จะโต้ตอบด้วยในเมนูบริบท",
     Sandbox_DisableTradeWithPlayers = "ปิดการแลกเปลี่ยนกับผู้เล่น",
     Sandbox_ProtectVehicleInSafehouse = "ปกป้องรถในเซฟเฮาส์",
+    Sandbox_VehicleMechanicsTweaks = "เพิ่มคุณสมบัติใหม่ให้กับผู้ดูแลระบบในหน้าต่างกลไกของยานพาหนะ",
     Sandbox_ScreenBlackoutOnDeath = "หน้าจอเป็นสีดำเมื่อตาย",
     Sandbox_HighlightSafehouse = "ไฮไลต์เซฟเฮาส์ (ต้องเปิดใช้งานเคชบนไคลเอนต์)",
     Sandbox_TweakFirearmsSoundRadius = "เพิ่มรัศมีเสียงปืน",

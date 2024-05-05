@@ -8,6 +8,7 @@ if [ -z "${STAGE}" ]; then STAGE="prod"; fi
 
 MOD_NAME="ServerTweaker"
 if [ "${STAGE}" == "test" ]; then MOD_NAME="${MOD_NAME}Test"; fi
+if [ "${STAGE}" == "local" ]; then MOD_NAME="${MOD_NAME}Local"; fi
 
 RELEASE_NAME="${MOD_NAME}-${VERSION}"
 
@@ -22,6 +23,10 @@ function make_release() {
     mkdir -p "${dir}"
 
     case $STAGE in
+        local)
+            cp workshop/local/workshop.txt "${dir_workshop}"
+            cp workshop/local/mod.info "${dir}"
+            ;;
         test)
             cp workshop/test/workshop.txt "${dir_workshop}"
             cp workshop/test/mod.info "${dir}"

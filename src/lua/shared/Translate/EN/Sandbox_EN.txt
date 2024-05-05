@@ -13,6 +13,7 @@ Sandbox_EN = {
     Sandbox_ContextMenuClickedPlayersSelection = "Selecting a player to interact with in the context menu",
     Sandbox_DisableTradeWithPlayers = "Disable trade option with players",
     Sandbox_ProtectVehicleInSafehouse = "Protect vehicle in safehouse",
+    Sandbox_VehicleMechanicsTweaks = "Add new features to admins in the vehicle mechanics window",
     Sandbox_ScreenBlackoutOnDeath = "Screen blackout on death",
     Sandbox_HighlightSafehouse = "Highlight safehouse (client cache required)",
     Sandbox_TweakFirearmsSoundRadius = "Increase SoundRadius to firearms",

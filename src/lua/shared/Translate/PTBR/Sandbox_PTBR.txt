@@ -13,6 +13,7 @@ Sandbox_PTBR = {
 	Sandbox_ContextMenuClickedPlayersSelection = "Selecionando um jogador para interagir no menu de contexto",
 	Sandbox_DisableTradeWithPlayers = "Desativar comércio com jogadores",
 	Sandbox_ProtectVehicleInSafehouse = "Proteger veículo na zona segura",
+	Sandbox_VehicleMechanicsTweaks = "Adicione novos recursos aos administradores na janela de mecânica do veículo",
 	Sandbox_ScreenBlackoutOnDeath = "Tela preta na morte",
 	Sandbox_HighlightSafehouse = "Destacar casa segura (cache do cliente necessário)",
 	Sandbox_TweakFirearmsSoundRadius = "Aumentar o raio de som das armas de fogo",
