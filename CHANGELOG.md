@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added new features to admins in the vehicle mechanics window. Now admins can reset truck repairs count and can change engine quality. Thanks Di-Crash for basic implementation!
 - Added allowing for GM (and higher levelled users) to change character's stats. To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
+- Added for GM (and higher levelled users) "Change recording" function to VHS.
 
 ## [v0.4.1] - 2023-12-28
 ### Fixed
