@@ -205,7 +205,7 @@ function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     local username = character:getUsername();
 
     if safehouse and username then
-        if safehouse:playerAllowed(character) then return true; end;
+        --if safehouse:playerAllowed(character) then return true; end;
         if safehouse:getOwner() == username then return true; end;
 
         local members = safehouse:getPlayers();
@@ -222,6 +222,30 @@ function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     return false;
 end
 
+function openutils.IsInSafehouseSouthEastExtraTile(safehouse, x, y)
+    return openutils.IsInSafehouseSouthExtraLine(safehouse, x, y) and openutils.IsInSafehouseEastExtraLine(safehouse, x, y)
+end
+
+function openutils.IsInSafehouseSouthExtraLine(safehouse, x, y)
+    if safehouse then
+        if openutils.IsPointInRectangle(x, y, safehouse:getX(), safehouse:getY2(), safehouse:getX2(), safehouse:getY2()) then
+            return true;
+        end
+    end
+
+    return false
+end
+
+function openutils.IsInSafehouseEastExtraLine(safehouse, x, y)
+    if safehouse then
+        if openutils.IsPointInRectangle(x, y, safehouse:getX2(), safehouse:getY(), safehouse:getX2(), safehouse:getY2()) then
+            return true;
+        end
+    end
+
+    return false
+end
+
 -- Suicide kills player who called this function.
 function openutils.Suicide()
     local character = getPlayer()
@@ -229,4 +253,13 @@ function openutils.Suicide()
     if character then
         character:setHealth(0);
     end
+end
+
+-- BoolToString converts bool to string.
+function openutils.BoolToString(value)
+    if value == true then
+        return "true"
+    end
+
+    return "false"
 end
