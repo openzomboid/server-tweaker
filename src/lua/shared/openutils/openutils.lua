@@ -205,7 +205,7 @@ function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     local username = character:getUsername();
 
     if safehouse and username then
-        --if safehouse:playerAllowed(character) then return true; end;
+        if safehouse:playerAllowed(character) then return true; end;
         if safehouse:getOwner() == username then return true; end;
 
         local members = safehouse:getPlayers();
