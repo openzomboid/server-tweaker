@@ -198,14 +198,10 @@ function openutils.CanBeSafehouse(square, character, options)
 end
 
 -- IsPlayerMemmberOfSafehouse returns true if character is a member of safehouse.
--- There is an unexpected behavior that admins and other privileged users equated
--- to members.
--- TODO: Research this behavior. Maybe it will be better to split admins from players.
 function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     local username = character:getUsername();
 
     if safehouse and username then
-        if safehouse:playerAllowed(character) then return true; end;
         if safehouse:getOwner() == username then return true; end;
 
         local members = safehouse:getPlayers();
@@ -220,6 +216,17 @@ function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     end
 
     return false;
+end
+
+-- IsPlayerAllowedActionInSafehouse returns true if character is an admin
+-- on a member of safehouse.
+function openutils.IsPlayerAllowedActionInSafehouse(character, safehouse)
+    local allowed = openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
+    if allowed then
+        return allowed
+    end
+
+    return safehouse:playerAllowed(character)
 end
 
 function openutils.IsInSafehouseSouthEastExtraTile(safehouse, x, y)
