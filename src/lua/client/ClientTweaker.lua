@@ -117,7 +117,7 @@ local function OnGameStart()
     if SandboxVars.ServerTweaker.AddClientCache then
         local player = getPlayer();
         if player then
-            ClientTweaker.Storage = OpenUserStorage:new(player:getUsername())
+            ClientTweaker.Storage = OpenCache:new(player:getUsername())
         end
     end
 

@@ -14,6 +14,9 @@ All notable changes to this project will be documented in this file.
 - Added for GM (and higher levelled users) "Change recording" function to VHS.
 - Added protection to extra walls on the south and east sides under Safehouse. To enable this tweak set `ProtectSafehouseExtraLines` to true in sandbox options.
 
+### Changed
+- Renamed OpenUserStorage to OpenCache.
+
 ## [v0.4.1] - 2023-12-28
 ### Fixed
 - Fixed "attempted index: item of non-table: null" error in MapSpawnSelect.lua.

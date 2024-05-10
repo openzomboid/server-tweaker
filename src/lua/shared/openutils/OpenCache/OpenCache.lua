@@ -24,9 +24,9 @@ local function isPlayerMemberOfSafehouse(username, safehouse)
     end
 end
 
-OpenUserStorage = OpenUserStorage or {}
+OpenCache = OpenCache or {}
 
-function OpenUserStorage:new(username)
+function OpenCache:new(username)
     local storage = {
         username = username,
         safehouses = {},
