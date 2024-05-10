@@ -4,6 +4,8 @@
 -- that can be found in the LICENSE file.
 --
 
+-- isPlayerMemberOfSafehouse returns true if user is owner or member of safehouse.
+-- TODO: Remove me. Use same function from openutils.
 local function isPlayerMemberOfSafehouse(username, safehouse)
     if not instanceof(safehouse, 'SafeHouse') then
         return false
