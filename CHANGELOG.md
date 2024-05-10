@@ -6,11 +6,13 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Fixed
 - Added translation to Coordinates block on characters detail view.
+- Fixed destroy cursor in safehouses. Now you cannot destroy stuff inside last lines of Safehouses. To enable this tweak set `FixDestroyCursorInSafehouse` to true in sandbox options.
 
 ### Added
 - Added new features to admins in the vehicle mechanics window. Now admins can reset truck repairs count and can change engine quality. Thanks Di-Crash for basic implementation!
 - Added allowing for GM (and higher levelled users) to change character's stats. To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
 - Added for GM (and higher levelled users) "Change recording" function to VHS.
+- Added protection to extra walls on the south and east sides under Safehouse. To enable this tweak set `ProtectSafehouseExtraLines` to true in sandbox options.
 
 ## [v0.4.1] - 2023-12-28
 ### Fixed

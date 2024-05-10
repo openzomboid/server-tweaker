@@ -4,15 +4,15 @@
 -- that can be found in the LICENSE file.
 --
 
-TweakDestroyCursor = {
+ISDestroyCursor_FixDestroyCursorInSafehouse = {
     Original = {
         isValid = ISDestroyCursor.isValid
     },
 }
 
-function TweakDestroyCursor.isValid(self, square)
-    local valid = TweakDestroyCursor.Original.isValid(self, square)
-    if not valid then
+function ISDestroyCursor_FixDestroyCursorInSafehouse.isValid(self, square)
+    local valid = ISDestroyCursor_FixDestroyCursorInSafehouse.Original.isValid(self, square)
+    if not valid or not SandboxVars.ServerTweaker.FixDestroyCursorInSafehouse then
         return valid
     end
 
@@ -35,4 +35,4 @@ function TweakDestroyCursor.isValid(self, square)
     return true
 end
 
-ISDestroyCursor.isValid = TweakDestroyCursor.isValid;
+ISDestroyCursor.isValid = ISDestroyCursor_FixDestroyCursorInSafehouse.isValid;

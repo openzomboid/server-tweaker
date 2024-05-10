@@ -63,6 +63,20 @@ option ServerTweaker.DisableTradeWithPlayers {
   translation = DisableTradeWithPlayers
 }
 
+option ServerTweaker.FixDestroyCursorInSafehouse {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = FixDestroyCursorInSafehouse
+}
+
+option ServerTweaker.ProtectSafehouseExtraLines {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ProtectSafehouseExtraLines
+}
+
 option ServerTweaker.ProtectVehicleInSafehouse {
   type        = boolean,
   default     = false,

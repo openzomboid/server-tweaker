@@ -4,7 +4,7 @@
 -- that can be found in the LICENSE file.
 --
 
-TweakDestroyStuffAction = {
+ISDestroyStuffAction_ProtectSafehouseExtraLines = {
     Original = {
         isValid = ISDestroyStuffAction.isValid
     },
@@ -28,6 +28,8 @@ TweakDestroyStuffAction = {
             ["fencing_01_57"] = true,                -- Big Metal Wire Fence
             ["constructedobjects_01_77"] = true,     -- Big Metal Pole Fence
             ["fixtures_doors_fences_01_98"] = true,  -- Wooden Double Door
+            ["fixtures_doors_fences_01_99"] = true,  -- Wooden Double Door
+            ["fixtures_doors_fences_01_106"] = true, -- Wooden Double Door
             ["fixtures_doors_fences_01_107"] = true, -- Wooden Double Door
         },
         East = {
@@ -48,15 +50,17 @@ TweakDestroyStuffAction = {
             ["constructedobjects_01_62"] = true,     -- Pole Fence (Metal)
             ["fencing_01_58"] = true,                -- Big Metal Wire Fence
             ["constructedobjects_01_78"] = true,     -- Big Metal Pole Fence
-            --["fixtures_doors_fences_01_98"] = true,  -- Wooden Double Door
+            ["fixtures_doors_fences_01_108"] = true, -- Wooden Double Door
             ["fixtures_doors_fences_01_105"] = true, -- Wooden Double Door
+            ["fixtures_doors_fences_01_96"] = true,  -- Wooden Double Door
+            ["fixtures_doors_fences_01_97"] = true,  -- Wooden Double Door
         },
     }
 }
 
-function TweakDestroyStuffAction.isValid(self)
-    local valid = TweakDestroyStuffAction.Original.isValid(self)
-    if not valid then
+function ISDestroyStuffAction_ProtectSafehouseExtraLines.isValid(self)
+    local valid = ISDestroyStuffAction_ProtectSafehouseExtraLines.Original.isValid(self)
+    if not valid or not SandboxVars.ServerTweaker.ProtectSafehouseExtraLines then
         return valid
     end
 
@@ -81,7 +85,7 @@ function TweakDestroyStuffAction.isValid(self)
                     return false
                 end
             else
-                if TweakDestroyStuffAction.Textures.South[texture] == true then
+                if ISDestroyStuffAction_ProtectSafehouseExtraLines.Textures.South[texture] == true then
                     return false
                 end
             end
@@ -95,7 +99,7 @@ function TweakDestroyStuffAction.isValid(self)
                     return false
                 end
             else
-                if TweakDestroyStuffAction.Textures.East[texture] == true then
+                if ISDestroyStuffAction_ProtectSafehouseExtraLines.Textures.East[texture] == true then
                     return false
                 end
             end
@@ -109,4 +113,4 @@ function TweakDestroyStuffAction.isValid(self)
     return true
 end
 
-ISDestroyStuffAction.isValid = TweakDestroyStuffAction.isValid;
+ISDestroyStuffAction.isValid = ISDestroyStuffAction_ProtectSafehouseExtraLines.isValid;

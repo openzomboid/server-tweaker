@@ -23,6 +23,7 @@ description=    [*] [b]SaveClientOptions[/b]
 description=    [*] [b]AddClientCache[/b]
 description=    [*] [b]AllowAdminToolsForGM[/b]
 description=    [*] [b]ContextMenuClickedPlayersInvisibleFix[/b]
+description=    [*] [b]FixDestroyCursorInSafehouse[/b]
 description=    [*] [b]VehicleMechanicsTweaks[/b]
 description=    [*] [b]ScreenBlackoutOnDeath[/b]
 description=    [*] [b]HighlightSafehouse[/b]
@@ -44,6 +45,7 @@ description=[list]
 description=    [*] [b]DisableAimOutline[/b]
 description=    [*] [b]ContextMenuClickedPlayersSelection[/b]
 description=    [*] [b]DisableTradeWithPlayers[/b]
+description=    [*] [b]ProtectSafehouseExtraLines[/b]
 description=    [*] [b]ProtectVehicleInSafehouse[/b]
 description=    [*] [b]TweakFirearmsSoundRadius[/b]
 description=    [*] [b]SetGeneralChatStreamAsDefault[/b]
@@ -71,6 +73,13 @@ description=If you think you have found a bug, write about it in [url=https://st
 description=the Steam workshop or create issue in [url=https://github.com/openzomboid/server-tweaker]GitHub repository[/url]
 description=
 description=[b]Server Tweaker is under development and can be updated frequently.[/b]
+description=
+description=[h1]Thanks[/h1]
+description=Thanks to everyone for the help and interest in this mod. You make this mod better.
+description=[list]
+description=    [*][url=https://steamcommunity.com/profiles/76561198090202334]@Di-Crash[/url] - For helping with coding
+description=    [*]Last Day server moderators and GMs  - For helping with testing
+description=[/list]
 description=
 description=[img]https://raw.githubusercontent.com/openzomboid/server-tweaker/master/assets/rate.gif[/img]
 tags=Build 41;Balance;Multiplayer
