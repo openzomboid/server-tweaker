@@ -16,6 +16,15 @@ openutils = {
     },
 }
 
+-- BoolToString converts bool to string.
+function openutils.BoolToString(value)
+    if value == true then
+        return "true"
+    end
+
+    return "false"
+end
+
 -- ObjectLen returns count of elements in list.
 function openutils.ObjectLen(items)
     local count = 0
@@ -26,24 +35,6 @@ function openutils.ObjectLen(items)
     return count
 end
 
--- PrintObject prints object to console.
-function openutils.PrintObject(o)
-    if type(o) == 'table' then
-        local str = '{\n';
-        for k, v in pairs(o) do
-            str = str .. k .. "\n";
-        end
-
-        return str .. '}\n'
-    end
-
-    if type(o) == "string" then
-        return '"' .. tostring(o) .. '"'
-    end
-
-    return tostring(o)
-end
-
 -- PrintTableRecursive prints whole table to console.
 function openutils.PrintTableRecursive(tbl, indent, depth)
     if not indent then indent = 0 end
@@ -52,11 +43,15 @@ function openutils.PrintTableRecursive(tbl, indent, depth)
         return
     end
 
+    if tbl == nil then
+        return
+    end
+
     for k, v in pairs(tbl) do
         formatting = string.rep("  ", indent) .. k .. ": "
         if type(v) == "table" then
             print(formatting)
-            openutils.PrintTableIndent(v, indent+1, depth)
+            openutils.PrintTableRecursive(v, indent+1, depth)
         else
             print(formatting .. tostring(v))
         end
@@ -260,13 +255,4 @@ function openutils.Suicide()
     if character then
         character:setHealth(0);
     end
-end
-
--- BoolToString converts bool to string.
-function openutils.BoolToString(value)
-    if value == true then
-        return "true"
-    end
-
-    return "false"
 end

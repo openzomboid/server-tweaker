@@ -12,8 +12,6 @@ function OpenOptions:new(name, options)
     if options == nil then options = {} end
     if name == nil then name = "open-options" end
 
-    local filename = name .. ".ini"
-
     -- instance is main instance of OpenOptions class.
     local instance = {
         options = options,
@@ -33,7 +31,7 @@ function OpenOptions:new(name, options)
 
     -- Read reads instance values from file in {{GameCache}}/Lua directory.
     function instance.Read()
-        local reader = getFileReader(filename, false)
+        local reader = getFileReader(instance.filename, false)
         if not reader then return end
 
         while true do
