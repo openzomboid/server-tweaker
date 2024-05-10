@@ -5,6 +5,7 @@
 --
 
 -- OpenOptions implements mod configuration reader and writer.
+-- Deprecated. TODO: Use OpenStorage.
 OpenOptions = OpenOptions or {}
 
 -- new creates instance of OpenOptions and defines their methods.

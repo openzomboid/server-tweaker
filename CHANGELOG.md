@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Added allowing for GM (and higher levelled users) to change character's stats. To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
 - Added for GM (and higher levelled users) "Change recording" function to VHS.
 - Added protection to extra walls on the south and east sides under Safehouse. To enable this tweak set `ProtectSafehouseExtraLines` to true in sandbox options.
+- Marked OpenOptions as deprecated. It will be replaced with OpenStorage on next updates.
 
 ### Changed
 - Renamed OpenUserStorage to OpenCache.
