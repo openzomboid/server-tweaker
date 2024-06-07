@@ -4,19 +4,17 @@
 -- that can be found in the LICENSE file.
 --
 
-if isClient() then return end
-
-local json = require "vendor/json"
+local Response = {}
 
 local Bucket = {}
 
--- new creates instance of OpenServerStorage and defines their methods.
 function Bucket.new(name)
     name = name or "open-storage"
 
     local b = {
         data = {},
-        filename = "opendb/" .. name .. ".json"
+        name = name,
+        character = getPlayer()
     }
 
     -- Put saves data to bucket. It replaces all data in the bucket.
@@ -28,7 +26,9 @@ function Bucket.new(name)
 
         b.data = data
 
-        return Bucket.writeFile(b)
+        sendClientCommand(b.character, "ServerTweaker", "put", { dbname = b.name, request_id = openutils.NewUUID(), data = data })
+
+        return true
     end
 
     -- Get return all the data from storage.
@@ -52,7 +52,9 @@ function Bucket.new(name)
             end
         end
 
-        return Bucket.writeFile(b)
+        sendClientCommand(b.character, "ServerTweaker", "batch", { dbname = b.name, request_id = openutils.NewUUID(), key = key, objects = objects })
+
+        return true
     end
 
     -- Save saves value to storage by key name.
@@ -63,7 +65,9 @@ function Bucket.new(name)
 
         b.data[key] = value
 
-        return Bucket.writeFile(b)
+        sendClientCommand(b.character, "ServerTweaker", "save", { dbname = b.name, request_id = openutils.NewUUID(), key = key, value = value })
+
+        return true
     end
 
     -- View returns one value from storage by key.
@@ -75,79 +79,57 @@ function Bucket.new(name)
         return b.data[key]
     end
 
-    Bucket.readFile(b)
-    Bucket.writeFile(b)
-
     return b
 end
 
--- Flush saves values to file in Zomboid/Lua directory.
-function Bucket.writeFile(b)
-    local writer = getFileWriter(b.filename, false, false)
-    if not writer then
-        return false
+function Bucket.OnServerCommand(module, command, args)
+    if not isClient() then return end
+
+    if module == "ServerTweaker" and command == "response" then
+        local character = getPlayer()
+
+        --character:Say(args.data.name)
+
+        Response[args.request_id] = args
     end
-
-    if b.data ~= nil and openutils.ObjectLen(b.data) > 0 then
-        local encodeddata = json:encode(b.data)
-        if encodeddata ~= nil then
-            writer:write(encodeddata)
-        end
-    end
-
-    writer:close()
-
-    return true
 end
 
--- Read reads instance values from file in Zomboid/Lua directory.
-function Bucket.readFile(b)
-    local reader = getFileReader(b.filename, false)
-    if not reader then
-        return false
-    end
+Events.OnServerCommand.Add(Bucket.OnServerCommand);
 
-    local rawdata = ""
-
-    while true do
-        local line = reader:readLine()
-        if not line then
-            reader:close()
-            break
-        end
-
-        rawdata = rawdata .. line
-    end
-
-    if rawdata ~= "" then
-        b.data = json:decode(rawdata)
-    end
-
-    return true
-end
-
-OpenServerStorage = {
+OpenClientStorage = {
     buckets = {}
 }
 
-function OpenServerStorage.Open(name)
+function OpenClientStorage.Open(name)
     if not name or type(name) ~= "string" or name == "" then
         return nil
     end
 
-    OpenServerStorage.buckets[name] = Bucket.new(name)
+    OpenClientStorage.buckets[name] = Bucket.new(name)
 
-    return OpenServerStorage.buckets[name]
+    return OpenClientStorage.buckets[name]
 end
 
 --
 -- Test
 --
 
-local TestRun = {}
+function OpenClientStorage.Test()
+    local originalTransferItem = ISInventoryTransferAction.transferItem
 
-function TestRun.OnServerStarted()
-    OpenServerStorage.Open("services")
+    ISInventoryTransferAction.transferItem = function(self, item)
+        originalTransferItem(self, item)
+
+        local character = getPlayer()
+
+        sendClientCommand(character, "ServerTweaker", "view", { dbname = "services" })
+    end
 end
 
-Events.OnServerStarted.Add(TestRun.OnServerStarted);
+OpenClientStorage.Test()
+
+local OnGameStartTest = function()
+    OpenClientStorage.services = OpenClientStorage.Open("services")
+end
+
+Events.OnGameStart.Add(OnGameStartTest);
