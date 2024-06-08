@@ -256,3 +256,15 @@ function openutils.Suicide()
         character:setHealth(0);
     end
 end
+
+function openutils.RandomInt(min, max)
+    return ZombRand(max-min) + min
+end
+
+function openutils.NewUUID()
+    local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+    return string.gsub(template, '[xy]', function (c)
+        local v = (c == 'x') and openutils.RandomInt(0, 0xf) or openutils.RandomInt(8, 0xb)
+        return string.format('%x', v)
+    end)
+end
