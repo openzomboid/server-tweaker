@@ -150,4 +150,4 @@ function TestRun.OnServerStarted()
     OpenServerStorage.Open("services")
 end
 
-Events.OnServerStarted.Add(TestRun.OnServerStarted);
+--Events.OnServerStarted.Add(TestRun.OnServerStarted);

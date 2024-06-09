@@ -114,7 +114,9 @@ end
 -- Test
 --
 
-function OpenClientStorage.Test()
+local TestRun = {}
+
+function TestRun.Test()
     local originalTransferItem = ISInventoryTransferAction.transferItem
 
     ISInventoryTransferAction.transferItem = function(self, item)
@@ -126,10 +128,9 @@ function OpenClientStorage.Test()
     end
 end
 
-OpenClientStorage.Test()
-
-local OnGameStartTest = function()
+function TestRun.OnGameStart()
     OpenClientStorage.services = OpenClientStorage.Open("services")
 end
 
-Events.OnGameStart.Add(OnGameStartTest);
+--Events.OnGameStart.Add(TestRun.OnGameStart);
+--TestRun.Test();
