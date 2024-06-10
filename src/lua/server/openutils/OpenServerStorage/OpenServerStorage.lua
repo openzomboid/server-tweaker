@@ -8,7 +8,15 @@ if isClient() then return end
 
 local json = require "vendor/json"
 
-local Bucket = {}
+local Bucket = {
+    commands = {
+        ["put"] = true,
+        ["get"] = true,
+        ["batch"] = true,
+        ["save"] = true,
+        ["view"] = true,
+    }
+}
 
 -- new creates instance of OpenServerStorage and defines their methods.
 function Bucket.new(name)
@@ -16,6 +24,7 @@ function Bucket.new(name)
 
     local b = {
         data = {},
+        name = name,
         filename = "opendb/" .. name .. ".json"
     }
 
@@ -26,6 +35,8 @@ function Bucket.new(name)
             return false
         end
 
+        print("OpenStorage: put to Bucket " .. b.name)
+
         b.data = data
 
         return Bucket.writeFile(b)
@@ -33,6 +44,8 @@ function Bucket.new(name)
 
     -- Get return all the data from storage.
     function b.Get()
+        print("OpenStorage: get from Bucket " .. b.name)
+
         return b.data
     end
 
@@ -52,6 +65,8 @@ function Bucket.new(name)
             end
         end
 
+        print("OpenStorage: batch to Bucket " .. b.name)
+
         return Bucket.writeFile(b)
     end
 
@@ -63,6 +78,8 @@ function Bucket.new(name)
 
         b.data[key] = value
 
+        print("OpenStorage: save to Bucket " .. b.name)
+
         return Bucket.writeFile(b)
     end
 
@@ -71,6 +88,8 @@ function Bucket.new(name)
         if not key or type(key) ~= "string" or key == "" then
             return nil
         end
+
+        print("OpenStorage: view from Bucket " .. b.name)
 
         return b.data[key]
     end
@@ -126,6 +145,67 @@ function Bucket.readFile(b)
     return true
 end
 
+function Bucket.OnClientCommand(module, command, character, args)
+    if module ~= "ServerTweaker" then
+        return
+    end
+
+    if not Bucket.commands[command] then
+        return
+    end
+
+    if not args or type(args) ~= "table" then
+        return
+    end
+
+    if not args.dbname or type(args.dbname) ~= "string" or args.dbname == "" then
+        return
+    end
+
+    if not OpenServerStorage.buckets[args.dbname] then
+        return
+    end
+
+    print("OpenStorage: OnClientCommand validated")
+
+    local db = OpenServerStorage.buckets[args.dbname]
+
+    if command == "put" then
+        print("OpenStorage: put to db " .. args.dbname .. " not implemented")
+    elseif command == "get" then
+        print("OpenStorage: get from db " .. args.dbname)
+
+        sendServerCommand(character, "ServerTweaker", "response", {
+            dbname = args.dbname,
+            command = command,
+            requestID = args.requestID,
+            data = db.Get()
+        })
+    elseif command == "batch" then
+        print("OpenStorage: batch save to db " .. args.dbname .. " not implemented")
+    elseif command == "save" then
+        print("OpenStorage: save to db " .. args.dbname .. " not implemented")
+    elseif command == "view" then
+        print("OpenStorage: view from db " .. args.dbname)
+
+        local data = db.View(args.key)
+        if not data then
+            print("OpenStorage: key \"" .. args.key .. "\" not found")
+        else
+            print("OpenStorage: got value by key \"" .. data.name .. "\"")
+        end
+
+        sendServerCommand(character, "ServerTweaker", "response", {
+            dbname = args.dbname,
+            command = command,
+            requestID = args.requestID,
+            data = data
+        })
+    end
+end
+
+Events.OnClientCommand.Add(Bucket.OnClientCommand)
+
 OpenServerStorage = {
     buckets = {}
 }
@@ -134,6 +214,8 @@ function OpenServerStorage.Open(name)
     if not name or type(name) ~= "string" or name == "" then
         return nil
     end
+
+    print("OpenStorage: open storage \"" .. name .. "\"")
 
     OpenServerStorage.buckets[name] = Bucket.new(name)
 
@@ -150,4 +232,4 @@ function TestRun.OnServerStarted()
     OpenServerStorage.Open("services")
 end
 
---Events.OnServerStarted.Add(TestRun.OnServerStarted);
+Events.OnServerStarted.Add(TestRun.OnServerStarted);

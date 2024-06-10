@@ -4,9 +4,11 @@
 -- that can be found in the LICENSE file.
 --
 
-local Response = {}
-
-local Bucket = {}
+local Bucket = {
+    commands = {
+        ["response"] = true,
+    }
+}
 
 function Bucket.new(name)
     name = name or "open-storage"
@@ -24,6 +26,8 @@ function Bucket.new(name)
             return false
         end
 
+        print("OpenStorage: put to Bucket " .. b.name)
+
         b.data = data
 
         sendClientCommand(b.character, "ServerTweaker", "put", { dbname = b.name, request_id = openutils.NewUUID(), data = data })
@@ -33,6 +37,8 @@ function Bucket.new(name)
 
     -- Get return all the data from storage.
     function b.Get()
+        print("OpenStorage: get from Bucket " .. b.name)
+
         return b.data
     end
 
@@ -54,6 +60,8 @@ function Bucket.new(name)
 
         sendClientCommand(b.character, "ServerTweaker", "batch", { dbname = b.name, request_id = openutils.NewUUID(), key = key, objects = objects })
 
+        print("OpenStorage: batch to Bucket " .. b.name)
+
         return true
     end
 
@@ -67,6 +75,8 @@ function Bucket.new(name)
 
         sendClientCommand(b.character, "ServerTweaker", "save", { dbname = b.name, request_id = openutils.NewUUID(), key = key, value = value })
 
+        print("OpenStorage: save to Bucket " .. b.name)
+
         return true
     end
 
@@ -76,8 +86,12 @@ function Bucket.new(name)
             return nil
         end
 
+        print("OpenStorage: view from Bucket " .. b.name)
+
         return b.data[key]
     end
+
+    sendClientCommand(b.character, "ServerTweaker", "get", { dbname = b.name, request_id = openutils.NewUUID() })
 
     return b
 end
@@ -85,12 +99,34 @@ end
 function Bucket.OnServerCommand(module, command, args)
     if not isClient() then return end
 
-    if module == "ServerTweaker" and command == "response" then
-        local character = getPlayer()
+    if module ~= "ServerTweaker" then
+        return
+    end
 
-        --character:Say(args.data.name)
+    if not Bucket.commands[command] then
+        return
+    end
 
-        Response[args.request_id] = args
+    if not args or type(args) ~= "table" then
+        return
+    end
+
+    if not args.dbname or type(args.dbname) ~= "string" or args.dbname == "" then
+        return
+    end
+
+    if not OpenClientStorage.buckets[args.dbname] then
+        return
+    end
+
+    print("OpenStorage: OnClientCommand validated")
+
+    if command == "response" then
+        print("OpenStorage: receive response from db " .. args.dbname)
+
+        if args.command == "get" then
+            OpenClientStorage.buckets[args.dbname].data = args.data
+        end
     end
 end
 
@@ -104,6 +140,8 @@ function OpenClientStorage.Open(name)
     if not name or type(name) ~= "string" or name == "" then
         return nil
     end
+
+    print("OpenStorage: open storage \"" .. name .. "\"")
 
     OpenClientStorage.buckets[name] = Bucket.new(name)
 
@@ -124,13 +162,30 @@ function TestRun.Test()
 
         local character = getPlayer()
 
-        sendClientCommand(character, "ServerTweaker", "view", { dbname = "services" })
+        local data = OpenClientStorage.services.View("Dead Harpy")
+        if not data then
+            return
+        end
+
+        character:Say(data.name)
     end
 end
 
-function TestRun.OnGameStart()
-    OpenClientStorage.services = OpenClientStorage.Open("services")
+-- OnCreatePlayer adds callback for player OnCreatePlayerData event.
+function TestRun.OnCreatePlayer(id)
+    local ticker = {}
+
+    ticker.OnTick = function()
+        local character = getPlayer();
+
+        if character then
+            Events.OnTick.Remove(ticker.OnTick);
+            OpenClientStorage.services = OpenClientStorage.Open("services")
+        end
+    end
+
+    Events.OnTick.Add(ticker.OnTick);
 end
 
---Events.OnGameStart.Add(TestRun.OnGameStart);
---TestRun.Test();
+Events.OnCreatePlayer.Add(TestRun.OnCreatePlayer);
+TestRun.Test();

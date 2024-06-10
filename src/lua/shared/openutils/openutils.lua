@@ -268,3 +268,12 @@ function openutils.NewUUID()
         return string.format('%x', v)
     end)
 end
+
+function openutils.Sleep(a)
+    local now = os.time()
+    local newtime = now + a
+
+    while (now < newtime) do
+        now = os.time()
+    end
+end
