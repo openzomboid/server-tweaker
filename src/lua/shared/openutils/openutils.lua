@@ -262,6 +262,7 @@ function openutils.RandomInt(min, max)
     return ZombRand(max-min) + min
 end
 
+-- NewUUID returns new uuid.
 function openutils.NewUUID()
     local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
     return string.gsub(template, '[xy]', function (c)
