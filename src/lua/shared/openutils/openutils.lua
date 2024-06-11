@@ -257,6 +257,7 @@ function openutils.Suicide()
     end
 end
 
+-- RandomInt return random int between min and max.
 function openutils.RandomInt(min, max)
     return ZombRand(max-min) + min
 end
@@ -269,9 +270,10 @@ function openutils.NewUUID()
     end)
 end
 
-function openutils.Sleep(a)
+-- StopTheWorld locks all lua code for s seconds.
+function openutils.StopTheWorld(s)
     local now = os.time()
-    local newtime = now + a
+    local newtime = now + s
 
     while (now < newtime) do
         now = os.time()
