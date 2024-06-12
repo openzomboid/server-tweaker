@@ -280,3 +280,9 @@ function openutils.StopTheWorld(s)
         now = os.time()
     end
 end
+
+function openutils.IsVehicleCheat()
+    local cheat = getCore():getDebug() and getDebugOptions():getBoolean("Cheat.Vehicle.MechanicsAnywhere")
+
+    return ISVehicleMechanics.cheat or cheat
+end
