@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Fixed the ability for the administrator to interact with a vehicle that is in another player’s safehouse. Switch Vehicles Mechanics cheat to turn it on or off.
 
-## Added
+### Added
 - Added more functions to shared openutils.
 
 ## [v0.5.0] - 2024-05-11
