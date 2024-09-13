@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fixed panic in openutils.ObjectLen.
 
 ## [v0.5.1] - 2024-06-16
 ### Fixed

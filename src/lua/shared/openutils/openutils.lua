@@ -27,6 +27,10 @@ end
 
 -- ObjectLen returns count of elements in list.
 function openutils.ObjectLen(items)
+    if items == nil then
+        return 0
+    end
+
     local count = 0
     for _, item in pairs(items) do
         count = count + 1
