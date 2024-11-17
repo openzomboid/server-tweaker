@@ -1,19 +1,20 @@
-function isClient()
-    return true
-end
-
-function isServer()
-    return true
-end
-
+-- getFileWriter writes data to file.
+-- r  - read mode
+-- w  - write mode (overwrites existing)
+-- a  - append mode (appends to existing)
+-- b  - binary mode
+-- r+ - update mode (existing data preserved)
+-- w+ - update mode (existing data erased)
+-- a+ - append update mode (existing data preserved, append at end of file only)
+-- TODO: createIfNull is wrong here.
 function getFileWriter(filename, createIfNull, append)
-    local mode = "r+"
+    local mode = "w"
     if createIfNull == true then
         mode = "w+"
     elseif append == true then
         mode = "a"
     end
-
+    filename = os.getenv("TESTDATA_PATH") .. "/" .. filename
     local file = io.open(filename, mode)
 
     local writer = {}
@@ -40,7 +41,7 @@ function getFileReader(filename, createIfNull)
     if createIfNull == true then
         mode = "r+"
     end
-
+    filename = os.getenv("TESTDATA_PATH") .. "/" .. filename
     local file = io.open(filename, mode)
     local seek = 0
 

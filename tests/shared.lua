@@ -1,115 +1,50 @@
 --
--- Copyright (c) 2023 outdead.
+-- Copyright (c) 2021 outdead.
 -- Use of this source code is governed by the MIT license
 -- that can be found in the LICENSE file.
 --
 
 local pzPath = os.getenv("PZ_PATH")
 
+-- Import Tests utils.
+dofile "testutils/testutils.lua"
+
 -- Import Java zombie mock classes.
-dofile "mock/java/GlobalObject.lua"
-dofile "mock/java/SandboxVars.lua"
+testutils.dotdir('mock/java')
 
 -- Import Lua mock scripts.
+testutils.dotdir('mock/lua/mods')
 
--- Import Lua Project Zomboid original scripts.
+-- Import Lua shared Project Zomboid original scripts.
 dofile(pzPath.."/media/lua/shared/luautils.lua")
-
+dofile(pzPath.."/media/lua/shared/defines.lua")
+--testutils.dotdir(pzPath.."/media/lua/shared") -- TODO: Add all java lasses mock first.
 package.path = pzPath.."/media/lua/shared/" .. "?.lua;" .. package.path
 
--- Import Server Tweaker mod scripts.
-dofile "../src/lua/shared/openutils/OpenOptions/OpenOptions.lua"
-dofile "../src/lua/shared/openutils/openutils.lua"
+function InitTest()
+    -- TODO: Move SandboxVars to tests.
+    SandboxVars.LastDay = {}
+    SandboxVars.LastDay.LoggerDisabled = false
+    SandboxVars.LastDay.LoggerLevel = "debug"
 
-function Test_OpenOptions_New()
-    local testName = "Test_OpenOptions_New"
-    print("> " .. testName)
+    SandboxVars.Trader = {}
+    SandboxVars.Trader.SellDivider = 7
 
-    local function do_test(testCase, key, value, expected)
-        local options = OpenOptions:new("client-options-test", {
-            [key] =  {type = "bool", value = value},
-        });
+    -- Import Last Day mod scripts.
+    package.path = "../src/lua/shared/vendor/json.lua;" .. package.path
+    testutils.dotdir('../src/lua/shared')
 
-        local actual = options.GetBool(key)
-
-        if actual == expected then
-            print(">> " .. testName .. "." .. testCase .. ": Passed")
-            return true
-        else
-            print(">> " .. testName .. "." .. testCase .. ": expected: " .. tostring(expected) .. ", actual: " .. tostring(actual))
-            return false
-        end
-    end
-
-    os.remove("client-options-test.ini")
-
-    do_test("first", "highlight_safehouse", "true", true);
-    do_test("exists", "highlight_safehouse", "false", true);
-
-    os.remove("client-options-test.ini")
+    -- Import Last Day mod tests.
+    testutils.dotdirtests('../src/lua/shared')
 end
 
-function Test_OpenOptions_Set()
-    local testName = "Test_OpenOptions_Set"
-    print("> " .. testName)
+function ClearTest()
 
-    local function do_test(testCase, key, defaultValue, setValue, expected)
-        os.remove("lastday-test.ini")
-
-        local options = OpenOptions:new("client-options-test", {
-            [key] =  {type = "bool", value = defaultValue},
-        });
-
-        options.Set(key, {type = "bool", value = setValue})
-        --options.SetBool(key, setValue)
-
-        local actual = options.GetBool(key)
-
-        os.remove("client-options-test.ini")
-
-        if actual == expected then
-            print(">> " .. testName .. "." .. testCase .. ": Passed")
-            return true
-        else
-            print(">> " .. testName .. "." .. testCase .. ": expected: " .. tostring(expected) .. ", actual: " .. tostring(actual))
-            return false
-        end
-    end
-
-    do_test("first", "highlight_safehouse", false, true, true);
-    do_test("exists", "highlight_safehouse", true, false, false);
 end
 
-function Test_openutils_HasPermission()
-    local testName = "Test_openutils_HasPermission"
-    print("> " .. testName)
+InitTest()
 
-    local function do_test(testCase, characterRole, needleRole, expected)
-        local character = {}
-        character.getAccessLevel = function()
-            return characterRole
-        end
+--testutils.printTestFiles('../src/lua/shared')
+testutils.runtests()
 
-        local actual = openutils.HasPermission(character, needleRole)
-
-        if actual == expected then
-            print(">> " .. testName .. "." .. testCase .. ": Passed")
-            return true
-        else
-            print(">> " .. testName .. "." .. testCase .. ": expected: " .. tostring(expected) .. ", actual: " .. tostring(actual))
-            return false
-        end
-    end
-
-    do_test("user_greater", "admin", "moderator", true);
-    do_test("needle_greater", "moderator", "admin", false);
-    do_test("equal", "moderator", "moderator", true);
-    do_test("needle_greater2", "gm", "moderator", false);
-    do_test("user_not_exist", "not_exist", "moderator", false);
-    do_test("needle_not_exist", "moderator", "not_exist", false);
-    do_test("both_not_exist", "not_exist", "not_exist", false);
-end
-
-Test_OpenOptions_New()
-Test_OpenOptions_Set()
-Test_openutils_HasPermission()
+ClearTest()

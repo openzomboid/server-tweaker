@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2023 outdead.
-# Use of this source code is governed by the MIT license
-# that can be found in the LICENSE file.
-
 # BASEDIR contains tests.sh script directory name.
 # If system does not have readlink this test can not be
 # executed via a symbolic link in a different directory.
 BASEDIR=$(dirname "$(readlink -f "$BASH_SOURCE")")
 if [ "${BASEDIR}" == "." ]; then
-  BASEDIR=$(dirname "$BASH_SOURCE")
+    BASEDIR=$(dirname "$BASH_SOURCE")
 fi
 
 # DIR_TESTS contains directory name with test files.
@@ -21,62 +17,63 @@ FAIL=$(echo -e "[\033[0;31m fail \033[0m]")
 # mocks Project Zomboid server. Can be defined in env before running tests.sh script.
 # If not defined try to import from local config or find on disk.
 if [ -z "${PZ_PATH}" ]; then
-  # Import from local config file if exists.
-  FILE_CONFIG_LOCAL="${DIR_TESTS}/config-local.sh"
-  test -f "${FILE_CONFIG_LOCAL}" && . "${FILE_CONFIG_LOCAL}"
+    # Import from local config file if exists.
+    FILE_CONFIG_LOCAL="${DIR_TESTS}/config-local.sh"
+    test -f "${FILE_CONFIG_LOCAL}" && . "${FILE_CONFIG_LOCAL}"
 
-  # Try to find on disk.
-  if [ -z "${PZ_PATH}" ]; then
-    search_label="/media/lua/shared/luautils.lua"
-
-    # Exclude directories from search where Project Zomboid cannot be installed.
-    excluded=(/proc /tmp /dev /sys /snap /etc /var /run /snap /boot)
-    for ex in ${excluded[@]}; do
-      excluded_args="${excluded_args} -path ${ex} -prune -o"
-    done
-
-    PZ_PATH=$(find / ${excluded_args} -path "*${search_label}" -print -quit 2> /dev/null | sed "s#${search_label}##g")
-
+    # Try to find on disk.
     if [ -z "${PZ_PATH}" ]; then
-      echo -e "$FAIL Cannot find installed Project Zomboid for getting needed lua files." >&2
-      echo -e "[ info ] Please define PZ_PATH env with path to Prozect Zomboid before executing test script." >&2
-      echo -e "[ info ] Or place MEDIA_LUA_PATH declaration to the configuration file" >&2
-      echo -e "[ info ] ${FILE_CONFIG_LOCAL}" >&2
+        search_label="/media/lua/shared/luautils.lua"
 
-      exit 1
+        # Exclude directories from search where Project Zomboid cannot be installed.
+        excluded=(/proc /tmp /dev /sys /snap /etc /var /run /snap /boot)
+        for ex in ${excluded[@]}; do
+            excluded_args="${excluded_args} -path ${ex} -prune -o"
+        done
+
+        PZ_PATH=$(find / ${excluded_args} -path "*${search_label}" -print -quit 2> /dev/null | sed "s#${search_label}##g")
+
+        if [ -z "${PZ_PATH}" ]; then
+            echo -e "$FAIL Cannot find installed Project Zomboid for getting needed lua files." >&2
+            echo -e "[ info ] Please define PZ_PATH env with path to Prozect Zomboid before executing test script." >&2
+            echo -e "[ info ] Or place MEDIA_LUA_PATH declaration to the configuration file" >&2
+            echo -e "[ info ] ${FILE_CONFIG_LOCAL}" >&2
+
+            exit 1
+        fi
     fi
-  fi
 fi
 
 # Run lua tests.
 while [[ -n "$1" ]]; do
   case "$1" in
-    shared)
-      cd "${DIR_TESTS}" && echo "Starting shared tests..." \
-      && PZ_PATH=${PZ_PATH} lua ./shared.lua
-      exit ;;
-    server)
-      cd "${DIR_TESTS}" && echo "Starting server tests..." \
-      && PZ_PATH=${PZ_PATH} lua ./server.lua
-      exit ;;
-    client)
-      cd "${DIR_TESTS}" && echo "Starting server tests..." \
-      && PZ_PATH=${PZ_PATH} lua ./client.lua
-      exit ;;
-    *)
-      echo "$FAIL $1 is not an option" >&2
-      exit ;;
+        shared)
+            cd "${DIR_TESTS}" && echo "Starting shared tests..." \
+            && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./shared.lua
+            exit ;;
+        server)
+            cd "${DIR_TESTS}" && echo "Starting server tests..." \
+            && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./server.lua
+            exit ;;
+        client)
+            cd "${DIR_TESTS}" && echo "Starting client tests..." \
+            && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./client.lua
+            exit ;;
+        *)
+            echo "$FAIL $1 is not an option" >&2
+            exit ;;
   esac
 
   shift
 done
 
+# FIXME: Fix "is not an option" error
 cd "${DIR_TESTS}" \
   && echo "Starting shared tests..." \
-  && PZ_PATH=${PZ_PATH} lua ./shared.lua \
+  && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$1 lua ./shared.lua \
   && echo \
   && echo "Starting server tests..." \
-  && PZ_PATH=${PZ_PATH} lua ./server.lua \
+  && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$1 lua ./server.lua \
   && echo \
   && echo "Starting client tests..." \
-  && PZ_PATH=${PZ_PATH} lua ./client.lua
+  && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$1 lua ./client.lua

@@ -45,6 +45,8 @@ function make_release() {
     cp workshop/poster.png "${dir}"
     cp src -r "${dir}/media"
 
+    find "${dir}/media" -name '*_test.lua' -type f -delete
+
     cp LICENSE "${dir}"
     cp README.md "${dir}"
     cp CHANGELOG.md "${dir}"

@@ -1,3 +1,1 @@
 SandboxVars = {}
-
-SandboxVars.ServerTweaker = {}

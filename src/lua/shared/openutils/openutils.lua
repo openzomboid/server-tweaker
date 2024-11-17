@@ -14,7 +14,18 @@ openutils = {
     Role = {
         ["admin"] = 5, ["moderator"] = 4, ["overseer"]= 3, ["gm"] = 2, ["observer"] = 1, ["none"] = 0,
     },
+    json = require "vendor/json"
 }
+
+-- ConvertTableToJson returns json formatted string from table object.
+function openutils.ConvertTableToJson(tbl)
+    return openutils.json:encode(tbl)
+end
+
+-- ConvertJsonToTable returns table from json formatted string.
+function openutils.ConvertJsonToTable(data)
+    return openutils.json:decode(data)
+end
 
 -- BoolToString converts bool to string.
 function openutils.BoolToString(value)
