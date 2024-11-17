@@ -23,18 +23,13 @@ package.path = pzPath.."/media/lua/shared/" .. "?.lua;" .. package.path
 
 function InitTest()
     -- TODO: Move SandboxVars to tests.
-    SandboxVars.LastDay = {}
-    SandboxVars.LastDay.LoggerDisabled = false
-    SandboxVars.LastDay.LoggerLevel = "debug"
+    SandboxVars.ServerTweaker = {}
 
-    SandboxVars.Trader = {}
-    SandboxVars.Trader.SellDivider = 7
-
-    -- Import Last Day mod scripts.
+    -- Import mod scripts.
     package.path = "../src/lua/shared/vendor/json.lua;" .. package.path
     testutils.dotdir('../src/lua/shared')
 
-    -- Import Last Day mod tests.
+    -- Import mod tests.
     testutils.dotdirtests('../src/lua/shared')
 end
 
