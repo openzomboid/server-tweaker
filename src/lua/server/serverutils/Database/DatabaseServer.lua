@@ -115,7 +115,7 @@ function Bucket.writeFile(b)
     end
 
     if b.data ~= nil and openutils.ObjectLen(b.data) > 0 then
-        local encodeddata = ldutils.json:encode(b.data)
+        local encodeddata = openutils.json:encode(b.data)
         if encodeddata ~= nil then
             writer:write(encodeddata)
         end
@@ -146,7 +146,7 @@ function Bucket.readFile(b)
     end
 
     if rawdata ~= "" then
-        b.data = ldutils.json:decode(rawdata)
+        b.data = openutils.json:decode(rawdata)
     end
 
     return true

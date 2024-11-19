@@ -251,7 +251,7 @@ function DatabaseListTable.onFilterChange(entry, combo)
                 local colName = fieldName;
                 local value = fieldValue;
                 if type(value) == "table" then
-                    value = ldutils.ConvertTableToJson(value)
+                    value = openutils.ConvertTableToJson(value)
                 end
 
                 if filterTxt and filterTxt ~= "" and (colName == columnName and not luautils.stringStarts(string.lower(value), string.lower(filterTxt))) then
@@ -422,7 +422,7 @@ function DatabaseListTable:convertTableToKeyValueObject(tbl)
             local value = dbResult["value"]
 
             if key and value then
-                datas[key] = ldutils.ConvertJsonToTable(value)
+                datas[key] = openutils.ConvertJsonToTable(value)
             end
         end
     end
@@ -454,7 +454,7 @@ function DatabaseListTable:computeResult(datas)
         self.columnSize[colName] = currentSize;
 
         colName = "value";
-        data.datas[colName] = ldutils.ConvertTableToJson(value);
+        data.datas[colName] = openutils.ConvertTableToJson(value);
         currentSize = self.columnSize[colName];
         if not currentSize then currentSize = 0; end
 
@@ -478,7 +478,7 @@ function DatabaseListTable.getTableResult(datas, rowId, tableName)
     local view = DatabaseListViewer.instance.panel:getView(tableName)
     view.loading = false;
 
-    local len = ldutils.Count(datas)
+    local len = openutils.ObjectLen(datas)
 
     if len > 0 then
         if rowId == 0 then

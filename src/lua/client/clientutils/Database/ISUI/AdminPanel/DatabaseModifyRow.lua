@@ -167,7 +167,7 @@ function DatabaseModifyRow:onOptionMouseDown(button, x, y)
 
         if key ~= "" and value ~= "" then
             if self.buttonDatas[2].type == "JSON" then
-                value = ldutils.ConvertJsonToTable(value)
+                value = openutils.ConvertJsonToTable(value)
             end
 
             DatabaseClient.buckets[self.tableName].Save(key, value)
