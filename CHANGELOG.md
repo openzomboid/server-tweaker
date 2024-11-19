@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added ConsoleLogger shared openutil. ConsoleLogger implements simple logger to `server-console.txt` file.
 - Added `openutils.ConvertTableToJson` and `openutils.ConvertJsonToTable` functions to `openutils.lua`.
+- Added server-sided json-based database.
 
 ## [v0.5.1] - 2024-06-16
 ### Fixed
