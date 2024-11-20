@@ -154,7 +154,7 @@ end
 
 -- OnClientCommand handles client commands.
 function Bucket.OnClientCommand(module, command, character, args)
-    if module ~= "LastDay" then
+    if module ~= "ServerTweaker" then
         return
     end
 
@@ -200,7 +200,7 @@ function Bucket.OnClientCommand(module, command, character, args)
         })
     elseif command == "get" then
         if args.place then
-            sendServerCommand(character, "LastDay", args.place, {
+            sendServerCommand(character, "ServerTweaker", args.place, {
                 dbname = args.dbname,
                 command = command,
                 request_id = args.request_id,
@@ -280,7 +280,7 @@ end
 
 function Bucket.SendToAllPlayers(owner, args)
     -- Sync request owner first.
-    sendServerCommand(owner, "LastDay", "response", args)
+    sendServerCommand(owner, "ServerTweaker", "response", args)
 
     local onlineCharacters = getOnlinePlayers()
 
@@ -291,7 +291,7 @@ function Bucket.SendToAllPlayers(owner, args)
             logger.Debug("OpenStorage: SendToAllPlayers", {request_id = args.request_id, dbname = args.dbname, username = character:getUsername()})
 
             if character:getUsername() ~= owner:getUsername() then
-                sendServerCommand(character, "LastDay", "response", args)
+                sendServerCommand(character, "ServerTweaker", "response", args)
             end
         end
     end

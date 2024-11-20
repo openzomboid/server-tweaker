@@ -109,14 +109,14 @@ function Bucket.send(b, command, args)
     local character = getPlayer()
     args.request_id = openutils.NewUUID()
 
-    sendClientCommand(character, "LastDay", command, args)
+    sendClientCommand(character, "ServerTweaker", command, args)
 end
 
 -- OnServerCommand handles commands from server with db responses.
 function Bucket.OnServerCommand(module, command, args)
     if not isClient() then return end
 
-    if module ~= "LastDay" then
+    if module ~= "ServerTweaker" then
         return
     end
 

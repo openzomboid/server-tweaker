@@ -504,7 +504,7 @@ end
 function DatabaseListTable.OnServerCommand(module, command, args)
     if not isClient() then return end
 
-    if module ~= "LastDay" then
+    if module ~= "ServerTweaker" then
         return
     end
 
