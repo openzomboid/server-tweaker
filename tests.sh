@@ -47,21 +47,21 @@ fi
 # Run lua tests.
 while [[ -n "$1" ]]; do
   case "$1" in
-        shared)
-            cd "${DIR_TESTS}" && echo "Starting shared tests..." \
-            && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./shared.lua
-            exit ;;
-        server)
-            cd "${DIR_TESTS}" && echo "Starting server tests..." \
-            && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./server.lua
-            exit ;;
-        client)
-            cd "${DIR_TESTS}" && echo "Starting client tests..." \
-            && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./client.lua
-            exit ;;
-        *)
-            echo "$FAIL $1 is not an option" >&2
-            exit ;;
+      shared)
+          cd "${DIR_TESTS}" && echo "Starting shared tests..." \
+          && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./shared.lua
+          exit ;;
+      server)
+          cd "${DIR_TESTS}" && echo "Starting server tests..." \
+          && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./server.lua
+          exit ;;
+      client)
+          cd "${DIR_TESTS}" && echo "Starting client tests..." \
+          && PZ_PATH=${PZ_PATH} TESTDATA_PATH=${TESTDATA_PATH} TEST_PATTERN=$2 lua ./client.lua
+          exit ;;
+      *)
+          echo "$FAIL $1 is not an option" >&2
+          exit ;;
   esac
 
   shift
