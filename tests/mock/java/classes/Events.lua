@@ -174,3 +174,7 @@ Events.OnUseVehicle.Remove = function(event) end
 Events.OnVehicleHorn = {}
 Events.OnVehicleHorn.Add = function(event) end
 Events.OnVehicleHorn.Remove = function(event) end
+
+Events.OnConnected = {}
+Events.OnConnected.Add = function(event) end
+Events.OnConnected.Remove = function(event) end
