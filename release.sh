@@ -17,57 +17,56 @@ mkdir -p .tmp/release
 touch .tmp/release/checksum.txt
 
 function make_release() {
-    local dir_workshop=".tmp/release/${RELEASE_NAME}"
-    local dir="${dir_workshop}/Contents/mods/${MOD_NAME}"
+  local dir_workshop=".tmp/release/${RELEASE_NAME}"
+  local dir="${dir_workshop}/Contents/mods/${MOD_NAME}"
 
-    mkdir -p "${dir}"
+  mkdir -p "${dir}"
 
-    case $STAGE in
-        local)
-            cp workshop/local/workshop.txt "${dir_workshop}"
-            cp workshop/local/mod.info "${dir}"
-            ;;
-        test)
-            cp workshop/test/workshop.txt "${dir_workshop}"
-            cp workshop/test/mod.info "${dir}"
-            ;;
-        prod)
-            cp workshop/workshop.txt "${dir_workshop}"
-            cp workshop/mod.info "${dir}"
-            ;;
-        *)
-            echo "incorrect stage" >&2
-            exit 1
-            ;;
-    esac
+  case $STAGE in
+    local)
+      cp workshop/local/workshop.txt "${dir_workshop}"
+      cp workshop/local/mod.info "${dir}"
+      ;;
+    test)
+      cp workshop/test/workshop.txt "${dir_workshop}"
+      cp workshop/test/mod.info "${dir}"
+      ;;
+    prod)
+      cp workshop/workshop.txt "${dir_workshop}"
+      cp workshop/mod.info "${dir}"
+      ;;
+    *)
+      echo "incorrect stage" >&2
+      exit 1
+      ;;
+  esac
 
-    cp workshop/poster.png "${dir_workshop}/preview.png"
-    cp workshop/poster.png "${dir}"
-    cp src -r "${dir}/media"
+  cp workshop/poster.png "${dir_workshop}/preview.png"
+  cp workshop/poster.png "${dir}"
+  cp src -r "${dir}/media"
 
-    find "${dir}/media" -name '*_test.lua' -type f -delete
+  find "${dir}/media" -name '*_test.lua' -type f -delete
 
-    cp LICENSE "${dir}"
-    cp README.md "${dir}"
-    cp CHANGELOG.md "${dir}"
+  cp LICENSE "${dir}"
+  cp README.md "${dir}"
+  cp CHANGELOG.md "${dir}"
 
-    cd "${dir_workshop}/Contents/mods/"
+  cd "${dir_workshop}/Contents/mods/" && {
     tar -zcvf "../../../${RELEASE_NAME}.tar.gz" "${MOD_NAME}"
     zip -r "../../../${RELEASE_NAME}.zip" "${MOD_NAME}"
+  }
 
-    cd ../../../ && {
-        md5sum "${RELEASE_NAME}.tar.gz" >> checksum.txt;
-        md5sum "${RELEASE_NAME}.zip" >> checksum.txt;
-        cd ../../;
-    }
+  cd ../../../ && {
+    md5sum "${RELEASE_NAME}.tar.gz" >> checksum.txt;
+    md5sum "${RELEASE_NAME}.zip" >> checksum.txt;
+    cd ../../;
+  }
 }
 
 function install_release() {
-    rm -r ~/Zomboid/Workshop/"${MOD_NAME}"
-
-    cp -r  .tmp/release/"${RELEASE_NAME}" ~/Zomboid/Workshop/"${MOD_NAME}"
-
-    rm -r .tmp/release/"${RELEASE_NAME}"
+  rm -r ~/Zomboid/Workshop/"${MOD_NAME}"
+  cp -r  .tmp/release/"${RELEASE_NAME}" ~/Zomboid/Workshop/"${MOD_NAME}"
+  rm -r .tmp/release/"${RELEASE_NAME}"
 }
 
 make_release && install_release
