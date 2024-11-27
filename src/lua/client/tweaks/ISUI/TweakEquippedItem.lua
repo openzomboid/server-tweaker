@@ -77,10 +77,8 @@ TweakEquippedItem.ticks = function(ticks)
         return
     end
 
-    local storage = ClientTweaker.Storage
-
-    if storage then
-        local safehouses = storage.GetSafehouses()
+    if ClientTweaker.Cache then
+        local safehouses = ClientTweaker.Cache.GetSafehouses()
 
         if safehouses then
             local cell = getCell()

@@ -33,7 +33,7 @@ ClientTweaker = {
         ["BrushTool"] = {type = "bool", value = "false"},
     }),
     Items = OpenItemTweaker:new(),
-    Storage = nil,
+    Cache = nil,
 }
 
 -- TweakFirearmsSoundRadius returns SoundRadius to 41.56 values for firearms
@@ -117,7 +117,7 @@ local function OnGameStart()
     if SandboxVars.ServerTweaker.AddClientCache then
         local player = getPlayer();
         if player then
-            ClientTweaker.Storage = OpenCache:new(player:getUsername())
+            ClientTweaker.Cache = OpenCache:new(player:getUsername())
         end
     end
 
