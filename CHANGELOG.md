@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Added ConsoleLogger shared openutil. ConsoleLogger implements simple logger to `server-console.txt` file.
 - Added `openutils.ConvertTableToJson` and `openutils.ConvertJsonToTable` functions to `openutils.lua`.
 - Added server-sided json-based database.
+- Added suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation.
 
 ### Changed
 - Moved StoreAdminPower functionality to own folder.

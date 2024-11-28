@@ -34,4 +34,5 @@ Sandbox_PTBR = {
     Sandbox_SafehouseAreaLimit = "Limite de área de segurança",
     Sandbox_CheckSafehouseIntersections = "Verifique as interseções Safehouse",
     Sandbox_SafehouseDeadZone = "Zona morta da casa segura",
+    Sandbox_EnableSuicideCommand = "Active o comando de suicídio no chat",
 }

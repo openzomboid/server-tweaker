@@ -38,6 +38,7 @@ description=    [*] [b]HideTicketsFromPlayers[/b]
 description=    [*] [b]AdminsFreeAddToSafehouse[/b]
 description=    [*] [b]TakeSafehouseLimitations[/b]
 description=    [*] [b]CheckSafehouseIntersections[/b]
+description=    [*] [b]EnableSuicideCommand[/b]
 description=[/list]
 description=
 description=[h2]Disabled by default[/h2]

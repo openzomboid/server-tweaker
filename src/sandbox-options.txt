@@ -220,3 +220,10 @@ option ServerTweaker.SafehouseDeadZone {
   page        = ServerTweaker,
   translation = SafehouseDeadZone
 }
+
+option ServerTweaker.EnableSuicideCommand {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = EnableSuicideCommand
+}

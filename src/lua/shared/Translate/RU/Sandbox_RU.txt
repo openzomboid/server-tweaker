@@ -34,4 +34,5 @@ Sandbox_RU = {
     Sandbox_SafehouseAreaLimit = "Ограничение площади убежища",
     Sandbox_CheckSafehouseIntersections = "Проверять пересечения убежищ",
     Sandbox_SafehouseDeadZone = "Мертвая зона между убежищами (в тайлах)",
+    Sandbox_EnableSuicideCommand = "Включить команду suicide в чате",
 }

@@ -3,4 +3,5 @@ UI_RU = {
 
     -- New
     UI_mapspawn_SafehouseDescription = "Убежище <LINE> <LINE> Возрождение в вашем убежище.",
+    UI_SuicideConfirm = "Вы уверены, что хотите умереть?",
 }

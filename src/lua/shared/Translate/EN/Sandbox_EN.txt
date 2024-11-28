@@ -34,4 +34,5 @@ Sandbox_EN = {
     Sandbox_SafehouseAreaLimit = "Safehouse area limit",
     Sandbox_CheckSafehouseIntersections = "Check Safehouse intersections",
     Sandbox_SafehouseDeadZone = "Safehouse dead zone",
+    Sandbox_EnableSuicideCommand = "Enable suicide command in chat",
 }

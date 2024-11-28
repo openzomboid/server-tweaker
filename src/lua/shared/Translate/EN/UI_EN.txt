@@ -3,4 +3,5 @@ UI_EN = {
 
     -- New
     UI_mapspawn_SafehouseDescription = "Safehouse <LINE> <LINE> Respawn in your safehouse.",
+    UI_SuicideConfirm = "Are you sure you want to die?",
 }

@@ -3,4 +3,5 @@ UI_PTBR = {
 
     -- Novo
     UI_mapspawn_SafehouseDescription = "Safehouse <LINE> <LINE> Respawn em seu safehouse.",
+    UI_SuicideConfirm = "Tem a certeza que quer morrer?",
 }
