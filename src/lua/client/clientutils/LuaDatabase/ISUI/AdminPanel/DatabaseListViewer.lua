@@ -160,7 +160,7 @@ function DatabaseListViewer:onRemove(button, view)
 end
 
 function DatabaseListViewer:refresh()
-    for i,l in pairs(self.schema) do
+    for i, l in pairs(self.schema) do
         local cat1 = DatabaseListTable:new(0, 0, self.panel.width, self.panel.height - self.panel.tabHeight, i);
         cat1.columns = l;
         cat1:initialise();

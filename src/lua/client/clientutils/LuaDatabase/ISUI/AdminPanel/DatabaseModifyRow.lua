@@ -29,15 +29,13 @@ function DatabaseModifyRow:render()
     local x = 0;
 
     for name, type in pairs(self.columns) do
-        if type["name"] ~= "id" then
-            self:drawRect(xoff + x, 1 + yoff, 1, rowHgt - 1, 1, self.borderColor.r, self.borderColor.g, self.borderColor.b);
+        self:drawRect(xoff + x, 1 + yoff, 1, rowHgt - 1, 1, self.borderColor.r, self.borderColor.g, self.borderColor.b);
 
-            self:drawText(type["name"], xoff + x + 10, yoff + 1, 1,1,1,1,UIFont.Small);
-            if self.columnSize[type["name"]] then
-                x = x + self.columnSize[type["name"]];
-            else
-                x = x + 100;
-            end
+        self:drawText(type["name"], xoff + x + 10, yoff + 1, 1,1,1,1,UIFont.Small);
+        if self.columnSize[type["name"]] then
+            x = x + self.columnSize[type["name"]];
+        else
+            x = x + 100;
         end
     end
 end
@@ -66,6 +64,7 @@ function DatabaseModifyRow:new(x, y, width, height, view, clear)
     o.view = view;
     o.entriesPerPages = view.entriesPerPages;
     o.clear = clear
+
     return o;
 end
 
@@ -78,10 +77,8 @@ function DatabaseModifyRow:createChildren()
     local width = 10
 
     for _, type in pairs(self.columns) do
-        if type["name"] ~= "id" then
-            local size = self.columnSize[type["name"]] + 1;
-            width = width + size
-        end
+        local size = self.columnSize[type["name"]] + 1;
+        width = width + size
     end
 
     self:setWidth(width + 10)
@@ -105,49 +102,47 @@ function DatabaseModifyRow:createChildren()
     local entryHgt = FONT_HGT_MEDIUM + 2 * 2
 
     for _, type in pairs(self.columns) do
-        if type["name"] ~= "id" then
-            local size = self.columnSize[type["name"]] + 1;
-            if _ == #self.columns then
-                size = self.width - x - 10;
-            end
-
-            if type["type"] == "TEXT" or type["type"] == "INTEGER" or type["type"] == "JSON" then
-                if self.clear then
-                    self.entry = ISTextEntryBox:new("", x, y, size, entryHgt);
-                else
-                    self.entry = ISTextEntryBox:new(self.data[type["name"]], x, y, size, entryHgt);
-                end
-                self.entry.font = UIFont.Medium
-                self.entry:initialise();
-                self.entry:instantiate();
-                self.entry.columnName = type["name"];
-                self.entry.type = type["type"];
-
-                if type["type"] == "INTEGER" then
-                    self.entry:setOnlyNumbers(true);
-                end
-
-                self:addChild(self.entry);
-                table.insert(self.buttonDatas, self.entry);
-            elseif type["type"] == "BOOLEAN" then
-                self.combo = ISComboBox:new(x, y, size, entryHgt, nil,nil);
-                self.combo.font = UIFont.Medium
-                self.combo:initialise();
-                self:addChild(self.combo);
-                self.combo:addOption("true");
-                self.combo:addOption("false");
-
-                if self.data[type["name"]] == "false" or self.data[type["name"]] == "0" then
-                    self.combo.selected = 2;
-                end
-
-                self.combo.type = type["type"];
-                self.combo.columnName = type["name"];
-                table.insert(self.buttonDatas, self.combo);
-            end
-
-            x = x + self.columnSize[type["name"]];
+        local size = self.columnSize[type["name"]] + 1;
+        if _ == #self.columns then
+            size = self.width - x - 10;
         end
+
+        if type["type"] == "TEXT" or type["type"] == "INTEGER" or type["type"] == "JSON" then
+            if self.clear then
+                self.entry = ISTextEntryBox:new("", x, y, size, entryHgt);
+            else
+                self.entry = ISTextEntryBox:new(self.data[type["name"]], x, y, size, entryHgt);
+            end
+            self.entry.font = UIFont.Medium
+            self.entry:initialise();
+            self.entry:instantiate();
+            self.entry.columnName = type["name"];
+            self.entry.type = type["type"];
+
+            if type["type"] == "INTEGER" then
+                self.entry:setOnlyNumbers(true);
+            end
+
+            self:addChild(self.entry);
+            table.insert(self.buttonDatas, self.entry);
+        elseif type["type"] == "BOOLEAN" then
+            self.combo = ISComboBox:new(x, y, size, entryHgt, nil,nil);
+            self.combo.font = UIFont.Medium
+            self.combo:initialise();
+            self:addChild(self.combo);
+            self.combo:addOption("true");
+            self.combo:addOption("false");
+
+            if self.data[type["name"]] == "false" or self.data[type["name"]] == "0" then
+                self.combo.selected = 2;
+            end
+
+            self.combo.type = type["type"];
+            self.combo.columnName = type["name"];
+            table.insert(self.buttonDatas, self.combo);
+        end
+
+        x = x + self.columnSize[type["name"]];
     end
 
     self.close:setY(y + entryHgt + 20)

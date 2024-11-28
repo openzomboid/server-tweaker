@@ -16,7 +16,7 @@ function SuicideCommand.onCommandEntered(self)
     local command = ISChat.instance.textEntry:getText();
 
     if command and command ~= "" then
-        if SandboxVars.SerwerTweaker.EnableSuicideCommand and command == "/suicide" then
+        if SandboxVars.ServerTweaker.EnableSuicideCommand and command == "/suicide" then
             SuicideCommand.OnSuicideCommand()
             ISChat.instance.textEntry:setText("");
         end
