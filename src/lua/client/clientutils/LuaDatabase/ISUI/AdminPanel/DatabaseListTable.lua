@@ -50,15 +50,13 @@ function DatabaseListTable:render()
     local x = 0;
 
     for name, type in pairs(self.columns) do
-        if type["name"] ~= "id" then
-            self:drawRect(self.datas.x + x, 1 + self.datas.y - HEADER_HGT, 1, HEADER_HGT,1,self.borderColor.r, self.borderColor.g, self.borderColor.b);
+        self:drawRect(self.datas.x + x, 1 + self.datas.y - HEADER_HGT, 1, HEADER_HGT,1,self.borderColor.r, self.borderColor.g, self.borderColor.b);
 
-            self:drawText(type["name"], self.datas.x + x + 8, self.datas.y - HEADER_HGT + 2, 1,1,1,1,UIFont.Medium);
-            if self.columnSize[type["name"]] then
-                x = x + self.columnSize[type["name"]];
-            else
-                x = x + 100;
-            end
+        self:drawText(type["name"], self.datas.x + x + 8, self.datas.y - HEADER_HGT + 2, 1,1,1,1,UIFont.Medium);
+        if self.columnSize[type["name"]] then
+            x = x + self.columnSize[type["name"]];
+        else
+            x = x + 100;
         end
     end
 
@@ -177,39 +175,38 @@ function DatabaseListTable:createChildren()
     for _, type in pairs(self.columns) do
         local size = 100;
         local entryHgt = FONT_HGT_SMALL + 2 * 2
-        if type["name"] ~= "id" then
-            if type["type"] == "TEXT" or type["type"] == "INTEGER" or type["type"] == "JSON" then
-                self.entry = ISTextEntryBox:new("", 10,  self.datas.x + self.datas.height + 85, size, entryHgt);
-                self.entry.font = UIFont.Medium
-                self.entry:initialise();
-                self.entry:instantiate();
-                self.entry.columnName = type["name"];
-                self.entry.type = type["type"];
-                self.entry.tableName = self.tableName;
-                if type["type"] == "INTEGER" then
-                    self.entry:setOnlyNumbers(true);
-                end
-                self.entry.onTextChange = DatabaseListTable.onFilterChange;
-                self.entry.target = self;
-                self:addChild(self.entry);
-                table.insert(self.filters, self.entry);
-            end
 
-            if type["type"] == "BOOLEAN" then
-                self.combo = ISComboBox:new(10,  self.datas.x + self.datas.height + 85, size, entryHgt, nil,nil);
-                self.combo:initialise();
-                self:addChild(self.combo);
-                self.combo:addOption("");
-                self.combo:addOption("true");
-                self.combo:addOption("false");
-                self.combo.type = type["type"];
-                self.combo.columnName = type["name"];
-                self.combo.onChange = DatabaseListTable.onFilterChange;
-                self.combo.target = self;
-                self.combo.tableName = self.tableName;
-                self.combo.isComboBox = true;
-                table.insert(self.filters, self.combo);
+        if type["type"] == "TEXT" or type["type"] == "INTEGER" or type["type"] == "JSON" then
+            self.entry = ISTextEntryBox:new("", 10,  self.datas.x + self.datas.height + 85, size, entryHgt);
+            self.entry.font = UIFont.Medium
+            self.entry:initialise();
+            self.entry:instantiate();
+            self.entry.columnName = type["name"];
+            self.entry.type = type["type"];
+            self.entry.tableName = self.tableName;
+            if type["type"] == "INTEGER" then
+                self.entry:setOnlyNumbers(true);
             end
+            self.entry.onTextChange = DatabaseListTable.onFilterChange;
+            self.entry.target = self;
+            self:addChild(self.entry);
+            table.insert(self.filters, self.entry);
+        end
+
+        if type["type"] == "BOOLEAN" then
+            self.combo = ISComboBox:new(10,  self.datas.x + self.datas.height + 85, size, entryHgt, nil,nil);
+            self.combo:initialise();
+            self:addChild(self.combo);
+            self.combo:addOption("");
+            self.combo:addOption("true");
+            self.combo:addOption("false");
+            self.combo.type = type["type"];
+            self.combo.columnName = type["name"];
+            self.combo.onChange = DatabaseListTable.onFilterChange;
+            self.combo.target = self;
+            self.combo.tableName = self.tableName;
+            self.combo.isComboBox = true;
+            table.insert(self.filters, self.combo);
         end
     end
 end
@@ -271,6 +268,9 @@ function DatabaseListTable.onFilterChange(entry, combo)
                     end
 
                     if currentSize >= 200 then currentSize = 200; end
+                    if colName == "value" then
+                        if currentSize >= 700 then currentSize = 700; end
+                    end
 
                     view.columnSize[colName] = currentSize;
                 else
@@ -466,7 +466,7 @@ function DatabaseListTable:computeResult(datas)
             currentSize = getTextManager():MeasureStringX(UIFont.Large, colName) + 5;
         end
 
-        if currentSize >= 200 then currentSize = 200; end
+        if currentSize >= 700 then currentSize = 700; end
         self.columnSize[colName] = currentSize;
 
         self.datas:addItem(data.datas["username"], data);
