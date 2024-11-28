@@ -52,10 +52,10 @@ function Test_ConsoleLogger_log()
         return true
     end
 
-    do_test("Skip data1", "Test me in 1", "dsf", "ST DEBUG: Test me in 1");
-    do_test("Skip data2", "Test me in 2", {[1] = 3}, "ST DEBUG: Test me in 2 {}");
-    do_test("Add data", "Test me in 3", {data = "test", moredata = {ddata = "dadataaa"}}, 'ST DEBUG: Test me in 3 {"data": "test", "moredata": {"ddata": "dadataaa"}}');
-    do_test("No data", "Test me in 4", nil, "ST DEBUG: Test me in 4");
+    do_test("Skip data1", "Test me in 1", "dsf", "ConsoleLogger DEBUG: Test me in 1");
+    do_test("Skip data2", "Test me in 2", {[1] = 3}, "ConsoleLogger DEBUG: Test me in 2 {}");
+    do_test("Add data", "Test me in 3", {data = "test", moredata = {ddata = "dadataaa"}}, 'ConsoleLogger DEBUG: Test me in 3 {"data": "test", "moredata": {"ddata": "dadataaa"}}');
+    do_test("No data", "Test me in 4", nil, "ConsoleLogger DEBUG: Test me in 4");
 
     return passed
 end

@@ -170,11 +170,11 @@ function DatabaseModifyRow:onOptionMouseDown(button, x, y)
                 value = openutils.ConvertJsonToTable(value)
             end
 
-            DatabaseClient.buckets[self.tableName].Save(key, value)
+            LuaDatabaseClient.buckets[self.tableName].Save(key, value)
         end
 
         self.view:clear();
-        DatabaseClient.buckets[self.tableName].GetFromServer("DatabaseListTable")
+        LuaDatabaseClient.buckets[self.tableName].GetFromServer("DatabaseListTable")
         self:setVisible(false);
         self:removeFromUIManager();
     end

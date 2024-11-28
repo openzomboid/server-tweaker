@@ -4,29 +4,7 @@
 -- that can be found in the LICENSE file.
 --
 
--- isPlayerMemberOfSafehouse returns true if user is owner or member of safehouse.
--- TODO: Remove me. Use same function from openutils.
-local function isPlayerMemberOfSafehouse(username, safehouse)
-    if not instanceof(safehouse, 'SafeHouse') then
-        return false
-    end
-
-    if safehouse:getOwner() == username then
-        return true;
-    end;
-
-    local members = safehouse:getPlayers();
-
-    if members then
-        for j = 0, members:size() - 1 do
-            if members:get(j) == username then
-                return true
-            end
-        end
-    end
-end
-
-OpenCache = OpenCache or {}
+OpenCache = {}
 
 function OpenCache:new(username)
     local storage = {
@@ -71,7 +49,7 @@ function OpenCache:new(username)
         for i = 0, safehouseList:size() - 1 do
             local safehouse = safehouseList:get(i);
 
-            if isPlayerMemberOfSafehouse(storage.username, safehouse) then
+            if openutils.IsUsernameMemberOfSafehouse(storage.username, safehouse) then
                 storage.AddSafehouse(safehouse)
             end
         end

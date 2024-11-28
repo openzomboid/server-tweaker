@@ -516,7 +516,7 @@ function DatabaseListTable.OnServerCommand(module, command, args)
         return
     end
 
-    if not DatabaseClient.buckets[args.dbname] then
+    if not LuaDatabaseClient.buckets[args.dbname] then
         return
     end
 

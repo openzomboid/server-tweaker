@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2023 outdead.
+-- Copyright (c) 2024 outdead.
 -- Use of this source code is governed by the MIT license
 -- that can be found in the LICENSE file.
 --
@@ -11,7 +11,7 @@ ConsoleLogger = ConsoleLogger or {}
 function ConsoleLogger.GetConfig()
     return {
         Level = "debug",
-        Prefix = "ST ",
+        Prefix = "ConsoleLogger",
     }
 end
 
@@ -66,6 +66,7 @@ function ConsoleLogger.new()
         return str
     end
 
+    -- log prints log line.
     local function log(level, msg, ...)
         local args = {...}
         local fields = args[1]
@@ -76,19 +77,23 @@ function ConsoleLogger.new()
             return nil
         end
 
-        local prefix = ""
+        local prefix = config.Prefix
+        if prefix ~= "" then
+            prefix = prefix .. " "
+        end
+
         if level == 0 then
             return nil
         elseif level == 1 then
-            prefix = config.Prefix .. "TRACE: "
+            prefix = prefix .. "TRACE: "
         elseif level == 2 then
-            prefix = config.Prefix .. "DEBUG: "
+            prefix = prefix .. "DEBUG: "
         elseif level == 3 then
-            prefix = config.Prefix .. "INFO: "
+            prefix = prefix .. "INFO: "
         elseif level == 4 then
-            prefix = config.Prefix .. "WARNING: "
+            prefix = prefix .. "WARNING: "
         elseif level == 5 then
-            prefix = config.Prefix .. "ERROR: "
+            prefix = prefixx .. "ERROR: "
         end
 
         if fields and type(fields) == "table" then
@@ -108,6 +113,7 @@ function ConsoleLogger.new()
     function logger.Warning(msg, ...) log(4, msg, ...) end
     function logger.Error(msg, ...) log(5, msg, ...) end
 
+    -- Customize imports config.
     function logger.Customize(cfg)
         if not cfg then
             return "receive empty config"
@@ -126,6 +132,7 @@ function ConsoleLogger.new()
         return nil
     end
 
+    -- SetOutput changes stream to print log lines.
     function logger.SetOutput(out)
         if out ~= nil and type(out) == "table" then
             output = out

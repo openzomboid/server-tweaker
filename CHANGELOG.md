@@ -12,6 +12,11 @@ All notable changes to this project will be documented in this file.
 - Added `openutils.ConvertTableToJson` and `openutils.ConvertJsonToTable` functions to `openutils.lua`.
 - Added server-sided json-based database.
 
+### Changed
+- Moved StoreAdminPower functionality to own folder.
+- Moved TweakFirearmsSoundRadius functionality to own IncreaseFirearmsSoundRadius folder.
+- Function `openutils.IsPlayerMemmberOfSafehouse` was deprecated. It will be deleted on next release. Use `openutils.IsUsernameMemberOfSafehouse` instead.
+
 ## [v0.5.1] - 2024-06-16
 ### Fixed
 - Fixed the ability for the administrator to interact with a vehicle that is in another player’s safehouse. Switch Vehicles Mechanics cheat to turn it on or off.
@@ -22,9 +27,9 @@ All notable changes to this project will be documented in this file.
 ## [v0.5.0] - 2024-05-11
 ### Fixed
 - Added translation to Coordinates block on characters detail view.
-- Fixed destroy cursor in safehouses. Now you cannot destroy stuff inside last lines of Safehouses. To enable this tweak set `FixDestroyCursorInSafehouse` to true in sandbox options.
 
 ### Added
+- Added tweak for destroy cursor in safehouses. Now you cannot destroy stuff inside last lines of Safehouses. To enable this tweak set `FixDestroyCursorInSafehouse` to true in sandbox options.
 - Added new features to admins in the vehicle mechanics window. Now admins can reset truck repairs count and can change engine quality. Thanks Di-Crash for basic implementation!
 - Added allowing for GM (and higher levelled users) to change character's stats. To enable this tweak set `AllowAdminToolsForGM` to true in sandbox options.
 - Added for GM (and higher levelled users) "Change recording" function to VHS.

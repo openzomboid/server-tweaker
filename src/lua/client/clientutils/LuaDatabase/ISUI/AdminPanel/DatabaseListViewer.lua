@@ -50,7 +50,7 @@ function DatabaseListViewer:render()
 end
 
 function DatabaseListViewer:onActivateView()
-    DatabaseClient.buckets[self.panel.activeView.view.tableName].GetFromServer("DatabaseListTable")
+    LuaDatabaseClient.buckets[self.panel.activeView.view.tableName].GetFromServer("DatabaseListTable")
     self.activeView = self.panel.activeView.view;
     self.activeView:clear();
 end
@@ -139,7 +139,7 @@ function DatabaseListViewer:onOptionMouseDown(button, x, y)
         self.activeView:clear();
         self.activeView:clearFilters();
         --getTableResult(self.activeView.tableName, self.activeView.entriesPerPages);
-        DatabaseClient.buckets[self.activeView.tableName].GetFromServer("DatabaseListTable")
+        LuaDatabaseClient.buckets[self.activeView.tableName].GetFromServer("DatabaseListTable")
     end
 
     if button.internal == "DELETE" then
@@ -153,9 +153,9 @@ end
 function DatabaseListViewer:onRemove(button, view)
     if button.internal == "YES" then
         local key = view.datas.items[view.datas.selected].item.datas[view.columns[1].name]
-        DatabaseClient.buckets[view.tableName].Delete(key)
+        LuaDatabaseClient.buckets[view.tableName].Delete(key)
         view:clear();
-        DatabaseClient.buckets[view.tableName].GetFromServer("DatabaseListTable")
+        LuaDatabaseClient.buckets[view.tableName].GetFromServer("DatabaseListTable")
     end
 end
 
@@ -169,7 +169,7 @@ function DatabaseListViewer:refresh()
 
         if not self.activeView then
             self.activeView = cat1;
-            DatabaseClient.buckets[i].GetFromServer("DatabaseListTable")
+            LuaDatabaseClient.buckets[i].GetFromServer("DatabaseListTable")
             cat1.loading = true;
         end
     end
@@ -188,7 +188,7 @@ end
 function DatabaseListViewer.getDBSchema()
     local schema = {}
 
-    local buckets = DatabaseClient.buckets
+    local buckets = LuaDatabaseClient.buckets
 
     for dbname, bucket in pairs(buckets) do
         schema[dbname] = {}

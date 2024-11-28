@@ -203,7 +203,36 @@ function openutils.CanBeSafehouse(square, character, options)
     return ""
 end
 
+-- IsUsernameMemberOfSafehouse returns true if username is a member of safehouse.
+function openutils.IsUsernameMemberOfSafehouse(username, safehouse)
+    if not safehouse or username then
+        return false
+    end
+
+    if not instanceof(safehouse, 'SafeHouse') then
+        return false
+    end
+
+    if safehouse:getOwner() == username then
+        return true;
+    end;
+
+    local members = safehouse:getPlayers();
+
+    if members then
+        for j = 0, members:size() - 1 do
+            if members:get(j) == username then
+                return true
+            end
+        end
+    end
+
+    return false;
+end
+
 -- IsPlayerMemmberOfSafehouse returns true if character is a member of safehouse.
+-- Deprecated: Use function IsUsernameMemberOfSafehouse.
+-- TODO: Remove me.
 function openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
     local username = character:getUsername();
 
@@ -227,7 +256,7 @@ end
 -- IsPlayerAllowedActionInSafehouse returns true if character is an admin
 -- on a member of safehouse.
 function openutils.IsPlayerAllowedActionInSafehouse(character, safehouse)
-    local allowed = openutils.IsPlayerMemmberOfSafehouse(character, safehouse)
+    local allowed = openutils.IsUsernameMemberOfSafehouse(character:getUsername(), safehouse)
     if allowed then
         return allowed
     end

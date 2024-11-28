@@ -19,7 +19,7 @@ local Bucket = {
     }
 }
 
--- new creates instance of DatabaseServer and defines their methods.
+-- new creates bucket for LuaDatabaseServer and defines their methods.
 function Bucket.new(name)
     name = name or "open-storage"
 
@@ -170,24 +170,24 @@ function Bucket.OnClientCommand(module, command, character, args)
         return
     end
 
-    if not DatabaseServer.buckets[args.dbname] then
+    if not LuaDatabaseServer.buckets[args.dbname] then
         return
     end
 
     local responseID = openutils.NewUUID()
 
-    logger.Debug("OpenStorage: OnClientCommand validated", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
+    logger.Debug("LuaDatabase: OnClientCommand validated", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
 
-    local db = DatabaseServer.buckets[args.dbname]
+    local db = LuaDatabaseServer.buckets[args.dbname]
     if not db then
-        logger.Error("OpenStorage: db is not open or not exist", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
+        logger.Error("LuaDatabase: db is not open or not exist", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
         return
     end
 
     if command == "put" then
         local ok = db.Put(args.data)
         if not ok then
-            logger.Error("OpenStorage: failed put to db", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
+            logger.Error("LuaDatabase: failed put to db", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
             return
         end
 
@@ -219,7 +219,7 @@ function Bucket.OnClientCommand(module, command, character, args)
     elseif command == "batch" then
         local ok = db.Batch(args.key_name, args.objects)
         if not ok then
-            logger.Error("OpenStorage: failed batch save to db", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
+            logger.Error("LuaDatabase: failed batch save to db", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
             return
         end
 
@@ -234,7 +234,7 @@ function Bucket.OnClientCommand(module, command, character, args)
     elseif command == "save" then
         local ok = db.Save(args.key, args.value)
         if not ok then
-            logger.Error("OpenStorage: failed save to db", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
+            logger.Error("LuaDatabase: failed save to db", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
             return
         end
 
@@ -249,7 +249,7 @@ function Bucket.OnClientCommand(module, command, character, args)
     elseif command == "view" then
         local data = db.View(args.key)
         if not data then
-            logger.Error("OpenStorage: key \"" .. args.key .. "\" not found", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
+            logger.Error("LuaDatabase: key \"" .. args.key .. "\" not found", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
             return
         end
 
@@ -264,7 +264,7 @@ function Bucket.OnClientCommand(module, command, character, args)
     elseif command == "delete" then
         local ok = db.Delete(args.key)
         if not ok then
-            logger.Error("OpenStorage: key \"" .. args.key .. "\" not found", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
+            logger.Error("LuaDatabase: key \"" .. args.key .. "\" not found", {request_id = args.request_id, dbname = args.dbname, command = command, response_id = responseID})
             return
         end
 
@@ -288,7 +288,7 @@ function Bucket.SendToAllPlayers(owner, args)
         local character = onlineCharacters:get(i)
 
         if character and not character:isDead() then
-            logger.Debug("OpenStorage: SendToAllPlayers", {request_id = args.request_id, dbname = args.dbname, username = character:getUsername()})
+            logger.Debug("LuaDatabase: SendToAllPlayers", {request_id = args.request_id, dbname = args.dbname, username = character:getUsername()})
 
             if character:getUsername() ~= owner:getUsername() then
                 sendServerCommand(character, "ServerTweaker", "response", args)
@@ -299,18 +299,18 @@ end
 
 Events.OnClientCommand.Add(Bucket.OnClientCommand)
 
-DatabaseServer = {
+LuaDatabaseServer = {
     buckets = {}
 }
 
-function DatabaseServer.Open(name)
+function LuaDatabaseServer.Open(name)
     if not name or type(name) ~= "string" or name == "" then
         return nil
     end
 
-    logger.Debug("OpenStorage: open storage \"" .. name .. "\"")
+    logger.Debug("LuaDatabase: open storage \"" .. name .. "\"")
 
-    DatabaseServer.buckets[name] = Bucket.new(name)
+    LuaDatabaseServer.buckets[name] = Bucket.new(name)
 
-    return DatabaseServer.buckets[name]
+    return LuaDatabaseServer.buckets[name]
 end

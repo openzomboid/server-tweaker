@@ -49,7 +49,7 @@ TweakVehicleMenu.doTowingMenu = function(playerObj, vehicle, menu)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         return
     end
 
@@ -61,7 +61,7 @@ TweakVehicleMenu.doTowingMenu = function(playerObj, vehicle, menu)
         local yB = math.floor(squareB:getY())
 
         local safehouseB = openutils.GetSafehouseByXY(xB, yB)
-        if safehouseB and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouseB) and not openutils.IsVehicleCheat() then
+        if safehouseB and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouseB) and not openutils.IsVehicleCheat() then
             return
         end
 
@@ -92,7 +92,7 @@ TweakVehicleMenu.doTowingMenu = function(playerObj, vehicle, menu)
         local yB = math.floor(squareB:getY())
 
         local safehouseB = openutils.GetSafehouseByXY(xB, yB)
-        if safehouseB and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouseB) and not openutils.IsVehicleCheat() then
+        if safehouseB and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouseB) and not openutils.IsVehicleCheat() then
             return
         end
 
@@ -113,7 +113,7 @@ TweakVehicleMenu.doTowingMenu = function(playerObj, vehicle, menu)
         local yB = math.floor(squareB:getY())
 
         local safehouseB = openutils.GetSafehouseByXY(xB, yB)
-        if safehouseB and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouseB) and not openutils.IsVehicleCheat() then
+        if safehouseB and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouseB) and not openutils.IsVehicleCheat() then
             return
         end
 
@@ -135,7 +135,7 @@ TweakVehicleMenu.doTowingMenu = function(playerObj, vehicle, menu)
         local yB = math.floor(squareB:getY())
 
         local safehouseB = openutils.GetSafehouseByXY(xB, yB)
-        if safehouseB and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouseB) and not openutils.IsVehicleCheat() then
+        if safehouseB and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouseB) and not openutils.IsVehicleCheat() then
             return
         end
 
@@ -180,7 +180,7 @@ TweakVehicleMenu.OnFillWorldObjectContextMenu = function(player, context, worldo
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(character, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(character:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         return
     end
 
@@ -216,7 +216,7 @@ TweakVehicleMenu.showRadialMenuOutside = function(character)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(character, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(character:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         character:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
         return
     end
@@ -238,7 +238,7 @@ TweakVehicleMenu.onEnter = function(playerObj, vehicle, seat)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         playerObj:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
         return
     end
@@ -260,7 +260,7 @@ TweakVehicleMenu.onEnter2 = function(playerObj, vehicle, seat)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         playerObj:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
         return
     end
@@ -282,7 +282,7 @@ TweakVehicleMenu.onEnterAux = function(playerObj, vehicle, seat)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         playerObj:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
         return
     end
@@ -304,7 +304,7 @@ TweakVehicleMenu.onEnterAux2 = function(playerObj, vehicle, seat)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(playerObj, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(playerObj:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         playerObj:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
         return
     end

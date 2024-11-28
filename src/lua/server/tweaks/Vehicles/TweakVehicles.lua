@@ -28,7 +28,7 @@ TweakVehicles.Use.EngineDoor = function(vehicle, part, character)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(character, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(character:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         character:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
         return
     end
@@ -50,7 +50,7 @@ TweakVehicles.Use.TrunkDoor = function(vehicle, part, character)
     local y = math.floor(square:getY())
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(character, safehouse) and not openutils.IsVehicleCheat() then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(character:getUsername(), safehouse) and not openutils.IsVehicleCheat() then
         character:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
         return
     end

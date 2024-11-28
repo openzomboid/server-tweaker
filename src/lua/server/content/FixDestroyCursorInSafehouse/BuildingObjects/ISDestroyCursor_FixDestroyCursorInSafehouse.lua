@@ -24,7 +24,7 @@ function ISDestroyCursor_FixDestroyCursorInSafehouse.isValid(self, square)
     local y = square:getY()
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(self.character, safehouse) then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(self.character:getUsername(), safehouse) then
         if openutils.IsInSafehouseSouthExtraLine(safehouse, x, y) or openutils.IsInSafehouseEastExtraLine(safehouse, x, y) then
             return true
         end

@@ -9,10 +9,10 @@ local logger = ConsoleLogger.new()
 local Bucket = {
     commands = {
         ["response"] = true,
-    },
-    response = {}
+    }
 }
 
+-- new creates bucket for LuaDatabaseClient and defines their methods.
 function Bucket.new(name)
     name = name or "open-storage"
 
@@ -132,13 +132,13 @@ function Bucket.OnServerCommand(module, command, args)
         return
     end
 
-    if not DatabaseClient.buckets[args.dbname] then
+    if not LuaDatabaseClient.buckets[args.dbname] then
         return
     end
 
     local character = getPlayer()
 
-    logger.Debug("OpenStorage: OnServerCommand validated", {
+    logger.Debug("LuaDatabase: OnServerCommand validated", {
         request_id = args.request_id,
         dbname = args.dbname,
         command = command,
@@ -150,32 +150,32 @@ function Bucket.OnServerCommand(module, command, args)
 
     if command == "response" then
         if args.command == "put" then
-            DatabaseClient.buckets[args.dbname].data = args.data
+            LuaDatabaseClient.buckets[args.dbname].data = args.data
         elseif args.command == "get" then
-            DatabaseClient.buckets[args.dbname].data = args.data
+            LuaDatabaseClient.buckets[args.dbname].data = args.data
         elseif args.command == "batch" then
             for _, line in pairs(args.objects) do
                 if line[args.key_name] then
-                    DatabaseClient.buckets[args.dbname].data[args.key_name] = line[args.key_name]
+                    LuaDatabaseClient.buckets[args.dbname].data[args.key_name] = line[args.key_name]
                 end
             end
         elseif args.command == "save" then
-            DatabaseClient.buckets[args.dbname].data[args.key] = args.value
+            LuaDatabaseClient.buckets[args.dbname].data[args.key] = args.value
         elseif args.command == "view" then
-            DatabaseClient.buckets[args.dbname].data[args.key] = args.value
+            LuaDatabaseClient.buckets[args.dbname].data[args.key] = args.value
         elseif args.command == "delete" then
-            DatabaseClient.buckets[args.dbname].data[args.key] = nil
+            LuaDatabaseClient.buckets[args.dbname].data[args.key] = nil
         end
     end
 end
 
 Events.OnServerCommand.Add(Bucket.OnServerCommand);
 
-DatabaseClient = {
+LuaDatabaseClient = {
     buckets = {}
 }
 
-function DatabaseClient.Open(name)
+function LuaDatabaseClient.Open(name)
     if not name or type(name) ~= "string" or name == "" then
         return nil
     end
@@ -188,13 +188,13 @@ function DatabaseClient.Open(name)
         if character then
             Events.OnTick.Remove(ticker.OnTick);
 
-            DatabaseClient.buckets[name] = Bucket.new(name)
+            LuaDatabaseClient.buckets[name] = Bucket.new(name)
 
-            logger.Debug("OpenStorage: complete open storage \"" .. name .. "\"")
+            logger.Debug("LuaDatabase: complete open storage \"" .. name .. "\"")
         end
     end
 
     Events.OnTick.Add(ticker.OnTick);
 
-    logger.Debug("OpenStorage: start open storage \"" .. name .. "\"")
+    logger.Debug("LuaDatabase: start open storage \"" .. name .. "\"")
 end

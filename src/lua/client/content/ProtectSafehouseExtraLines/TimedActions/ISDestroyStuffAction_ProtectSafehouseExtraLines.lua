@@ -74,7 +74,7 @@ function ISDestroyStuffAction_ProtectSafehouseExtraLines.isValid(self)
     local texture = self.item:getTextureName()
 
     local safehouse = openutils.GetSafehouseByXY(x, y)
-    if safehouse and not openutils.IsPlayerMemmberOfSafehouse(self.character, safehouse) then
+    if safehouse and not openutils.IsUsernameMemberOfSafehouse(self.character:getUsername(), safehouse) then
         if openutils.IsInSafehouseSouthEastExtraTile(safehouse, x, y) then
             return true
         end
