@@ -85,7 +85,7 @@ function testutils.runtests()
         end
     end
 
-    table.sort(ordered, function (a,b) return (a.name < b.name) end)
+    table.sort(ordered, function (a, b) return (a.name < b.name) end)
 
     for _, value in ipairs(ordered) do
             print("[ RUN  ] " .. value.name)
