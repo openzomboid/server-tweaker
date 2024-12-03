@@ -10,8 +10,6 @@ end
 
 testutils = {}
 
-testutils.tests = {}
-
 -- scandir recursively finds all lua files in directory and returns them.
 function testutils.scandir(directory)
     local i, t, popen = 0, {}, io.popen
@@ -69,6 +67,10 @@ function testutils.len(obj)
 end
 
 function testutils.runtests()
+    if not testutils.tests then
+        testutils.tests = {}
+    end
+
     local testPattern = os.getenv("TEST_PATTERN")
 
     local ordered = {}
