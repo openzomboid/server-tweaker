@@ -26,7 +26,7 @@ function testutils.scandir(directory)
 end
 
 function testutils.dotdir(directory)
-    for k, v in pairs(testutils.scandir(directory)) do
+    for _, v in pairs(testutils.scandir(directory)) do
         if string.sub(v, -4) == '.lua' and not v:find('_test.lua') then
             dofile(v)
         end
@@ -34,7 +34,7 @@ function testutils.dotdir(directory)
 end
 
 function testutils.dotdirtests(directory)
-    for k, v in pairs(testutils.scandir(directory)) do
+    for _, v in pairs(testutils.scandir(directory)) do
         if string.sub(v, -4) == '.lua' and v:find('_test.lua') then
             dofile(v)
         end
@@ -42,7 +42,7 @@ function testutils.dotdirtests(directory)
 end
 
 function testutils.printTestFiles(directory)
-    for k, v in pairs(testutils.scandir(directory)) do
+    for _, v in pairs(testutils.scandir(directory)) do
         if string.sub(v, -4) == '.lua' and v:find('_test.lua') then
             print(v)
         end
