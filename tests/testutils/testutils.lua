@@ -25,6 +25,7 @@ function testutils.scandir(directory)
     return t
 end
 
+-- dotdir executes files in directory.
 function testutils.dotdir(directory)
     for _, v in pairs(testutils.scandir(directory)) do
         if string.sub(v, -4) == '.lua' and not v:find('_test.lua') then
