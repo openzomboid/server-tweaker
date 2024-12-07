@@ -52,15 +52,22 @@ function testutils.printTestFiles(directory)
     end
 end
 
+-- testutils.green wraps text green to green color.
 function testutils.green(msg)
     return "\27[32m" .. msg.. "\27[0m"
 end
 
+-- testutils.red wraps text green to green red.
 function testutils.red(msg)
     return "\27[31m" .. msg.. "\27[0m"
 end
 
+-- len returns count of elements in list.
 function testutils.len(obj)
+    if obj == nil then
+        return 0
+    end
+
     local c = 0
     for _ in pairs(obj) do
         c = c + 1
