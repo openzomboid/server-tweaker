@@ -76,6 +76,7 @@ function testutils.len(obj)
     return c
 end
 
+-- runtests starts test files.
 function testutils.runtests()
     if not testutils.tests then
         testutils.tests = {}
