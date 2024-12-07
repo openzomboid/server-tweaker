@@ -43,6 +43,7 @@ function testutils.dotdirtests(directory)
     end
 end
 
+-- printTestFiles prints "*._test.lua" files in directory.
 function testutils.printTestFiles(directory)
     for _, v in pairs(testutils.scandir(directory)) do
         if string.sub(v, -4) == '.lua' and v:find('_test.lua') then
