@@ -14,7 +14,7 @@ ClientTweaker = {
 }
 
 -- OnGameStart adds callback for OnGameStart global event.
-local function OnGameStart()
+function ClientTweaker.OnGameStart()
     if SandboxVars.ServerTweaker.AddClientCache then
         local player = getPlayer();
         if player then
@@ -22,14 +22,9 @@ local function OnGameStart()
         end
     end
 
-    if SandboxVars.ServerTweaker.TweakOverlayText then
-        setShowConnectionInfo(true);
-        setShowServerInfo(false);
-    end
-
     if SandboxVars.ServerTweaker.SaveClientOptions then
         setShowPingInfo(ClientTweaker.Options.GetBool("show_ping"));
     end
 end
 
-Events.OnGameStart.Add(OnGameStart);
+Events.OnGameStart.Add(ClientTweaker.OnGameStart);
