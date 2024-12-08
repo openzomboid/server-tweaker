@@ -13,6 +13,15 @@ openutils = {
     json = require "vendor/json"
 }
 
+-- BoolToString converts bool to string.
+function openutils.BoolToString(value)
+    if value == true then
+        return "true"
+    end
+
+    return "false"
+end
+
 -- ConvertTableToJson returns json formatted string from table object.
 function openutils.ConvertTableToJson(tbl)
     return openutils.json:encode(tbl)
@@ -21,15 +30,6 @@ end
 -- ConvertJsonToTable returns table from json formatted string.
 function openutils.ConvertJsonToTable(data)
     return openutils.json:decode(data)
-end
-
--- BoolToString converts bool to string.
-function openutils.BoolToString(value)
-    if value == true then
-        return "true"
-    end
-
-    return "false"
 end
 
 -- ObjectLen returns count of elements in list.
@@ -69,11 +69,6 @@ function openutils.PrintTableRecursive(tbl, indent, depth)
     end
 end
 
--- PrintEvents prints loaded events to console.
-function openutils.PrintEvents()
-    print (openutils.PrintObject(Events));
-end
-
 -- RemoveDuplicates removes duplicates from list.
 function openutils.RemoveDuplicates(list)
     local result, seen = {}, {}
@@ -86,6 +81,130 @@ function openutils.RemoveDuplicates(list)
     end
 
     return result
+end
+
+-- CopyObject copies object. Copies only root level.
+function openutils.CopyObject(object)
+    if not object then return object end
+
+    local u = {}
+    for k, v in pairs(object) do u[k] = v end
+
+    return setmetatable(u, getmetatable(object))
+end
+
+-- DeepCopyObject copies object. To start copy all object keep "seen" var nil.
+function openutils.DeepCopyObject(o, seen)
+    seen = seen or {}
+    if o == nil then return nil end
+    if seen[o] then return seen[o] end
+
+    local no
+    if type(o) == 'table' then
+        no = {}
+        seen[o] = no
+
+        for k, v in pairs(o) do
+            no[k] = openutils.DeepCopyObject(v, seen)
+        end
+
+        setmetatable(no, openutils.DeepCopyObject(getmetatable(o), seen))
+    else -- number, string, boolean, etc
+        no = o
+    end
+
+    return no
+end
+
+-- GetRandomElements returns random elements from table object.
+function openutils.GetRandomElements(objects, num)
+    local result = {}
+    local keys = {}
+
+    for k in pairs(objects) do
+        table.insert(keys, k)
+    end
+
+    if #keys <= num then
+        return objects
+    end
+
+    for i=1, num do
+        local randNumber = openutils.RandomInt(1, #keys)
+        local key = keys[randNumber]
+
+        if result[key] == nil then
+            result[key] = objects[key]
+        end
+    end
+
+    return result
+end
+
+-- PrintEvents prints loaded events to console.
+function openutils.PrintEvents()
+    print (openutils.PrintObject(Events));
+end
+
+-- GetGlobalFunctions returns all global functions names.
+function openutils.GetGlobalFunctions()
+    local array = {};
+
+    for name, value in pairs(_G) do
+        if type(value) == 'function' and string.find(tostring(value), 'function ') == 1 then
+            table.insert(array, name);
+        end
+    end
+
+    table.sort(array, function(a, b) return a:upper() < b:upper() end);
+
+    return array;
+end
+
+-- ExecAfterTicks executes function fn after n ticks.
+-- If n == 0 immediately executes fn.
+-- If n < 0 does nothing.
+-- Not supported args to callback function.
+function openutils.ExecAfterTicks(fn, n)
+    if n == 0 then
+        fn()
+        return
+    elseif n < 0 then
+        return
+    end
+
+    local c = 0
+    local ticker = {}
+
+    ticker.OnTick = function()
+        c = c + 1
+
+        if c == n then
+            Events.OnTick.Remove(ticker.OnTick);
+
+            fn();
+        end
+    end
+
+    Events.OnTick.Add(ticker.OnTick);
+end
+
+-- ExecAfterCharacterCreated executes function fn after character created on event .
+-- Not supported args to callback function.
+function openutils.ExecAfterCharacterCreated(fn)
+    local ticker = {}
+
+    ticker.OnTick = function()
+        local character = getPlayer();
+
+        if character then
+            Events.OnTick.Remove(ticker.OnTick);
+
+            fn();
+        end
+    end
+
+    Events.OnTick.Add(ticker.OnTick);
 end
 
 -- IsPointInRectangle returns true if XY point is inside the rectangle.
@@ -329,65 +448,4 @@ function openutils.IsVehicleCheat()
     local cheat = getCore():getDebug() and getDebugOptions():getBoolean("Cheat.Vehicle.MechanicsAnywhere")
 
     return ISVehicleMechanics.cheat or cheat
-end
-
--- ExecAfterTicks executes function fn after n ticks.
--- If n == 0 immediately executes fn.
--- If n < 0 does nothing.
--- Not supported args to callback function.
-function openutils.ExecAfterTicks(fn, n)
-    if n == 0 then
-        fn()
-        return
-    elseif n < 0 then
-        return
-    end
-
-    local c = 0
-    local ticker = {}
-
-    ticker.OnTick = function()
-        c = c + 1
-
-        if c == n then
-            Events.OnTick.Remove(ticker.OnTick);
-
-            fn();
-        end
-    end
-
-    Events.OnTick.Add(ticker.OnTick);
-end
-
--- ExecAfterCharacterCreated executes function fn after character created on event .
--- Not supported args to callback function.
-function openutils.ExecAfterCharacterCreated(fn)
-    local ticker = {}
-
-    ticker.OnTick = function()
-        local character = getPlayer();
-
-        if character then
-            Events.OnTick.Remove(ticker.OnTick);
-
-            fn();
-        end
-    end
-
-    Events.OnTick.Add(ticker.OnTick);
-end
-
--- GetGlobalFunctions returns all global functions names.
-function openutils.GetGlobalFunctions()
-    local array = {};
-
-    for name, value in pairs(_G) do
-        if type(value) == 'function' and string.find(tostring(value), 'function ') == 1 then
-            table.insert(array, name);
-        end
-    end
-
-    table.sort(array, function(a, b) return a:upper() < b:upper() end);
-
-    return array;
 end

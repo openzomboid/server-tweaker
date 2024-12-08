@@ -8,15 +8,15 @@ All notable changes to this project will be documented in this file.
 - Fixed panic in openutils.ObjectLen.
 
 ### Added
-- Added ConsoleLogger shared openutil. ConsoleLogger implements simple logger to `server-console.txt` file.
-- Added `openutils.ConvertTableToJson` and `openutils.ConvertJsonToTable` functions to `openutils.lua`.
+- Added ConsoleLogger shared util. ConsoleLogger implements simple logger to `server-console.txt` file.
+- Added `ConvertTableToJson` and `ConvertJsonToTable`, `GetGlobalFunctions`, `GetRandomElements`, `CopyObject`, `DeepCopyObject`, `ExecAfterTicks`, `ExecAfterCharacterCreated` functions to `openutils.lua`.
 - Added server-sided json-based database.
 - Added suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation.
 
 ### Changed
 - Moved StoreAdminPower functionality to own folder.
 - Moved TweakFirearmsSoundRadius functionality to own IncreaseFirearmsSoundRadius folder.
-- Function `openutils.IsPlayerMemmberOfSafehouse` was deprecated. It will be deleted on next release. Use `openutils.IsUsernameMemberOfSafehouse` instead.
+- Function `IsPlayerMemmberOfSafehouse` in `openutils.lua` was deprecated. It will be deleted on next release. Use `openutils.IsUsernameMemberOfSafehouse` instead.
 
 ## [v0.5.1] - 2024-06-16
 ### Fixed
