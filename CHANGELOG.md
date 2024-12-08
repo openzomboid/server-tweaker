@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Fixed
-- Fixed panic in openutils.ObjectLen.
+- Fixed panic in `openutils.ObjectLen`.
 
 ### Added
 - Added `ConvertTableToJson` and `ConvertJsonToTable`, `GetGlobalFunctions`, `GetRandomElements`, `CopyObject`, `DeepCopyObject`, `ExecAfterTicks`, `ExecAfterCharacterCreated`, `GetOrCreateContextOptionWithMenu` functions to shared `openutils.lua`.
@@ -16,9 +16,7 @@ All notable changes to this project will be documented in this file.
 - Added suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation.
 
 ### Changed
-- Moved StoreAdminPower functionality to own folder.
-- Moved TweakFirearmsSoundRadius functionality to own IncreaseFirearmsSoundRadius folder.
-- Moved DisableAimOutline functionality to own DisableAimOutline folder.
+- Moved DisableAimOutline, HighlightSafehouse, IncreaseFirearmsSoundRadius, StoreAdminPower, TweakOverlayText functionality to own folders.
 - Function `IsPlayerMemmberOfSafehouse` in `openutils.lua` was deprecated. It will be deleted on next release. Use `openutils.IsUsernameMemberOfSafehouse` instead.
 
 ## [v0.5.1] - 2024-06-16

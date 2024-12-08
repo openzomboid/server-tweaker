@@ -324,7 +324,7 @@ end
 
 -- IsUsernameMemberOfSafehouse returns true if username is a member of safehouse.
 function openutils.IsUsernameMemberOfSafehouse(username, safehouse)
-    if not safehouse or username then
+    if not safehouse or not username then
         return false
     end
 
