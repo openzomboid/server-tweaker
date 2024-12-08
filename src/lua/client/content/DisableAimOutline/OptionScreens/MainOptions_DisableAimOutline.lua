@@ -4,7 +4,7 @@
 -- that can be found in the LICENSE file.
 --
 
-TweakMainOptions = {
+MainOptions_DisableAimOutline = {
     Original = {
         create = MainOptions.create
     }
@@ -12,8 +12,8 @@ TweakMainOptions = {
 
 -- create overrides the original MainOptions:create function.
 -- Forces turns off client option "AimOutline".
-TweakMainOptions.create = function(self)
-    TweakMainOptions.Original.create(self)
+MainOptions_DisableAimOutline.create = function(self)
+    MainOptions_DisableAimOutline.Original.create(self)
 
     if not SandboxVars.ServerTweaker.DisableAimOutline then
         return
@@ -27,4 +27,4 @@ TweakMainOptions.create = function(self)
     end
 end
 
-MainOptions.create = TweakMainOptions.create;
+MainOptions.create = MainOptions_DisableAimOutline.create;

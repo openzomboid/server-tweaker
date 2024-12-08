@@ -15,10 +15,6 @@ ClientTweaker = {
 
 -- OnGameStart adds callback for OnGameStart global event.
 local function OnGameStart()
-    if SandboxVars.ServerTweaker.DisableAimOutline then
-        getCore():setOptionAimOutline(1);
-    end
-
     if SandboxVars.ServerTweaker.AddClientCache then
         local player = getPlayer();
         if player then

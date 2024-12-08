@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Moved StoreAdminPower functionality to own folder.
 - Moved TweakFirearmsSoundRadius functionality to own IncreaseFirearmsSoundRadius folder.
+- Moved DisableAimOutline functionality to own DisableAimOutline folder.
 - Function `IsPlayerMemmberOfSafehouse` in `openutils.lua` was deprecated. It will be deleted on next release. Use `openutils.IsUsernameMemberOfSafehouse` instead.
 
 ## [v0.5.1] - 2024-06-16
