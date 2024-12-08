@@ -326,3 +326,49 @@ function openutils.IsVehicleCheat()
 
     return ISVehicleMechanics.cheat or cheat
 end
+
+-- ExecAfterTicks executes function fn after n ticks.
+-- If n == 0 immediately executes fn.
+-- If n < 0 does nothing.
+-- Not supported args to callback function.
+function openutils.ExecAfterTicks(fn, n)
+    if n == 0 then
+        fn()
+        return
+    elseif n < 0 then
+        return
+    end
+
+    local c = 0
+    local ticker = {}
+
+    ticker.OnTick = function()
+        c = c + 1
+
+        if c == n then
+            Events.OnTick.Remove(ticker.OnTick);
+
+            fn();
+        end
+    end
+
+    Events.OnTick.Add(ticker.OnTick);
+end
+
+-- ExecAfterCharacterCreated executes function fn after character created on event .
+-- Not supported args to callback function.
+function openutils.ExecAfterCharacterCreated(fn)
+    local ticker = {}
+
+    ticker.OnTick = function()
+        local character = getPlayer();
+
+        if character then
+            Events.OnTick.Remove(ticker.OnTick);
+
+            fn();
+        end
+    end
+
+    Events.OnTick.Add(ticker.OnTick);
+end
