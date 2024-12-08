@@ -449,3 +449,22 @@ function openutils.IsVehicleCheat()
 
     return ISVehicleMechanics.cheat or cheat
 end
+
+-- GetOrCreateContextOptionWithMenu finds or creates context option by name.
+function openutils.GetOrCreateContextOptionWithMenu(name, context, worldobjects)
+    local option = context:getOptionFromName(name)
+    if not option then
+        option = context:addOption(name, worldobjects, nil);
+        local menu = ISContextMenu:getNew(context);
+        context:addSubMenu(option, menu);
+
+        return option, menu;
+    end
+
+    local menu = context:getSubMenu(option.subOption);
+    if menu then
+        context:addSubMenu(option, menu);
+    end
+
+    return option, menu;
+end

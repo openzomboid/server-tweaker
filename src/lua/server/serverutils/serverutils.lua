@@ -9,8 +9,8 @@ if isClient() then return end
 -- openutils adds server defines to openutils.
 openutils = openutils or {}
 
--- GetCharacterFromUsername finds player in online players list and returns character object.
-function openutils.GetCharacterFromUsername(username)
+-- GetOnlineCharacterFromUsername finds player in online players list and returns character object.
+function openutils.GetOnlineCharacterFromUsername(username)
     local onlineCharacters = getOnlinePlayers()
 
     for i=0, onlineCharacters:size()-1 do
