@@ -264,10 +264,12 @@ function openutils.IsPlayerAllowedActionInSafehouse(character, safehouse)
     return safehouse:playerAllowed(character)
 end
 
+-- IsInSafehouseSouthEastExtraTile returns true if point belongs to south-east tile of safehouse.
 function openutils.IsInSafehouseSouthEastExtraTile(safehouse, x, y)
     return openutils.IsInSafehouseSouthExtraLine(safehouse, x, y) and openutils.IsInSafehouseEastExtraLine(safehouse, x, y)
 end
 
+-- IsInSafehouseSouthExtraLine returns true if point belongs to south border of safehouse.
 function openutils.IsInSafehouseSouthExtraLine(safehouse, x, y)
     if safehouse then
         if openutils.IsPointInRectangle(x, y, safehouse:getX(), safehouse:getY2(), safehouse:getX2(), safehouse:getY2()) then
@@ -278,6 +280,7 @@ function openutils.IsInSafehouseSouthExtraLine(safehouse, x, y)
     return false
 end
 
+-- IsInSafehouseEastExtraLine returns true if point belongs to east border of safehouse.
 function openutils.IsInSafehouseEastExtraLine(safehouse, x, y)
     if safehouse then
         if openutils.IsPointInRectangle(x, y, safehouse:getX2(), safehouse:getY(), safehouse:getX2(), safehouse:getY2()) then
@@ -321,6 +324,7 @@ function openutils.StopTheWorld(s)
     end
 end
 
+-- IsVehicleCheat returns true Vehicle cheats enabled.
 function openutils.IsVehicleCheat()
     local cheat = getCore():getDebug() and getDebugOptions():getBoolean("Cheat.Vehicle.MechanicsAnywhere")
 
@@ -371,4 +375,19 @@ function openutils.ExecAfterCharacterCreated(fn)
     end
 
     Events.OnTick.Add(ticker.OnTick);
+end
+
+-- GetGlobalFunctions returns all global functions names.
+function openutils.GetGlobalFunctions()
+    local array = {};
+
+    for name, value in pairs(_G) do
+        if type(value) == 'function' and string.find(tostring(value), 'function ') == 1 then
+            table.insert(array, name);
+        end
+    end
+
+    table.sort(array, function(a, b) return a:upper() < b:upper() end);
+
+    return array;
 end
