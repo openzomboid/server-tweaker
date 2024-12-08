@@ -9,9 +9,11 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Added ConsoleLogger shared util. ConsoleLogger implements simple logger to `server-console.txt` file.
-- Added `ConvertTableToJson` and `ConvertJsonToTable`, `GetGlobalFunctions`, `GetRandomElements`, `CopyObject`, `DeepCopyObject`, `ExecAfterTicks`, `ExecAfterCharacterCreated` functions to `openutils.lua`.
+- Added `ConvertTableToJson` and `ConvertJsonToTable`, `GetGlobalFunctions`, `GetRandomElements`, `CopyObject`, `DeepCopyObject`, `ExecAfterTicks`, `ExecAfterCharacterCreated` functions to shared `openutils.lua`.
 - Added server-sided json-based database.
 - Added suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation.
+- Added server sided `openutils.lua` utils file.
+- Added `GetCharacterFromUsername` function to server sided `openutils.lua` utils file.
 
 ### Changed
 - Moved StoreAdminPower functionality to own folder.
