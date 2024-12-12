@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - Added ConsoleLogger shared util. ConsoleLogger implements simple logger to `server-console.txt` file.
 - Added server-sided json-based database.
 - Added suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation.
+- Added fix in main options to enable show your username option. To enable this tweak set `FixOptionShowYourUsername` to true in sandbox options.
 
 ### Changed
 - Moved DisableAimOutline, HighlightSafehouse, IncreaseFirearmsSoundRadius, StoreAdminPower, TweakOverlayText functionality to own folders.

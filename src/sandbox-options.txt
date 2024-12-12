@@ -42,6 +42,13 @@ option ServerTweaker.DisableAimOutline {
   translation = DisableAimOutline
 }
 
+option ServerTweaker.FixOptionShowYourUsername {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = FixOptionShowYourUsername
+}
+
 option ServerTweaker.ContextMenuClickedPlayersInvisibleFix {
   type        = boolean,
   default     = true,
