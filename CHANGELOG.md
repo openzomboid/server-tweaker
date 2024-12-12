@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.6.0] - 2024-12-12
 ### Fixed
 - Fixed panic in `openutils.ObjectLen`.
 
@@ -112,7 +114,8 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.6.0...HEAD
+[v0.6.0]: https://github.com/openzomboid/server-tweaker/compare/v0.5.1...v0.6.0
 [v0.5.1]: https://github.com/openzomboid/server-tweaker/compare/v0.5.0...v0.5.1
 [v0.5.0]: https://github.com/openzomboid/server-tweaker/compare/v0.4.1...v0.5.0
 [v0.4.1]: https://github.com/openzomboid/server-tweaker/compare/v0.4.0...v0.4.1
