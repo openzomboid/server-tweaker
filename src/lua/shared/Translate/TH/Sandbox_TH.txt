@@ -35,4 +35,5 @@ Sandbox_TH = {
     Sandbox_SafehouseAreaLimit = "จำกัดพื้นที่เซฟเฮาส์",
     Sandbox_CheckSafehouseIntersections = "ตรวจสอบทางแยก Safehouse",
     Sandbox_SafehouseDeadZone = "เซฟเฮาส์เดดโซน",
+    Sandbox_EnableLuaDatabaseViewButton = "เปิดใช้งานปุ่มมุมมอง LuaDatabase",
 }

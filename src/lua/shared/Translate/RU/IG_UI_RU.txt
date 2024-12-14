@@ -8,4 +8,5 @@ IGUI_RU = {
     IGUI_SafehouseUI_Members = "Участники:",
     IGUI_Coordinates = "Координаты",
     IGUI_Vehicle_TruckRepairs = "Количество починок: ",
+    IGUI_LuaDatabase_SeeDB = "Открыть OpenDB",
 }

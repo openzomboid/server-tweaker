@@ -16,13 +16,20 @@ ISAdminPanelUI_AddDatabaseButton = {
 ISAdminPanelUI_AddDatabaseButton.create = function(self)
     ISAdminPanelUI_AddDatabaseButton.Original.create(self)
 
+    if not SandboxVars.ServerTweaker.EnableLuaDatabaseViewButton then
+        return
+    end
+
+    if openutils.ObjectLen(LuaDatabaseClient.buckets) == 0 then
+        return
+    end
+
     local btnWid = 150
     local btnHgt = math.max(25, FONT_HGT_SMALL + 3 * 2)
     local btnGapY = 5
     local y = 190
 
-    -- getText("IGUI_AdminPanel_SeeDB")
-    self.opendbBtn = ISButton:new(10 + btnWid + 20, y, btnWid, btnHgt, "See OpenDB", self, ISAdminPanelUI_AddDatabaseButton.onOptionMouseDown);
+    self.opendbBtn = ISButton:new(10 + btnWid + 20, y, btnWid, btnHgt, getText("IGUI_LuaDatabase_SeeDB"), self, ISAdminPanelUI_AddDatabaseButton.onOptionMouseDown);
     self.opendbBtn.internal = "OPENDB";
     self.opendbBtn:initialise();
     self.opendbBtn:instantiate();

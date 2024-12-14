@@ -8,4 +8,5 @@ IGUI_PTBR = {
     IGUI_SafehouseUI_Members = "Membros:",
     IGUI_Coordinates = "Coordenadas",
     IGUI_Vehicle_TruckRepairs = "Valor dos reparos: ",
+    IGUI_LuaDatabase_SeeDB = "Ver OpenDB",
 }

@@ -8,4 +8,5 @@ IGUI_TH = {
     IGUI_SafehouseUI_Members = "สมาชิก:",
     IGUI_Coordinates = "พิกัด",
     IGUI_Vehicle_TruckRepairs = "จำนวนเงินค่าซ่อม: ",
+    IGUI_LuaDatabase_SeeDB = "ดู OpenDB",
 }

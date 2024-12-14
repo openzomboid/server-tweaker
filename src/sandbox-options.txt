@@ -234,3 +234,10 @@ option ServerTweaker.EnableSuicideCommand {
   page        = ServerTweaker,
   translation = EnableSuicideCommand
 }
+
+option ServerTweaker.EnableLuaDatabaseViewButton {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = EnableLuaDatabaseViewButton
+}

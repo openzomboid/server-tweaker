@@ -6,7 +6,7 @@
 
 -- openutils contains shared defines.
 openutils = {
-    Version = "0.6.0", -- in semantic versioning (http://semver.org/)
+    Version = "0.6.1", -- in semantic versioning (http://semver.org/)
     Role = {
         ["admin"] = 5, ["moderator"] = 4, ["overseer"]= 3, ["gm"] = 2, ["observer"] = 1, ["none"] = 0,
     },

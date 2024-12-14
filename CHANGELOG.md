@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+## Fixed
+- Hided "See OpenDB" button from admin panel if no one databases created.
 
 ## [v0.6.0] - 2024-12-12
 ### Fixed

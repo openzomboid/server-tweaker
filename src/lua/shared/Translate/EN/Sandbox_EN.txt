@@ -36,4 +36,5 @@ Sandbox_EN = {
     Sandbox_CheckSafehouseIntersections = "Check Safehouse intersections",
     Sandbox_SafehouseDeadZone = "Safehouse dead zone",
     Sandbox_EnableSuicideCommand = "Enable suicide command in chat",
+    Sandbox_EnableLuaDatabaseViewButton = "Enable LuaDatabase view button",
 }
