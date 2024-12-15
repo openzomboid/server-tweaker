@@ -51,7 +51,8 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * **SafehouseAreaLimit** `(default=0)` - Sets the maximum size of the Safehouse in tiles. If the building has a larger area than `SafehouseAreaLimit`, it cannot be taken as a Safehouse. For enable this tweak `TakeSafehouseLimitations` must be true in sandbox options. If `SafehouseAreaLimit` is 0, no limit applies.
 * **CheckSafehouseIntersections** `(default=true)` - Disables "Take Safehouse" option if the building intersects with another Safehouse. There ara a lot of such buildings in Louisville. For enable this tweak `TakeSafehouseLimitations` must be true in sandbox options.
 * **SafehouseDeadZone** `(default=0)` - Disables "Take Safehouse" option if the building is nearby with another Safehouse. For enable this tweak `TakeSafehouseLimitations` and `CheckSafehouseIntersections` must be true in sandbox options.
-* **EnableSuicideCommand** `(default=true)` - Adds suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation. For enable this tweak `EnableSuicideCommand` must be true in sandbox options.
+* **EnableSuicideCommand** `(default=true)` - Adds suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation.
+* **EnableLuaDatabaseViewButton** `(default=false)` - Adds button for open LuaDatabase viewer
 
 ## Compatibility
 Game version: Build 41.78+ (Multiplayer)  
