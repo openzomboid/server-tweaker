@@ -4,9 +4,11 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Added forgotten translation to IGUI_DbViewer_Add.
 
 ## [v0.6.1] - 2024-12-15
-## Fixed
+### Fixed
 - Hided "See OpenDB" button from admin panel if no one databases created.
 
 ## [v0.6.0] - 2024-12-12

@@ -2,6 +2,8 @@ IGUI_RU = {
     -- Fix
 
     -- New
+    IGUI_DbViewer_Add = "Добавить",
+
     IGUI_SafehouseUI_Area = "Площадь убежища:",
     IGUI_UserPanel_HighlightSafehouse = "Подсветить убежище",
     IGUI_PlayerText_VehicleIsInSafehouse = "Транспорт находится в чьем-то убежище",

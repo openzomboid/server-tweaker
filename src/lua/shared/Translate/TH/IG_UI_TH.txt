@@ -2,6 +2,8 @@ IGUI_TH = {
     -- Fix
 
     -- New
+    IGUI_DbViewer_Add = "เพิ่ม",
+
     IGUI_SafehouseUI_Area = "พื้นที่เซฟเฮาส์:",
     IGUI_UserPanel_HighlightSafehouse = "ไฮไลต์เซฟเฮาส์",
     IGUI_PlayerText_VehicleIsInSafehouse = "รถอยู่ในเซฟเฮาส์ของคนอื่น",

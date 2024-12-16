@@ -2,6 +2,8 @@ IGUI_EN = {
     -- Fix
 
     -- New
+    IGUI_DbViewer_Add = "Add",
+
     IGUI_SafehouseUI_Area = "Safehouse Area:",
     IGUI_UserPanel_HighlightSafehouse = "Highlight Safehouse",
     IGUI_PlayerText_VehicleIsInSafehouse = "Vehicle is in someone's safehouse",
