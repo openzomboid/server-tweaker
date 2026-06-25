@@ -1,0 +1,10 @@
+IGUI_ES = {
+    IGUI_DbViewer_Add = "Agregar",
+    IGUI_SafehouseUI_Area = "Zona de refugio seguro: ",
+    IGUI_UserPanel_HighlightSafehouse = "Resaltar la casa segura",
+    IGUI_PlayerText_VehicleIsInSafehouse = "El vehículo está en la casa de seguridad de alguien.",
+    IGUI_SafehouseUI_Members = "Miembros:",
+    IGUI_Coordinates = "Coordenadas",
+    IGUI_Vehicle_TruckRepairs = "Importe de las reparaciones: ",
+    IGUI_LuaDatabase_SeeDB = "Consulte OpenDB",
+}
