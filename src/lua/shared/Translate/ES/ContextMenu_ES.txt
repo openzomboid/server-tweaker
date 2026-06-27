@@ -1,0 +1,6 @@
+ContextMenu_ES = {
+    ContextMenu_NotAvailableOnTheServer = "No disponible en el servidor",
+    ContextMenu_NotBuilding = "No es un edificio",
+    ContextMenu_BuildingIsTooBig = "El edificio es demasiado grande.",
+    ContextMenu_IntersectsWithAnotherSafehouse = "Se cruza con otra casa segura.",
+}

@@ -1,0 +1,4 @@
+UI_ES = {
+    UI_mapspawn_SafehouseDescription = "Refugio <LINE> <LINE> Reaparición en tu refugio seguro.",
+    UI_SuicideConfirm = "¿Estás seguro de que quieres morir?",
+}
