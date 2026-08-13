@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 **ATTN**: This project uses [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.6.2] - 2024-12-16 - Cancelled
 ### Fixed
 - Added forgotten translation to IGUI_DbViewer_Add.
 
