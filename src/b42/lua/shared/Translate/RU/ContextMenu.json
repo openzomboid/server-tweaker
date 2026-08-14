@@ -1,0 +1,6 @@
+{
+    "ContextMenu_NotAvailableOnTheServer": "Недоступно на этом сервере",
+    "ContextMenu_NotBuilding": "Не является зданием",
+    "ContextMenu_BuildingInExclusionZone": "Здание находится в зоне отчуждения",
+    "ContextMenu_IntersectsWithAnotherSafehouse": "Пересекается с другим убежищем"
+}

@@ -1,0 +1,6 @@
+{
+    "ContextMenu_NotAvailableOnTheServer": "Not available on the server",
+    "ContextMenu_NotBuilding": "It is not a building",
+    "ContextMenu_BuildingInExclusionZone": "The building is located in the exclusion zone",
+    "ContextMenu_IntersectsWithAnotherSafehouse": "Intersects with another safehouse"
+}

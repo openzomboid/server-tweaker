@@ -18,9 +18,6 @@ This mod has full translations to following languages:
 
 * English (EN)
 * Russian (RU)
-* Thai (TH) - Thanks to [rikoprushka](https://github.com/rikoprushka)
-* Brazilian Portuguese (PTBR) - Thanks to [Xim](https://steamcommunity.com/id/BryanXim)
-* Walter Pagani (ES) - Thanks to [Walter Pagani](https://github.com/pangolp)
 
 If you'd like to translate this mod, post your translations to [translations topic](https://steamcommunity.com/workshop/filedetails/discussion/2951816996/3824159062924268441) and I will add it with credits in-place.
 

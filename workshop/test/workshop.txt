@@ -37,9 +37,6 @@ description=This mod has full translations to following languages:
 description=[list]
 description=    [*]English (EN)
 description=    [*]Russian (RU)
-description=    [*]Thai (TH) - Thanks to [url=https://github.com/rikoprushka]rikoprushka[/url]
-description=    [*]Brazilian Portuguese (PTBR) - Thanks to [url=https://steamcommunity.com/id/BryanXim]Xim[/url]
-description=    [*]Walter Pagani (ES) - Thanks to [url=https://github.com/pangolp]Walter Pagani[/url]
 description=[/list]
 description=If you'd like to translate this mod, post your translations to [url=https://steamcommunity.com/workshop/filedetails/discussion/2951816996/3824159062924268441]translations topic[/url] and I will add it with credits in-place.
 description=

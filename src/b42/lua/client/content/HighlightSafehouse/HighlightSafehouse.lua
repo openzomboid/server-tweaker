@@ -4,9 +4,13 @@
 -- that can be found in the LICENSE file.
 --
 
-local FLOOR_HIGHLIGHT_COLOR = ColorInfo.new(0, 1, 0, 1.0);
+local logger = ConsoleLogger.new()
 
-HighlightSafehouse = {}
+local FLOOR_HIGHLIGHT_COLOR = ColorInfo.new(0, 1, 0, 1.0)
+
+HighlightSafehouse = {
+    ClientOptionEnabled = false
+}
 
 -- ticks adds ticker for highlight players safehouses.
 HighlightSafehouse.OnRenderTick = function(ticks)
@@ -19,7 +23,8 @@ HighlightSafehouse.OnRenderTick = function(ticks)
         return
     end
 
-    if ClientTweaker.Options.GetBool("highlight_safehouse") == false then
+    -- Check client option
+    if not (HighlightSafehouse.ClientOptionEnabled or ClientTweaker.Options.GetBool("highlight_safehouse")) then
         return
     end
 
@@ -44,7 +49,7 @@ HighlightSafehouse.OnRenderTick = function(ticks)
                     if sq and sq:getFloor() then
                         local obj = sq:getFloor()
                         obj:setHighlighted(true)
-                        obj:setHighlightColor(FLOOR_HIGHLIGHT_COLOR);
+                        obj:setHighlightColor(FLOOR_HIGHLIGHT_COLOR)
                     end
                 end
             end
@@ -52,4 +57,4 @@ HighlightSafehouse.OnRenderTick = function(ticks)
     end
 end
 
-Events.OnRenderTick.Add(HighlightSafehouse.OnRenderTick);
+Events.OnRenderTick.Add(HighlightSafehouse.OnRenderTick)
