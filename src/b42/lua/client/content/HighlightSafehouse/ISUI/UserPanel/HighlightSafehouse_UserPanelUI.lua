@@ -25,7 +25,7 @@ HighlightSafehouse_UserPanelUI.create = function(self)
     end
 
     local enabled = HighlightSafehouse.ClientOptionEnabled
-    if SandboxVars.ServerTweaker.SaveClientOptions then
+    if SandboxVars.ServerTweaker.SaveClientOptions and ClientTweaker.Options then
         enabled = ClientTweaker.Options.GetBool("highlight_safehouse")
     end
 
@@ -61,8 +61,8 @@ function HighlightSafehouse_UserPanelUI:onHighlightSafehouse(option, enabled)
     HighlightSafehouse.ClientOptionEnabled = enabled
 
     if SandboxVars.ServerTweaker.SaveClientOptions then
-        ClientTweaker.Options.SetBool("highlight_safehouse", enabled);
+        ClientTweaker.Options.SetBool("highlight_safehouse", enabled)
     end
 end
 
-ISUserPanelUI.create = HighlightSafehouse_UserPanelUI.create;
+ISUserPanelUI.create = HighlightSafehouse_UserPanelUI.create

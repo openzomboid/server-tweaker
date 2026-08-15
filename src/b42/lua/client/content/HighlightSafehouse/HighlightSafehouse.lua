@@ -23,8 +23,12 @@ HighlightSafehouse.OnRenderTick = function(ticks)
         return
     end
 
-    -- Check client option
-    if not (HighlightSafehouse.ClientOptionEnabled or ClientTweaker.Options.GetBool("highlight_safehouse")) then
+    local enabled = HighlightSafehouse.ClientOptionEnabled
+    if SandboxVars.ServerTweaker.SaveClientOptions and ClientTweaker.Options then
+        enabled = ClientTweaker.Options.GetBool("highlight_safehouse")
+    end
+
+    if not enabled then
         return
     end
 

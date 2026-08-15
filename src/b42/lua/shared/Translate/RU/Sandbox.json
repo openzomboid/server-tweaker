@@ -1,5 +1,6 @@
 {
     "Sandbox_ServerTweaker": "Server Tweaker",
-    "Sandbox_HighlightSafehouse": "Подсветка убежищ (необходимо кеширование на клиенте)",
-    "AddClientCache": "Добавить кеширование на клиенте"
+    "SaveClientOptions": "Сохранять настройки клиента",
+    "AddClientCache": "Добавить кеширование на клиенте",
+    "Sandbox_HighlightSafehouse": "Подсветка убежищ (необходимо кеширование на клиенте)"
 }

@@ -6,10 +6,7 @@
 
 ClientTweaker = {
     Version = openutils.Version,
-    Options = OpenOptions:new("client-options", {
-        ["highlight_safehouse"] = {type = "bool", value = "false"},
-        ["show_ping"] = {type = "bool", value = "true"},
-    }),
+    Options = nil,
     Cache = nil,
 }
 
@@ -22,8 +19,13 @@ function ClientTweaker.OnGameStart()
         end
     end
 
-    if SandboxVars.ServerTweaker.SaveClientOptions then
-        setShowPingInfo(ClientTweaker.Options.GetBool("show_ping"))
+    if SandboxVars.ServerTweaker.SaveClientOptions and ClientTweaker.Options then
+        ClientTweaker.Options.OpenOptions:new("client-options", {
+            ["highlight_safehouse"] = {type = "bool", value = "false"},
+            ["show_ping"] = {type = "bool", value = "true"}
+        })
+
+        --setShowPingInfo(ClientTweaker.Options.GetBool("show_ping"))
     end
 end
 

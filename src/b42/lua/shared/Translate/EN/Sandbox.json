@@ -1,5 +1,6 @@
 {
     "Sandbox_ServerTweaker": "Server Tweaker",
-    "Sandbox_HighlightSafehouse": "Highlight safehouse (client cache required)",
-    "AddClientCache": "Add client cache"
+    "SaveClientOptions": "Save client options",
+    "AddClientCache": "Add client cache",
+    "Sandbox_HighlightSafehouse": "Highlight safehouse (client cache required)"
 }
