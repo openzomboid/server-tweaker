@@ -4,16 +4,32 @@
 -- that can be found in the LICENSE file.
 --
 
-OpenCache = {}
+local logger = ConsoleLogger.new()
+local storage = nil
 
-function OpenCache:new(username)
-    local logger = ConsoleLogger.new()
+SafehousesCache = {}
 
+function SafehousesCache:new()
     local startTimeMs = nil
     local WAIT_DURATION_MS = 3000 -- 3 seconds
     local tickCounter = 0
+    
+    if storage then
+        logger.Debug("SafehousesCache: Cache storage already created")
 
-    local storage = {
+        return storage
+    end
+
+    local character = getPlayer()
+    if not character then
+        logger.Debug("SafehousesCache: Cache storage doesn't created")
+
+        return nil
+    end
+    
+    local username = character:getUsername()
+
+    storage = {
         username = username,
         safehouses = {},
 
@@ -55,10 +71,8 @@ function OpenCache:new(username)
         for i = 1, safehouseList:size() do
             local safehouse = safehouseList:get(i - 1)
 
-            if safehouse then
-                if openutils.IsUsernameMemberOfSafehouse(storage.username, safehouse) then
-                    storage.AddSafehouse(safehouse)
-                end
+            if safehouse and openutils.IsUsernameMemberOfSafehouse(storage.username, safehouse) then
+                storage.AddSafehouse(safehouse)
             end
         end
     end
@@ -103,7 +117,7 @@ function OpenCache:new(username)
             storage.FillSafehouses()
             storage.StartSync()
 
-            logger.Debug("OpenCache: initial sync completed on " .. tostring(calendar:getTimeInMillis() - startTimeMs) .. " ms with " .. tostring(tickCounter) .. " ticks")
+            logger.Debug("SafehousesCache: initial sync completed on " .. tostring(calendar:getTimeInMillis() - startTimeMs) .. " ms with " .. tostring(tickCounter) .. " ticks")
 
             startTimeMs = nil
             tickCounter = 0
@@ -114,11 +128,13 @@ function OpenCache:new(username)
         startTimeMs = nil
         tickCounter = 0
 
-        -- Запускаем отложенную проверку вместо мгновенного вызова FillSafehouses
+        -- Running a delayed check instead of an immediate call to FillSafehouses
         Events.OnTick.Add(doInitialLoadTick)
     end
 
     storage.init()
+
+    logger.Debug("SafehousesCache: Created new cache storage")
 
     return storage
 end

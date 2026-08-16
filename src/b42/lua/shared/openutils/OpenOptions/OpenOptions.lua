@@ -38,7 +38,7 @@ function OpenOptions:new(name, options)
 
         writer:close()
 
-        logger.Debug("OpenOptions: instance. Finished write to file " .. instance.filename)
+        logger.Debug("OpenOptions: Finished write to file " .. instance.filename)
     end
 
     -- Read reads instance values from file in Zomboid/Lua directory.

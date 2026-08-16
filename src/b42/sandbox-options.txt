@@ -1,12 +1,5 @@
 VERSION = 1,
 
-option ServerTweaker.AddClientCache {
-  type        = boolean,
-  default     = true,
-  page        = ServerTweaker,
-  translation = AddClientCache
-}
-
 option ServerTweaker.HighlightSafehouse {
   type        = boolean,
   default     = true,

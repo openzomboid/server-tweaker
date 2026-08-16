@@ -5,11 +5,13 @@
 --
 
 require "clientutils/ClientOptions/ClientOptions"
+require "clientutils/SafehousesCache/SafehousesCache"
 
 local logger = ConsoleLogger.new()
 
 HighlightSafehouse = {
-    FLOOR_HIGHLIGHT_COLOR = ColorInfo.new(0, 1, 0, 1.0) -- green
+    FLOOR_HIGHLIGHT_COLOR = ColorInfo.new(0, 1, 0, 1.0), -- green
+    SafehousesCache = nil
 }
 
 function HighlightSafehouse.IsEnabledOnTheServer()
@@ -21,11 +23,15 @@ function HighlightSafehouse.OnOptionChange(self, option, enabled)
 end
 
 function HighlightSafehouse.OnGameStart()
-    local name = "highlight_safehouse"
-    local selected = false -- default value
-    local translation = getText("IGUI_UserPanel_HighlightSafehouse")
+    if HighlightSafehouse.IsEnabledOnTheServer() then
+        HighlightSafehouse.SafehousesCache = SafehousesCache:new()
 
-    ClientOptions.AddOption(name, selected, translation, HighlightSafehouse.IsEnabledOnTheServer, HighlightSafehouse.OnOptionChange)
+        local name = "highlight_safehouse"
+        local selected = false -- default value
+        local translation = getText("IGUI_UserPanel_HighlightSafehouse")
+
+        ClientOptions.AddOption(name, selected, translation, HighlightSafehouse.IsEnabledOnTheServer, HighlightSafehouse.OnOptionChange)
+    end
 end
 
 -- ticks adds ticker for highlight players safehouses.
@@ -35,7 +41,7 @@ function HighlightSafehouse.OnRenderTick(ticks)
         return
     end
 
-    if not SandboxVars.ServerTweaker.HighlightSafehouse then
+    if not HighlightSafehouse.IsEnabledOnTheServer() then
         return
     end
     
@@ -44,11 +50,11 @@ function HighlightSafehouse.OnRenderTick(ticks)
         return
     end
 
-    if not ClientTweaker.Cache then
+    if not HighlightSafehouse.SafehousesCache then
         return
     end
 
-    local safehouses = ClientTweaker.Cache.GetSafehouses()
+    local safehouses = HighlightSafehouse.SafehousesCache.GetSafehouses()
     if not safehouses then
         return
     end
