@@ -27,7 +27,7 @@ function HighlightSafehouse.OnGameStart()
         HighlightSafehouse.SafehousesCache = SafehousesCache:new()
 
         local name = "highlight_safehouse"
-        local selected = false -- default value
+        local selected = true -- default value
         local translation = getText("IGUI_UserPanel_HighlightSafehouse")
 
         ClientOptions.AddOption(name, selected, translation, HighlightSafehouse.IsEnabledOnTheServer, HighlightSafehouse.OnOptionChange)
