@@ -4,11 +4,11 @@
 -- that can be found in the LICENSE file.
 --
 
-function Test_OpenOptions_New()
+function Test_OptionsStorage_New()
     local passed = true
 
     local function do_test(testCase, key, value, expected)
-        local options = OpenOptions:new("client-options-test", {
+        local options = OptionsStorage:new("client-options-test", {
             [key] =  {type = "bool", value = value},
         });
 
@@ -34,13 +34,13 @@ function Test_OpenOptions_New()
     return passed
 end
 
-function Test_OpenOptions_Set()
+function Test_OptionsStorage_Set()
     local passed = true
 
     local function do_test(testCase, key, defaultValue, setValue, expected)
         os.remove("lastday-test.ini")
 
-        local options = OpenOptions:new("client-options-test", {
+        local options = OptionsStorage:new("client-options-test", {
             [key] =  {type = "bool", value = defaultValue},
         });
 

@@ -35,7 +35,7 @@ function ClientOptions.AddOption(name, selected, translation, isEnabledOnTheServ
     end
 
     if ClientOptions.Storage == nil then
-        ClientOptions.Storage = OpenOptions:new("client-options", {})
+        ClientOptions.Storage = OptionsStorage:new("client-options", {})
     end
 
     if ClientOptions.Storage.Get(name) == nil then

@@ -6,15 +6,15 @@
 
 local logger = ConsoleLogger.new()
 
--- OpenOptions implements mod configuration reader and writer.
-OpenOptions = OpenOptions or {}
+-- OptionsStorage implements mod configuration reader and writer.
+OptionsStorage = OptionsStorage or {}
 
--- new creates instance of OpenOptions and defines their methods.
-function OpenOptions:new(name, options)
+-- new creates instance of OptionsStorage and defines their methods.
+function OptionsStorage:new(name, options)
     if options == nil then options = {} end
     if name == nil then name = "open-options" end
 
-    -- instance is main instance of OpenOptions class.
+    -- instance is main instance of OptionsStorage class.
     local instance = {
         options = options,
         filename = name .. ".ini"
@@ -22,10 +22,10 @@ function OpenOptions:new(name, options)
 
     -- Write saves config values to file in Zomboid/Lua directory.
     function instance.Write()
-        logger.Debug("OpenOptions: Started write to file " .. instance.filename, instance.options)
+        logger.Debug("OptionsStorage: Started write to file " .. instance.filename, instance.options)
 
         if openutils and openutils.ObjectLen(instance.options) <= 0 then
-            logger.Debug("OpenOptions: Nothing write to file " .. instance.filename)
+            logger.Debug("OptionsStorage: Nothing write to file " .. instance.filename)
 
             return
         end
@@ -38,12 +38,12 @@ function OpenOptions:new(name, options)
 
         writer:close()
 
-        logger.Debug("OpenOptions: Finished write to file " .. instance.filename)
+        logger.Debug("OptionsStorage: Finished write to file " .. instance.filename)
     end
 
     -- Read reads instance values from file in Zomboid/Lua directory.
     function instance.Read()
-        logger.Debug("OpenOptions: Started read file " .. instance.filename)
+        logger.Debug("OptionsStorage: Started read file " .. instance.filename)
 
         local reader = getFileReader(instance.filename, false)
         if not reader then return end
@@ -72,7 +72,7 @@ function OpenOptions:new(name, options)
             end
         end
 
-        logger.Debug("OpenOptions: Finished read file " .. instance.filename, instance.options)
+        logger.Debug("OptionsStorage: Finished read file " .. instance.filename, instance.options)
     end
 
     function instance.Set(key, option)
