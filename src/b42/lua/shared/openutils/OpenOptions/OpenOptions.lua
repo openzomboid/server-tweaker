@@ -4,6 +4,8 @@
 -- that can be found in the LICENSE file.
 --
 
+local logger = ConsoleLogger.new()
+
 -- OpenOptions implements mod configuration reader and writer.
 OpenOptions = OpenOptions or {}
 
@@ -20,6 +22,14 @@ function OpenOptions:new(name, options)
 
     -- Write saves config values to file in Zomboid/Lua directory.
     function instance.Write()
+        logger.Debug("OpenOptions: Started write to file " .. instance.filename, instance.options)
+
+        if openutils and openutils.ObjectLen(instance.options) <= 0 then
+            logger.Debug("OpenOptions: Nothing write to file " .. instance.filename)
+
+            return
+        end
+
         local writer = getFileWriter(instance.filename, true, false)
 
         for key, option in pairs(instance.options) do
@@ -27,10 +37,14 @@ function OpenOptions:new(name, options)
         end
 
         writer:close()
+
+        logger.Debug("OpenOptions: instance. Finished write to file " .. instance.filename)
     end
 
-    -- Read reads instance values from file in {{GameCache}}/Lua directory.
+    -- Read reads instance values from file in Zomboid/Lua directory.
     function instance.Read()
+        logger.Debug("OpenOptions: Started read file " .. instance.filename)
+
         local reader = getFileReader(instance.filename, false)
         if not reader then return end
 
@@ -50,11 +64,15 @@ function OpenOptions:new(name, options)
                     value = ""
                 end
 
-                if instance.options ~= nil and instance.options[key] ~= nil and instance.options[key].type ~= "" then
+                if instance.options[key] == nil then
+                    instance.options[key] = {type = typeof(value), value = value}
+                elseif instance.options[key] ~= nil and instance.options[key].type ~= "" then
                     instance.options[key].value = value
                 end
             end
         end
+
+        logger.Debug("OpenOptions: Finished read file " .. instance.filename, instance.options)
     end
 
     function instance.Set(key, option)
@@ -110,8 +128,12 @@ function OpenOptions:new(name, options)
         return tonumber(value) or 0
     end
 
-    instance.Read()
-    instance.Write()
+    function instance.Start()
+        instance.Read()
+        instance.Write()
+    end
+
+    instance.Start()
 
     return instance
 end

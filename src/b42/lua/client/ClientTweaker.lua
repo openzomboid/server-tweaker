@@ -6,7 +6,6 @@
 
 ClientTweaker = {
     Version = openutils.Version,
-    Options = nil,
     Cache = nil,
 }
 
@@ -17,15 +16,6 @@ function ClientTweaker.OnGameStart()
         if player then
             ClientTweaker.Cache = OpenCache:new(player:getUsername())
         end
-    end
-
-    if SandboxVars.ServerTweaker.SaveClientOptions and ClientTweaker.Options then
-        ClientTweaker.Options.OpenOptions:new("client-options", {
-            ["highlight_safehouse"] = {type = "bool", value = "false"},
-            ["show_ping"] = {type = "bool", value = "true"}
-        })
-
-        --setShowPingInfo(ClientTweaker.Options.GetBool("show_ping"))
     end
 end
 

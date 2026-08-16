@@ -4,16 +4,32 @@
 -- that can be found in the LICENSE file.
 --
 
+require "clientutils/ClientOptions/ClientOptions"
+
 local logger = ConsoleLogger.new()
 
-local FLOOR_HIGHLIGHT_COLOR = ColorInfo.new(0, 1, 0, 1.0)
-
 HighlightSafehouse = {
-    ClientOptionEnabled = false
+    FLOOR_HIGHLIGHT_COLOR = ColorInfo.new(0, 1, 0, 1.0) -- green
 }
 
+function HighlightSafehouse.IsEnabledOnTheServer()
+    return SandboxVars.ServerTweaker.HighlightSafehouse
+end
+
+function HighlightSafehouse.OnOptionChange(self, option, enabled)
+    ClientOptions.SetSelected("highlight_safehouse", enabled)
+end
+
+function HighlightSafehouse.OnGameStart()
+    local name = "highlight_safehouse"
+    local selected = false -- default value
+    local translation = getText("IGUI_UserPanel_HighlightSafehouse")
+
+    ClientOptions.AddOption(name, selected, translation, HighlightSafehouse.IsEnabledOnTheServer, HighlightSafehouse.OnOptionChange)
+end
+
 -- ticks adds ticker for highlight players safehouses.
-HighlightSafehouse.OnRenderTick = function(ticks)
+function HighlightSafehouse.OnRenderTick(ticks)
     local character = getPlayer()
     if not character then
         return
@@ -22,13 +38,9 @@ HighlightSafehouse.OnRenderTick = function(ticks)
     if not SandboxVars.ServerTweaker.HighlightSafehouse then
         return
     end
-
-    local enabled = HighlightSafehouse.ClientOptionEnabled
-    if SandboxVars.ServerTweaker.SaveClientOptions and ClientTweaker.Options then
-        enabled = ClientTweaker.Options.GetBool("highlight_safehouse")
-    end
-
-    if not enabled then
+    
+    local option = ClientOptions.GetOption("highlight_safehouse") or {}
+    if not option.selected then
         return
     end
 
@@ -37,28 +49,30 @@ HighlightSafehouse.OnRenderTick = function(ticks)
     end
 
     local safehouses = ClientTweaker.Cache.GetSafehouses()
+    if not safehouses then
+        return
+    end
 
-    if safehouses then
-        local cell = getCell()
+    local cell = getCell()
 
-        for _, safehouse in pairs(safehouses) do
-            local x1 = safehouse:getX()
-            local x2 = safehouse:getX() + safehouse:getW() - 1
-            local y1 = safehouse:getY()
-            local y2 = safehouse:getY() + safehouse:getH() - 1
+    for _, safehouse in pairs(safehouses) do
+        local x1 = safehouse:getX()
+        local x2 = safehouse:getX() + safehouse:getW() - 1
+        local y1 = safehouse:getY()
+        local y2 = safehouse:getY() + safehouse:getH() - 1
 
-            for x = x1, x2 do
-                for y = y1, y2 do
-                    local sq = cell:getGridSquare(x, y, 0)
-                    if sq and sq:getFloor() then
-                        local obj = sq:getFloor()
-                        obj:setHighlighted(true)
-                        obj:setHighlightColor(FLOOR_HIGHLIGHT_COLOR)
-                    end
+        for x = x1, x2 do
+            for y = y1, y2 do
+                local sq = cell:getGridSquare(x, y, 0)
+                if sq and sq:getFloor() then
+                    local obj = sq:getFloor()
+                    obj:setHighlighted(true)
+                    obj:setHighlightColor(HighlightSafehouse.FLOOR_HIGHLIGHT_COLOR)
                 end
             end
         end
     end
 end
 
+Events.OnGameStart.Add(HighlightSafehouse.OnGameStart)
 Events.OnRenderTick.Add(HighlightSafehouse.OnRenderTick)

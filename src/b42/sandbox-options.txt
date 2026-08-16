@@ -1,12 +1,5 @@
 VERSION = 1,
 
-option ServerTweaker.SaveClientOptions {
-  type        = boolean,
-  default     = true,
-  page        = ServerTweaker,
-  translation = SaveClientOptions
-}
-
 option ServerTweaker.AddClientCache {
   type        = boolean,
   default     = true,
