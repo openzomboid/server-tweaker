@@ -12,9 +12,9 @@
 --- warnings, and structured object states directly into Project Zomboid's central 'server-console.txt' file.
 ConsoleLogger = ConsoleLogger or {}
 
---- GetConfig returns the base global fallback configurations map used when instantiating raw loggers.
+--- GetDefaultConfig returns the base global fallback configurations map used when instantiating raw loggers.
 --- @return table Dictionary defining default output severity constraints and identifying console labels.
-function ConsoleLogger.GetConfig()
+function ConsoleLogger.GetDefaultConfig()
     return {
         Level = "debug",
         Prefix = "ConsoleLogger",
@@ -37,7 +37,7 @@ function ConsoleLogger.new()
 
     -- Severity Level Map: Establishes a mathematical hierarchical value loop to handle conditional log filtering
     local levels = {["disabled"] = 0, ["trace"] = 1, ["debug"] = 2, ["info"] = 3, ["warning"] = 4, ["error"] = 5}
-    local config = ConsoleLogger.GetConfig() -- Load clone copy of fallback blueprint metrics
+    local config = ConsoleLogger.GetDefaultConfig() -- Load clone copy of fallback blueprint metrics
     local output = nil -- Reference hook used to intercept prints and redirect logs into memory arrays
 
     -- Local memory pool tracking unique message strings to suppress duplicate print calls
@@ -170,6 +170,19 @@ function ConsoleLogger.new()
 
         -- Register the message text as a static hash key to trap duplicates later
         printedMessages[msg] = true
+    end
+
+    --- ResetOncePool clears the internal history cache of unique printed messages.
+    --- Allowing previously suppressed logs to be printed one more time if called again.
+    ---
+    --- @example Resetting log constraints when a player switches maps or triggers a reload:
+    ---     function MyModUI.onReset()
+    ---         -- Purges the printedMessages pool memory footprint
+    ---         logger.ResetOncePool()
+    ---         logger.PrintOnce("info", "System context re-initialized") -- This will print again!
+    ---     end
+    function logger.ResetOncePool()
+        printedMessages = {}
     end
 
     --- Customize modifies the active instance's operational properties at runtime.
