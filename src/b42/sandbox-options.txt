@@ -6,3 +6,10 @@ option ServerTweaker.HighlightSafehouse {
   page        = ServerTweaker,
   translation = HighlightSafehouse
 }
+
+option ServerTweaker.EnableSuicideCommand {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = EnableSuicideCommand
+}

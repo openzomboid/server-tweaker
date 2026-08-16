@@ -380,15 +380,6 @@ function openutils.IsInSafehouseEastExtraLine(safehouse, x, y)
     return false
 end
 
--- Suicide kills player who called this function.
-function openutils.Suicide()
-    local character = getPlayer()
-
-    if character then
-        character:setHealth(0);
-    end
-end
-
 -- RandomInt return random int between min and max.
 function openutils.RandomInt(min, max)
     return ZombRand(max-min) + min

@@ -1,4 +1,5 @@
 {
     "Sandbox_ServerTweaker": "Server Tweaker",
-    "Sandbox_HighlightSafehouse": "Подсветка убежищ"
+    "Sandbox_HighlightSafehouse": "Подсветка убежищ",
+    "Sandbox_EnableSuicideCommand": "Включить команду suicide в чате"
 }

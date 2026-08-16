@@ -1,4 +1,5 @@
 {
     "Sandbox_ServerTweaker": "Server Tweaker",
-    "Sandbox_HighlightSafehouse": "Highlight safehouse"
+    "Sandbox_HighlightSafehouse": "Highlight safehouse",
+    "Sandbox_EnableSuicideCommand": "Enable suicide command in chat"
 }
