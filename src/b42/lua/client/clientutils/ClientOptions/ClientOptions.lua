@@ -29,16 +29,11 @@ ClientOptions = {
 --- AddOption registers a new configurable tick box to the user panel, binds setting
 --- change callbacks, and resolves local persistence data state.
 ---
---- @param name string - Unique configuration tracking key identifying this particular
---- option profile layout (e.g. "highlight_safehouse").
---- @param selected boolean - Fallback configuration default visibility flag if a persistent
---- state storage record has not yet materialized.
---- @param translation string - Pre-localized translation string text node to bind as the
---- checkbox graphical UI text label descriptor.
---- @param isEnabledOnTheServer function - Functional evaluator callback used to confirm
---- current multiplayer/sandbox server validation policies.
---- @param onOptionChange function - Executable callback fired whenever a player clicks
---- the checkbox element to toggle state values.
+--- @param name string - Unique configuration tracking key identifying this particular option profile layout (e.g. "highlight_safehouse").
+--- @param selected boolean - Fallback configuration default visibility flag if a persistent state storage record has not yet materialized.
+--- @param translation string - Pre-localized translation string text node to bind as the checkbox graphical UI text label descriptor.
+--- @param isEnabledOnTheServer function - Functional evaluator callback used to confirm current multiplayer/sandbox server validation policies.
+--- @param onOptionChange function - Executable callback fired whenever a player clicks the checkbox element to toggle state values.
 ---
 --- @example How to consume this method from an external module (e.g. HighlightSafehouse):
 ---     ClientOptions.AddOption(
@@ -117,8 +112,7 @@ end
 --- ISUserPanelUI_create intercepts the native creation pipeline of ISUserPanelUI
 --- to inject newly configured settings widgets dynamically.
 ---
---- @param self ISUserPanelUI Represents the physical instantiated user panel
---- window container canvas instance context.
+--- @param self ISUserPanelUI Represents the physical instantiated user panel window container canvas instance context.
 function ClientOptions.ISUserPanelUI_create(self)
     ClientOptions.OriginalFunctions.ISUserPanelUI_create(self)
 
