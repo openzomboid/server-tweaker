@@ -1,3 +1,5 @@
 {
-    "IGUI_UserPanel_HighlightSafehouse": "Подсвечивать убежище"
+    "IGUI_UserPanel_HighlightSafehouse": "Подсвечивать убежище",
+    "IGUI_Coordinates": "Координаты",
+    "IGUI_SafehouseUI_Members": "Участники:"
 }

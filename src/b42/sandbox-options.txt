@@ -7,9 +7,23 @@ option ServerTweaker.HighlightSafehouse {
   translation = HighlightSafehouse
 }
 
+option ServerTweaker.ShowCoordinates {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = ShowCoordinates
+}
+
 option ServerTweaker.EnableSuicideCommand {
   type        = boolean,
   default     = true,
   page        = ServerTweaker,
   translation = EnableSuicideCommand
+}
+
+option ServerTweaker.SafezoneCreationTweaks {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = SafezoneCreationTweaks
 }

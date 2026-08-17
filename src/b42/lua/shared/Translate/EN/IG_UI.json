@@ -1,3 +1,5 @@
 {
-    "IGUI_UserPanel_HighlightSafehouse": "Highlight Safehouse"
+    "IGUI_UserPanel_HighlightSafehouse": "Highlight Safehouse",
+    "IGUI_Coordinates": "Coordinates",
+    "IGUI_SafehouseUI_Members": "Members:"
 }

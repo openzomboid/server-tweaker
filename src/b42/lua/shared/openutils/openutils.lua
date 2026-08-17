@@ -250,21 +250,20 @@ end
 
 -- SetSafehouseData creates new SafeHouse.
 function openutils.SetSafehouseData(_title, _owner, _members, _x, _y, _w, _h)
-    local playerObj = getSpecificPlayer(0);
-    local safeObj = SafeHouse.addSafeHouse(_x, _y, _w, _h, _owner, false);
-    safeObj:setTitle(_title);
-    safeObj:setOwner(_owner);
+    local safehouse = SafeHouse.addSafeHouse(_x, _y, _w, _h, _owner)
+
+    safehouse:setTitle(_title)
+    safehouse:setOwner(_owner)
 
     local members = luautils.split(_members, ",")
 
     if #members > 0 then
         for i = 1, #members do
-            safeObj:addPlayer(members[i]);
+            safehouse:addPlayer(members[i])
         end
     end
 
-    safeObj:updateSafehouse(playerObj);
-    safeObj:syncSafehouse();
+    return safehouse
 end
 
 -- IsIntersectingAnotherSafehouse returns true if coordinates belongs to another Safehouse.

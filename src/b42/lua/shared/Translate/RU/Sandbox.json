@@ -1,5 +1,7 @@
 {
     "Sandbox_ServerTweaker": "Server Tweaker",
     "Sandbox_HighlightSafehouse": "Подсветка убежищ",
-    "Sandbox_EnableSuicideCommand": "Включить команду suicide в чате"
+    "Sandbox_ShowCoordinates": "Отображать координаты персонажа",
+    "Sandbox_EnableSuicideCommand": "Включить команду suicide в чате",
+    "Sandbox_SafezoneCreationTweaks": "Улучшения создания сейфзоны админом"
 }
