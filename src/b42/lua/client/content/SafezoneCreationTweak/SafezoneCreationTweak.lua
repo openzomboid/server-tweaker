@@ -70,6 +70,11 @@ function SafezoneCreationTweak.ISAddSafeZoneUI_prerender(self)
         return
     end
 
+    --
+    -- From here and to end of the function there is an original Project Zomboid code with
+    -- monkey patching for adding membersEntry position and label for it
+    --
+
     local splitPoint = UI_BORDER_SPACING*2 + 1 + math.max(getTextManager():MeasureStringX(UIFont.Small, getText("IGUI_PvpZone_StartingPoint")), getTextManager():MeasureStringX(UIFont.Small, getText("IGUI_PvpZone_CurrentPoint")))
     self:drawRect(0, 0, self.width, self.height, self.backgroundColor.a, self.backgroundColor.r, self.backgroundColor.g, self.backgroundColor.b);
     self:drawRectBorder(0, 0, self.width, self.height, self.borderColor.a, self.borderColor.r, self.borderColor.g, self.borderColor.b);
@@ -150,71 +155,17 @@ end
 -- ISAddSafeZoneUI_initialise overrides the original ISAddSafeZoneUI:initialise() function.
 -- Allows to set members in safehouse.
 function SafezoneCreationTweak.ISAddSafeZoneUI_initialise(self)
-    if not SafezoneCreationTweak.IsEnabledOnServer() then
-        SafezoneCreationTweak.OriginalFunctions.ISAddSafeZoneUI_initialise(self)
+    SafezoneCreationTweak.OriginalFunctions.ISAddSafeZoneUI_initialise(self)
 
-        return
+    if SafezoneCreationTweak.IsEnabledOnServer() then
+        self.membersEntry = ISTextEntryBox:new("", UI_BORDER_SPACING+1, 10, 200, 18)
+        self.membersEntry:initialise()
+        self.membersEntry:instantiate()
+        self:addChild(self.membersEntry)
+
+        -- UI_BORDER_SPACING*8 was UI_BORDER_SPACING*7 and BUTTON_HGT*6 was BUTTON_HGT*5 on original
+        self.claimOptions:setY(1 + UI_BORDER_SPACING*8 + FONT_HGT_MEDIUM + BUTTON_HGT*6)
     end
-
-    ISPanel.initialise(self);
-
-    local btnWid = 100
-    local padBottom = UI_BORDER_SPACING+1
-
-    self.cancel = ISButton:new(self:getWidth() - btnWid - UI_BORDER_SPACING-1, self:getHeight() - padBottom - BUTTON_HGT, btnWid, BUTTON_HGT, getText("UI_Cancel"), self, ISAddSafeZoneUI.onClick);
-    self.cancel.internal = "CANCEL";
-    self.cancel.anchorTop = false
-    self.cancel.anchorBottom = true
-    self.cancel:initialise();
-    self.cancel:instantiate();
-    self.cancel:enableCancelColor()
-    self:addChild(self.cancel);
-
-    self.ok = ISButton:new(UI_BORDER_SPACING+1, self:getHeight() - padBottom - BUTTON_HGT, btnWid, BUTTON_HGT, getText("IGUI_PvpZone_AddZone"), self, ISAddSafeZoneUI.onClick);
-    self.ok.internal = "OK";
-    self.ok.anchorTop = false
-    self.ok.anchorBottom = true
-    self.ok:initialise();
-    self.ok:instantiate();
-    self.ok:enableDisabledColor()
-    self:addChild(self.ok);
-
-    self.startingPoint = ISButton:new(UI_BORDER_SPACING+1, self.ok.y - BUTTON_HGT - UI_BORDER_SPACING, self.width - (UI_BORDER_SPACING+1)*2, BUTTON_HGT, getText("IGUI_PvpZone_RedefineStartingPoint"), self, ISAddSafeZoneUI.onClick);
-    self.startingPoint.internal = "STARTINGPOINT";
-    self.startingPoint.anchorTop = false
-    self.startingPoint.anchorBottom = true
-    self.startingPoint:initialise();
-    self.startingPoint:instantiate();
-    self.startingPoint.borderColor = {r=1, g=1, b=1, a=0.1};
-    self:addChild(self.startingPoint);
-
-    self.titleEntry = ISTextEntryBox:new("Safezone #" .. SafeHouse.getSafehouseList():size() + 1, UI_BORDER_SPACING+1, 10, 200, 18);
-    self.titleEntry:initialise();
-    self.titleEntry:instantiate();
-    self:addChild(self.titleEntry);
-
-    self.ownerEntry = ISTextEntryBox:new(self.character:getUsername(), UI_BORDER_SPACING+1, 10, 200, 18);
-    self.ownerEntry:initialise();
-    self.ownerEntry:instantiate();
-    self:addChild(self.ownerEntry);
-
-    -- Monkey patching
-    self.membersEntry = ISTextEntryBox:new("", UI_BORDER_SPACING+1, 10, 200, 18)
-    self.membersEntry:initialise()
-    self.membersEntry:instantiate()
-    self:addChild(self.membersEntry)
-    -- End monkey patching
-
-    -- Monkey patching again: UI_BORDER_SPACING*8 was UI_BORDER_SPACING*7 and BUTTON_HGT*6 was BUTTON_HGT*5 on original
-    self.claimOptions = ISTickBox:new(UI_BORDER_SPACING+1, 1 + UI_BORDER_SPACING*8 + FONT_HGT_MEDIUM + BUTTON_HGT*6, 20, BUTTON_HGT, "", self, ISAddSafeZoneUI.onClickClaimOptions);
-    self.claimOptions:initialise();
-    self.claimOptions:instantiate();
-    self.claimOptions.selected[1] = false;
-    self.claimOptions.selected[2] = true;
-    self.claimOptions.selected[3] = true;
-    self.claimOptions:addOption(getText("IGUI_Safezone_FullHighlight"));
-
-    self:addChild(self.claimOptions);
 end
 
 -- ISAddSafeZoneUI_onClick overrides the original ISAddSafeZoneUI:onClick() function.
