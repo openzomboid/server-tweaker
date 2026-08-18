@@ -3,5 +3,7 @@
     "Sandbox_HighlightSafehouse": "Подсветка убежищ",
     "Sandbox_ShowCoordinates": "Отображать координаты персонажа",
     "Sandbox_EnableSuicideCommand": "Включить команду suicide в чате",
-    "Sandbox_SafezoneCreationTweaks": "Улучшения создания сейфзоны админом"
+    "Sandbox_AdminSafehouseExtension": "Продвинутое создание убежищ админом",
+    "Sandbox_SafehouseVehicleProtection": "Защищать транспорт в убежище"
 }
+

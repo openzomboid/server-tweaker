@@ -12,7 +12,8 @@ local FONT_HGT_MEDIUM = getTextManager():getFontHeight(UIFont.Medium)
 local UI_BORDER_SPACING = 10
 local BUTTON_HGT = FONT_HGT_SMALL + 6
 
-SafezoneCreationTweak = {
+-- AdminSafehouseExtension store original game functions for hook/override execution.
+AdminSafehouseExtension = {
     OriginalFunctions = {
         ISAddSafeZoneUI_updateButtons = ISAddSafeZoneUI.updateButtons,
         ISAddSafeZoneUI_prerender = ISAddSafeZoneUI.prerender,
@@ -21,15 +22,20 @@ SafezoneCreationTweak = {
     }
 }
 
-function SafezoneCreationTweak.IsEnabledOnServer()
-    return SandboxVars.ServerTweaker.SafezoneCreationTweaks
+-- IsEnabledOnServer checks if the tweak setting is enabled on the server side.
+-- Returns a boolean value (true/false) fetched from SandboxVars.
+function AdminSafehouseExtension.IsEnabledOnServer()
+    return SandboxVars.ServerTweaker.AdminSafehouseExtension
 end
 
-function SafezoneCreationTweak.OnServerCommand(module, command, args)
+-- OnServerCommand processes network commands sent from the server to the client.
+-- Upon receiving the "ISAddSafeZoneUI_create" command, it unpacks safehouse arguments
+-- (owner, members, coordinates) and creates safezone on the client side.
+function AdminSafehouseExtension.OnServerCommand(module, command, args)
     local character = getPlayer()
 
     if module == "ServerTweaker" and command == "ISAddSafeZoneUI_create" then
-        logger.Debug("SafezoneCreationTweak: Receive safehouse creation event from server", args)
+        logger.Debug("AdminSafehouseExtension: Receive safehouse creation event from server", args)
 
         if not args or type(args) ~= "table" then
             return
@@ -42,10 +48,10 @@ end
 -- ISAddSafeZoneUI_updateButtons overrides the original ISAddSafeZoneUI:updateButtons() function.
 -- Allows to create safehouse with area=1.
 -- Allows to create safehouse to any player.
-function SafezoneCreationTweak.ISAddSafeZoneUI_updateButtons(self)
-    SafezoneCreationTweak.OriginalFunctions.ISAddSafeZoneUI_updateButtons(self)
+function AdminSafehouseExtension.ISAddSafeZoneUI_updateButtons(self)
+    AdminSafehouseExtension.OriginalFunctions.ISAddSafeZoneUI_updateButtons(self)
 
-    if not SafezoneCreationTweak.IsEnabledOnServer() then
+    if not AdminSafehouseExtension.IsEnabledOnServer() then
         return
     end
 
@@ -63,9 +69,9 @@ end
 
 -- ISAddSafeZoneUI_prerender overrides the original ISAddSafeZoneUI:prerender() function.
 -- Allows to set members in safehouse.
-function SafezoneCreationTweak.ISAddSafeZoneUI_prerender(self)
-    if not SafezoneCreationTweak.IsEnabledOnServer() then
-        SafezoneCreationTweak.OriginalFunctions.ISAddSafeZoneUI_prerender(self)
+function AdminSafehouseExtension.ISAddSafeZoneUI_prerender(self)
+    if not AdminSafehouseExtension.IsEnabledOnServer() then
+        AdminSafehouseExtension.OriginalFunctions.ISAddSafeZoneUI_prerender(self)
 
         return
     end
@@ -154,10 +160,10 @@ end
 
 -- ISAddSafeZoneUI_initialise overrides the original ISAddSafeZoneUI:initialise() function.
 -- Allows to set members in safehouse.
-function SafezoneCreationTweak.ISAddSafeZoneUI_initialise(self)
-    SafezoneCreationTweak.OriginalFunctions.ISAddSafeZoneUI_initialise(self)
+function AdminSafehouseExtension.ISAddSafeZoneUI_initialise(self)
+    AdminSafehouseExtension.OriginalFunctions.ISAddSafeZoneUI_initialise(self)
 
-    if SafezoneCreationTweak.IsEnabledOnServer() then
+    if AdminSafehouseExtension.IsEnabledOnServer() then
         self.membersEntry = ISTextEntryBox:new("", UI_BORDER_SPACING+1, 10, 200, 18)
         self.membersEntry:initialise()
         self.membersEntry:instantiate()
@@ -171,8 +177,8 @@ end
 -- ISAddSafeZoneUI_onClick overrides the original ISAddSafeZoneUI:onClick() function.
 -- Allows to set members in safehouse.
 -- Allows to create safehouse to any player.
-function SafezoneCreationTweak.ISAddSafeZoneUI_onClick(self, button)
-    if SafezoneCreationTweak.IsEnabledOnServer() and button.internal == "OK" then
+function AdminSafehouseExtension.ISAddSafeZoneUI_onClick(self, button)
+    if AdminSafehouseExtension.IsEnabledOnServer() and button.internal == "OK" then
         self.creatingZone = false
         self:setVisible(false)
         self:removeFromUIManager()
@@ -194,13 +200,13 @@ function SafezoneCreationTweak.ISAddSafeZoneUI_onClick(self, button)
 
         return
     else
-        SafezoneCreationTweak.OriginalFunctions.ISAddSafeZoneUI_onClick(self, button)
+        AdminSafehouseExtension.OriginalFunctions.ISAddSafeZoneUI_onClick(self, button)
     end
 end
 
-Events.OnServerCommand.Add(SafezoneCreationTweak.OnServerCommand)
+Events.OnServerCommand.Add(AdminSafehouseExtension.OnServerCommand)
 
-ISAddSafeZoneUI.updateButtons = SafezoneCreationTweak.ISAddSafeZoneUI_updateButtons
-ISAddSafeZoneUI.prerender = SafezoneCreationTweak.ISAddSafeZoneUI_prerender
-ISAddSafeZoneUI.initialise = SafezoneCreationTweak.ISAddSafeZoneUI_initialise
-ISAddSafeZoneUI.onClick = SafezoneCreationTweak.ISAddSafeZoneUI_onClick
+ISAddSafeZoneUI.updateButtons = AdminSafehouseExtension.ISAddSafeZoneUI_updateButtons
+ISAddSafeZoneUI.prerender = AdminSafehouseExtension.ISAddSafeZoneUI_prerender
+ISAddSafeZoneUI.initialise = AdminSafehouseExtension.ISAddSafeZoneUI_initialise
+ISAddSafeZoneUI.onClick = AdminSafehouseExtension.ISAddSafeZoneUI_onClick

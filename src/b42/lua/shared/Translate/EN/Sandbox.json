@@ -3,5 +3,6 @@
     "Sandbox_HighlightSafehouse": "Highlight safehouse",
     "Sandbox_ShowCoordinates": "Display character coordinates",
     "Sandbox_EnableSuicideCommand": "Enable suicide command in chat",
-    "Sandbox_SafezoneCreationTweaks": "Safezone creation improvements for admins"
+    "Sandbox_AdminSafehouseExtension": "Advanced admin safehouse creation",
+    "Sandbox_SafehouseVehicleProtection": "Protect vehicles in safehouse"
 }

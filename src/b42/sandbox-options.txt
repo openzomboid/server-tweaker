@@ -21,9 +21,16 @@ option ServerTweaker.EnableSuicideCommand {
   translation = EnableSuicideCommand
 }
 
-option ServerTweaker.SafezoneCreationTweaks {
+option ServerTweaker.AdminSafehouseExtension {
   type        = boolean,
   default     = true,
   page        = ServerTweaker,
-  translation = SafezoneCreationTweaks
+  translation = AdminSafehouseExtension
+}
+
+option ServerTweaker.SafehouseVehicleProtection {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = SafehouseVehicleProtection
 }

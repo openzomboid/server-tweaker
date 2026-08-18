@@ -1,5 +1,6 @@
 {
     "IGUI_UserPanel_HighlightSafehouse": "Highlight Safehouse",
     "IGUI_Coordinates": "Coordinates",
-    "IGUI_SafehouseUI_Members": "Members:"
+    "IGUI_SafehouseUI_Members": "Members:",
+    "IGUI_PlayerText_VehicleIsInSafehouse": "Vehicle is in someone's safehouse"
 }
