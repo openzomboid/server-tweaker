@@ -5,7 +5,6 @@
 --
 
 --
--- TODO: Add context menu item with text "Vehicle is in your Safehouse and protected from theft"
 -- TODO: Add red text to the bottom right corner when driving into someone else's Safehouse
 --
 
