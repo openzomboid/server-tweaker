@@ -20,9 +20,9 @@ HighlightSafehouse = {
     SafehousesCache = nil
 }
 
--- IsEnabledOnTheServer checks if this feature is allowed by the server's
+-- IsEnabledOnServer checks if this feature is allowed by the server's
 -- current Sandbox settings.
-function HighlightSafehouse.IsEnabledOnTheServer()
+function HighlightSafehouse.IsEnabledOnServer()
     return SandboxVars.ServerTweaker.HighlightSafehouse
 end
 
@@ -112,7 +112,7 @@ end
 -- OnGameStart injects the new setting into the client's options menu when the
 -- world finishes loading.
 function HighlightSafehouse.OnGameStart()
-    if HighlightSafehouse.IsEnabledOnTheServer() then
+    if HighlightSafehouse.IsEnabledOnServer() then
         -- Instantiate the data container responsible for tracking safehouse zones within the streamable world
         HighlightSafehouse.SafehousesCache = SafehousesCache:new()
 
@@ -121,7 +121,7 @@ function HighlightSafehouse.OnGameStart()
         local translation = getText("IGUI_UserPanel_HighlightSafehouse")
 
         -- Register the checkbox under the custom options system with its bound visibility and state callbacks
-        ClientOptions.AddOption(name, selected, translation, HighlightSafehouse.IsEnabledOnTheServer, HighlightSafehouse.OnOptionChange)
+        ClientOptions.AddOption(name, selected, translation, HighlightSafehouse.IsEnabledOnServer, HighlightSafehouse.OnOptionChange)
     end
 end
 
@@ -132,7 +132,7 @@ function HighlightSafehouse.OnRenderTick(ticks)
         return
     end
 
-    if not HighlightSafehouse.IsEnabledOnTheServer() then
+    if not HighlightSafehouse.IsEnabledOnServer() then
         return
     end
 
@@ -143,9 +143,9 @@ function HighlightSafehouse.OnRenderTick(ticks)
 
     if HighlightSafehouse.IsGrandPermittedUser(character) then
         HighlightSafehouse.HighlightForAdmin(character)
-    else
-        HighlightSafehouse.HighlightForUser(character)
     end
+
+    HighlightSafehouse.HighlightForUser(character)
 end
 
 Events.OnGameStart.Add(HighlightSafehouse.OnGameStart)

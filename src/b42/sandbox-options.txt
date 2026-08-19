@@ -34,3 +34,10 @@ option ServerTweaker.SafehouseVehicleProtection {
   page        = ServerTweaker,
   translation = SafehouseVehicleProtection
 }
+
+option ServerTweaker.ElevatedStaffPermissions {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = ElevatedStaffPermissions
+}

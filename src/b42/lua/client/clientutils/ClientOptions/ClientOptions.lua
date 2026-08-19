@@ -40,7 +40,7 @@ ClientOptions = {
 ---         "highlight_safehouse",
 ---         true,
 ---         getText("IGUI_UserPanel_HighlightSafehouse"),
----         HighlightSafehouse.IsEnabledOnTheServer,
+---         HighlightSafehouseIsEnabledOnServer,
 ---         HighlightSafehouse.OnOptionChange
 ---     )
 function ClientOptions.AddOption(name, selected, translation, isEnabledOnTheServer, onOptionChange)
@@ -52,7 +52,7 @@ function ClientOptions.AddOption(name, selected, translation, isEnabledOnTheServ
         onOptionChange = onOptionChange
     }
 
-    if type(option.isEnabledOnTheServer) ~= 'function' or type(option.onOptionChange) ~= 'function' then
+    if type(optionIsEnabledOnServer) ~= 'function' or type(option.onOptionChange) ~= 'function' then
         logger.Debug("ClientOptions: Option is invalid and was skipped", option)
         
         return
@@ -121,7 +121,7 @@ function ClientOptions.ISUserPanelUI_create(self)
     local y = self.cancel.y
 
     for name, option in pairs(ClientOptions.Options) do
-        if option.isEnabledOnTheServer() then
+        if optionIsEnabledOnServer() then
             self[option.name] = ISTickBox:new(self.factionBtn.x, y, btnWid, BUTTON_HGT, option.translation, self, option.onOptionChange)
             self[option.name]:initialise()
             self[option.name]:instantiate()

@@ -25,7 +25,7 @@ SafehousesCache = {}
 ---
 --- @example Instantiating the cache inside an external mod file (e.g., HighlightSafehouse.OnGameStart):
 ---     function HighlightSafehouse.OnGameStart()
----         if HighlightSafehouse.IsEnabledOnTheServer() then
+---         if HighlightSafehouse.IsEnabledOnServer() then
 ---             -- Creates and starts automatic data synchronization for the local player's safehouses
 ---             HighlightSafehouse.SafehousesCache = SafehousesCache:new()
 ---         end

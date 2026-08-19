@@ -4,5 +4,6 @@
     "Sandbox_ShowCoordinates": "Display character coordinates",
     "Sandbox_EnableSuicideCommand": "Enable suicide command in chat",
     "Sandbox_AdminSafehouseExtension": "Advanced admin safehouse creation",
-    "Sandbox_SafehouseVehicleProtection": "Protect vehicles in safehouse"
+    "Sandbox_SafehouseVehicleProtection": "Protect vehicles in safehouse",
+    "Sandbox_ElevatedStaffPermissions": "Elevated Staff Permissions"
 }
