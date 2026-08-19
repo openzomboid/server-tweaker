@@ -14,12 +14,19 @@ SafehouseVehicleProtectionServer = {
     Use = {}
 }
 
+-- IsEnabledOnServer checks if the vehicle anti-theft system is active on the server.
+-- It reads the current configuration state directly from the sandbox variable settings.
 function SafehouseVehicleProtectionServer.IsEnabledOnServer()
     return SandboxVars.ServerTweaker.SafehouseVehicleProtection
 end
 
+-- IsVehicleActionAllowed evaluates whether a character is permitted to interact with a specific
+-- vehicle. It bypasses constraints if vehicle cheats are active, maps the vehicle coordinates to
+-- spatial safehouses, and blocks access if the player is not a registered member.
 function SafehouseVehicleProtectionServer.IsVehicleActionAllowed(vehicle, character)
     if openutils.IsVehicleCheat() then
+        logger.Debug("SafehouseVehicleProtectionServer: IsVehicleCheat is enabled for " .. character:getUsername())
+
         return true
     end
 
@@ -40,7 +47,7 @@ end
 function SafehouseVehicleProtectionServer.Use.EngineDoor(vehicle, part, character)
     if SafehouseVehicleProtectionServer.IsEnabledOnServer() then
         if not SafehouseVehicleProtectionServer.IsVehicleActionAllowed(vehicle, character) then
-            character:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
+            character:Say(getText("IGUI_PlayerText_VehicleInteractionUnavailable"))
             logger.Debug("SafehouseVehicleProtectionServer: stopped EngineDoor action for " .. character:getUsername())
 
             return
@@ -55,7 +62,7 @@ end
 function SafehouseVehicleProtectionServer.Use.TrunkDoor(vehicle, part, character)
     if SafehouseVehicleProtectionServer.IsEnabledOnServer() then
         if not SafehouseVehicleProtectionServer.IsVehicleActionAllowed(vehicle, character) then
-            character:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
+            character:Say(getText("IGUI_PlayerText_VehicleInteractionUnavailable"))
             logger.Debug("SafehouseVehicleProtectionServer: stopped TrunkDoor action for " .. character:getUsername())
 
             return

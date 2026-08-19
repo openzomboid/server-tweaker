@@ -410,6 +410,25 @@ function openutils.IsVehicleCheat()
     return ISVehicleMechanics.cheat or cheat
 end
 
+-- openutils.GetSquareFromWorldObjects extracts the grid square location from a list of world objects.
+-- It iterates through the provided world objects table, verifies that the item has a valid getSquare method, and returns the first found IsoGridSquare instance.
+function openutils.GetSquareFromWorldObjects(worldobjects)
+    if not worldobjects or type(worldobjects) ~= "table" then
+        return nil
+    end
+
+    for i, v in ipairs(worldobjects) do
+        if v and type(v.getSquare) == "function" then
+            local square = v:getSquare()
+            if square then
+                return square
+            end
+        end
+    end
+
+    return nil
+end
+
 -- GetOrCreateContextOptionWithMenu finds or creates context option by name.
 function openutils.GetOrCreateContextOptionWithMenu(name, context, worldobjects)
     local option = context:getOptionFromName(name)
