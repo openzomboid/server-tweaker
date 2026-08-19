@@ -19,6 +19,10 @@ function SafehouseVehicleProtectionServer.IsEnabledOnServer()
 end
 
 function SafehouseVehicleProtectionServer.IsVehicleActionAllowed(vehicle, character)
+    if openutils.IsVehicleCheat() then
+        return true
+    end
+
     local square = vehicle:getCurrentSquare()
     local x = math.floor(square:getX())
     local y = math.floor(square:getY())
@@ -34,7 +38,7 @@ end
 -- EngineDoor rewrites original Vehicles.Use.EngineDoor function.
 -- Forbids to open Engine Door if user is not permitted (when vehicle is inside others player's safehouse).
 function SafehouseVehicleProtectionServer.Use.EngineDoor(vehicle, part, character)
-    if SafehouseVehicleProtectionServer.IsEnabledOnServer() and not openutils.IsVehicleCheat() then
+    if SafehouseVehicleProtectionServer.IsEnabledOnServer() then
         if not SafehouseVehicleProtectionServer.IsVehicleActionAllowed(vehicle, character) then
             character:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
             logger.Debug("SafehouseVehicleProtectionServer: stopped EngineDoor action for " .. character:getUsername())
@@ -49,7 +53,7 @@ end
 -- TrunkDoor rewrites original Vehicles.Use.TrunkDoor function.
 -- Forbids to open Trunk Door if user is not permitted (when vehicle is inside others player's safehouse).
 function SafehouseVehicleProtectionServer.Use.TrunkDoor(vehicle, part, character)
-    if SafehouseVehicleProtectionServer.IsEnabledOnServer() and not openutils.IsVehicleCheat() then
+    if SafehouseVehicleProtectionServer.IsEnabledOnServer() then
         if not SafehouseVehicleProtectionServer.IsVehicleActionAllowed(vehicle, character) then
             character:Say(getText("IGUI_PlayerText_VehicleIsInSafehouse"))
             logger.Debug("SafehouseVehicleProtectionServer: stopped TrunkDoor action for " .. character:getUsername())
