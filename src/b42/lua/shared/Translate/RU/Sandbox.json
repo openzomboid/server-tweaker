@@ -5,6 +5,7 @@
     "Sandbox_EnableSuicideCommand": "Включить команду suicide в чате",
     "Sandbox_AdminSafehouseExtension": "Продвинутое создание убежищ админом",
     "Sandbox_SafehouseVehicleProtection": "Защищать транспорт в убежище",
-    "Sandbox_ElevatedStaffPermissions": "Повышение прав персоналу"
+    "Sandbox_ElevatedStaffPermissions": "Повышение прав персоналу",
+    "Sandbox_BrushToolFix": "Исправить синхронизацию Brush Tool"
 }
 

@@ -32,7 +32,7 @@ ClientOptions = {
 --- @param name string - Unique configuration tracking key identifying this particular option profile layout (e.g. "highlight_safehouse").
 --- @param selected boolean - Fallback configuration default visibility flag if a persistent state storage record has not yet materialized.
 --- @param translation string - Pre-localized translation string text node to bind as the checkbox graphical UI text label descriptor.
---- @param isEnabledOnTheServer function - Functional evaluator callback used to confirm current multiplayer/sandbox server validation policies.
+--- @param IsEnabledOnServer function - Functional evaluator callback used to confirm current multiplayer/sandbox server validation policies.
 --- @param onOptionChange function - Executable callback fired whenever a player clicks the checkbox element to toggle state values.
 ---
 --- @example How to consume this method from an external module (e.g. HighlightSafehouse):
@@ -43,16 +43,16 @@ ClientOptions = {
 ---         HighlightSafehouseIsEnabledOnServer,
 ---         HighlightSafehouse.OnOptionChange
 ---     )
-function ClientOptions.AddOption(name, selected, translation, isEnabledOnTheServer, onOptionChange)
+function ClientOptions.AddOption(name, selected, translation, isEnabledOnServer, onOptionChange)
     local option = {
         name = name,
         selected = selected,
         translation = translation,
-        isEnabledOnTheServer = isEnabledOnTheServer,
+        isEnabledOnServer = isEnabledOnServer,
         onOptionChange = onOptionChange
     }
 
-    if type(optionIsEnabledOnServer) ~= 'function' or type(option.onOptionChange) ~= 'function' then
+    if type(option.isEnabledOnServer) ~= 'function' or type(option.onOptionChange) ~= 'function' then
         logger.Debug("ClientOptions: Option is invalid and was skipped", option)
         
         return
@@ -121,7 +121,7 @@ function ClientOptions.ISUserPanelUI_create(self)
     local y = self.cancel.y
 
     for name, option in pairs(ClientOptions.Options) do
-        if optionIsEnabledOnServer() then
+        if option.isEnabledOnServer() then
             self[option.name] = ISTickBox:new(self.factionBtn.x, y, btnWid, BUTTON_HGT, option.translation, self, option.onOptionChange)
             self[option.name]:initialise()
             self[option.name]:instantiate()

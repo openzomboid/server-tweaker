@@ -41,3 +41,10 @@ option ServerTweaker.ElevatedStaffPermissions {
   page        = ServerTweaker,
   translation = ElevatedStaffPermissions
 }
+
+option ServerTweaker.BrushToolFix {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = BrushToolFix
+}
