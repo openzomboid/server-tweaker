@@ -44,6 +44,10 @@ function HighlightSafehouse.HighlightForUser(character)
         return
     end
 
+    if character:getZ() < 0 then
+        return
+    end
+
     local safehouses = HighlightSafehouse.SafehousesCache.GetSafehouses()
     if not safehouses then
         return
@@ -77,6 +81,10 @@ end
 -- It checks if the character has master permissions and highlights every safehouse floor tile on the map in red.
 function HighlightSafehouse.HighlightForAdmin(character)
     if not HighlightSafehouse.IsGrandPermittedUser(character) then
+        return
+    end
+
+    if character:getZ() < 0 then
         return
     end
 
