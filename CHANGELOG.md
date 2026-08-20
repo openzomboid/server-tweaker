@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.7.0] - Unreleased
+
+### Added
+- Server Tweaker adapted to work with build 42.
+- TBD
+
 ## [v0.6.2] - 2024-12-16 - Cancelled
 ### Fixed
 - Added forgotten translation to IGUI_DbViewer_Add.
