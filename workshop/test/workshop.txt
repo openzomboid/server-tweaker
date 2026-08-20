@@ -14,16 +14,20 @@ description=
 description=[h1]Configuration[/h1]
 description=For details see [url=https://github.com/openzomboid/server-tweaker]GitHub repository[/url]. In the sandbox settings there is a "Server Tweaker" tab where you can change the following settings:
 description=
-description=[h2]Enabled by default[/h2]
+description=[h2]Server Sandbox Options[/h2]
 description=[list]
-description=    [*] [b]HighlightSafehouse[/b]
-description=    [*] [b]DisplayCharacterCoordinates[/b]
-description=    [*] [b]EnableSuicideCommand[/b]
-description=[/list]
-description=
-description=[h2]Disabled by default[/h2]
-description=[list]
-description=    [*] [b]TBD[/b]
+description=    [*] HighlightSafehouse (default=true) - Shows color highlight of area of players Safehouse to members. If the HighlightSafehouse option is enabled in the server sandbox settings, then the same setting becomes available to the player in the client settings. Each player will be able to choose for himself whether to highlight the territory or not.
+description=    [*] ShowCoordinates (default=true) - Adds coordinates to the character view interface (J). The player must have any watch that displays the date.
+description=    [*] EnableSuicideCommand (default=true)` - Adds suicide command to chat with confirmation window. The character will immediately die after entering this command and confirmation.
+description=    [*] AdminSafehouseExtension (default=true) - Turns on several changes at once in the interface for creating a custom Safezone.
+description=    [list]
+description=        [*] Removes the restriction on the minimum size of an arbitrary Safezone - it becomes possible to create a Safezone with a size of 1x1 tiles.
+description=        [*] The Savezone creation interface now allows you to specify all Safezone members. A comma is used as a separator.
+description=        [*] Added the ability to create a Savezone for a player who is not online on the server.
+description=    [/list]
+description=    [*] SafehouseVehicleProtection (default=false) - Protects vehicles wholly or partly in a safehouse. Hidden the radial menu of these vehicles for a non-Hideout character and disabled the ability to enter the vehicle and open the mechanics menu. Also, such cars cannot be towed by another car. In the original game, such cars are often stolen or parts are twisted from them, which causes discomfort on PVE servers. Enabling this setting will improve this user experience.
+description=    [*] ElevatedStaffPermissions (default=false) - Currently, this only enables the context menu on the global map for roles with the "SeeWorldMap" permission. Roles with the "TeleportToCoordinates" permission now have the ability to freely teleport on the global map.
+description=    [*] BrushToolFix (default=false) - Fixes synchronization issues with objects placed using the Brush Tool. Objects are now synchronized between players and are not deleted when rejoining the server. Many thanks for James "J" Kelly and his server Astaroth for sharing basic idea how to fix it and parts of his code.
 description=[/list]
 description=
 description=[h1]Compatibility[/h1]
