@@ -27,7 +27,7 @@ description=        [*] Added the ability to create a Savezone for a player who 
 description=    [/list]
 description=    [*] SafehouseVehicleProtection (default=false) - Protects vehicles wholly or partly in a safehouse. Hidden the radial menu of these vehicles for a non-Hideout character and disabled the ability to enter the vehicle and open the mechanics menu. Also, such cars cannot be towed by another car. In the original game, such cars are often stolen or parts are twisted from them, which causes discomfort on PVE servers. Enabling this setting will improve this user experience.
 description=    [*] ElevatedStaffPermissions (default=false) - Currently, this only enables the context menu on the global map for roles with the "SeeWorldMap" permission. Roles with the "TeleportToCoordinates" permission now have the ability to freely teleport on the global map.
-description=    [*] BrushToolFix (default=false) - Fixes synchronization issues with objects placed using the Brush Tool. Objects are now synchronized between players and are not deleted when rejoining the server. Many thanks for James "J" Kelly and his server Astaroth for sharing basic idea how to fix it and parts of his code.
+description=    [*] BrushToolFix (default=false) - Fixes synchronization issues with objects placed using the Brush Tool. Objects are now synchronized between players and are not deleted when rejoining the server. Special thanks to James "J" Kelly and his Astaroth server for their assistance in development.
 description=[/list]
 description=
 description=[h1]Compatibility[/h1]

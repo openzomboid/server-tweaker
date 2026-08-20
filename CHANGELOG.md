@@ -5,11 +5,21 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [v0.7.0] - Unreleased
+## [v0.7.0] - 2026-08-20
 
 ### Added
-- Server Tweaker adapted to work with build 42.
-- TBD
+- Added the ability to teleport to any point on the global map for GMs, moderators, and other roles with extended permissions
+- Fixed the Brush Tool functionality - placed items are now synchronized with the server and other players - special thanks to James "J" Kelly and his Astaroth server for their assistance in development
+
+### Changed
+- Server Tweaker has been adapted for b42. The following functions have been adapted: Safehouse Highlighting, Coordinate Display in the character panel, Chat command for character suicide, Additional options when creating a claim by an admin, Protection against theft and dismantling of vehicles parked within a claim
+- Refactored and documented within the code itself the shared libraries that can be used in other mods as helper functions:
+    - ConsoleLogger.lua - a simple, lightweight logging library
+    - OptionsStorage.lua - an in-memory key/value storage with saving to an .ini file in the \Zomboid\Lua folder
+    - ClientOptions.lua - allows dynamically adding checkboxes to the user panel (UserPanel) and using them as quick-access client settings
+
+### Removed
+- During the adaptation of Server Tweaker, many previously added improvements were removed. Everything not listed above has been cut from the mod (some things will be added back in future updates, some will not)
 
 ## [v0.6.2] - 2024-12-16 - Cancelled
 ### Fixed
@@ -128,7 +138,8 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.6.1...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.7.0...HEAD
+[v0.7.0]: https://github.com/openzomboid/server-tweaker/compare/v0.6.1...v0.7.0
 [v0.6.1]: https://github.com/openzomboid/server-tweaker/compare/v0.6.0...v0.6.1
 [v0.6.0]: https://github.com/openzomboid/server-tweaker/compare/v0.5.1...v0.6.0
 [v0.5.1]: https://github.com/openzomboid/server-tweaker/compare/v0.5.0...v0.5.1
