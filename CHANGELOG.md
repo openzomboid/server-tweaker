@@ -5,8 +5,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [v0.7.0] - 2026-08-20
+## [v0.7.1] - 2026-08-21
+### Fixed
+- Fixed the vehicle detachment function in the SafehouseVehicleProtection module.
 
+## [v0.7.0] - 2026-08-20
 ### Added
 - Added the ability to teleport to any point on the global map for GMs, moderators, and other roles with extended permissions
 - Fixed the Brush Tool functionality - placed items are now synchronized with the server and other players - special thanks to James "J" Kelly and his Astaroth server for their assistance in development
@@ -138,7 +141,8 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.7.1...HEAD
+[v0.7.1]: https://github.com/openzomboid/server-tweaker/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/openzomboid/server-tweaker/compare/v0.6.1...v0.7.0
 [v0.6.1]: https://github.com/openzomboid/server-tweaker/compare/v0.6.0...v0.6.1
 [v0.6.0]: https://github.com/openzomboid/server-tweaker/compare/v0.5.1...v0.6.0

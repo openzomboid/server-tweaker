@@ -61,6 +61,16 @@ function SafehouseVehicleProtection.doTowingMenu(character, vehicle, menu)
 
     local character = character
 
+    if vehicle:getVehicleTowing() then
+        menu:addSlice(getText("ContextMenu_Vehicle_DetachTrailer"), getTexture("media/ui/ZoomOut.png"), ISVehicleMenu.onDetachTrailer, character, vehicle, vehicle:getTowAttachmentSelf())
+        return
+    end
+
+    if vehicle:getVehicleTowedBy() then
+        menu:addSlice(getText("ContextMenu_Vehicle_DetachTrailer"), getTexture("media/ui/ZoomOut.png"), ISVehicleMenu.onDetachTrailer, character, vehicle:getVehicleTowedBy(), vehicle:getVehicleTowedBy():getTowAttachmentSelf())
+        return
+    end
+
     local attachments = {
         { attachmentA = "trailer", attachmentB = "trailer" },
         { attachmentA = "trailerfront", attachmentB = "trailerfront" },
@@ -84,6 +94,8 @@ function SafehouseVehicleProtection.doTowingMenu(character, vehicle, menu)
             return
         end
     end
+
+    SafehouseVehicleProtection.OriginalFunctions.ISVehicleMenu_doTowingMenu(character, vehicle, menu)
 end
 
 -- showRadialMenuOutside rewrites original ISVehicleMenu.showRadialMenuOutside function.

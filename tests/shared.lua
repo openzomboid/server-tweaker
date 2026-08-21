@@ -18,7 +18,7 @@ testutils.dotdir('mock/lua/mods')
 -- Import Lua shared Project Zomboid original scripts.
 dofile(pzPath.."/media/lua/shared/luautils.lua")
 dofile(pzPath.."/media/lua/shared/defines.lua")
---testutils.dotdir(pzPath.."/media/lua/shared") -- TODO: Add all java lasses mock first.
+--testutils.dotdir(pzPath.."/media/lua/shared") -- TODO: Add all java classes mock first.
 package.path = pzPath.."/media/lua/shared/" .. "?.lua;" .. package.path
 
 function InitTest()

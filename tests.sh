@@ -14,7 +14,7 @@ DIR_TESTS="${BASEDIR}/tests"
 FAIL=$(echo -e "[\033[0;31m fail \033[0m]")
 
 # Import from local config file if exists.
-FILE_CONFIG_LOCAL="${DIR_TESTS}/config-local.sh"
+FILE_CONFIG_LOCAL="${DIR_TESTS}/config/config-local.sh"
 # shellcheck source=tests/config-local.sh
 test -f "${FILE_CONFIG_LOCAL}" && . "${FILE_CONFIG_LOCAL}"
 
