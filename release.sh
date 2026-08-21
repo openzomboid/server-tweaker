@@ -38,8 +38,8 @@ ZOMBOID_WORKSHOP_MOD_DIR=${ZOMBOID_WORKSHOP_DIR}/"${MOD_NAME}"
 WORKDIR=.tmp/release
 
 function remove_old_release() {
-  rm -rf ${WORKDIR}
-  rm -rf ${ZOMBOID_WORKSHOP_MOD_DIR}
+  rm -rf ${WORKDIR:?}
+  rm -rf ${ZOMBOID_WORKSHOP_MOD_DIR:?}
 }
 
 function create_folders() {
@@ -91,8 +91,8 @@ function compress_release() {
 }
 
 function install_release() {
-  cp -r  ${WORKDIR}/"${RELEASE_NAME}" ${ZOMBOID_WORKSHOP_MOD_DIR}
-  rm -r ${WORKDIR}/"${RELEASE_NAME}"
+  cp -r ${WORKDIR:?}/"${RELEASE_NAME:?}" ${ZOMBOID_WORKSHOP_MOD_DIR}
+  rm -r ${WORKDIR:?}/"${RELEASE_NAME}"
 }
 
 remove_old_release && \
