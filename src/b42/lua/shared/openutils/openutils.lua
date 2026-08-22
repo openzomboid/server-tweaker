@@ -6,8 +6,8 @@
 
 -- openutils contains shared defines.
 openutils = {
-    Version = "0.7.1", -- in semantic versioning (http://semver.org/)
-    Role = {
+    version = "0.7.1", -- in semantic versioning (http://semver.org/)
+    role = {
         ["admin"] = 5, ["moderator"] = 4, ["overseer"]= 3, ["gm"] = 2, ["observer"] = 1, ["none"] = 0,
     },
     json = require "vendor/json"
@@ -219,10 +219,10 @@ function openutils.HasPermission(character, needle)
         return false
     end
 
-    local roleLevel = openutils.Role[string.lower(character:getAccessLevel())];
+    local roleLevel = openutils.role[string.lower(character:getAccessLevel())];
     if roleLevel == nil then roleLevel = 0 end
 
-    local needleLevel = openutils.Role[string.lower(needle)]
+    local needleLevel = openutils.role[string.lower(needle)]
     if needleLevel == nil then needleLevel = 99 end
 
     if roleLevel < needleLevel then
