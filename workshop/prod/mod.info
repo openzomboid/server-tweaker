@@ -1,4 +1,6 @@
 name=Server Tweaker
 id=ServerTweaker
+author=outdead
+modversion=0.8.0
 poster=poster.png
 description=Server Tweaker is a modification to Project Zomboid with random tweaks.

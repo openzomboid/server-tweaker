@@ -48,3 +48,10 @@ option ServerTweaker.BrushToolFix {
   page        = ServerTweaker,
   translation = BrushToolFix
 }
+
+option ServerTweaker.TweakOverlayText {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = TweakOverlayText
+}

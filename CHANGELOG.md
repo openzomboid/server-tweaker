@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.8.0] - Unreleased
+### Added
+- Added Tweak Overlay Text (WIP)
+
 ## [v0.7.1] - 2026-08-21
 ### Fixed
 - Fixed the vehicle detachment function in the SafehouseVehicleProtection module.

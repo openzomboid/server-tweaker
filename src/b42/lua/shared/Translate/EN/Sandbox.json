@@ -6,5 +6,6 @@
     "Sandbox_AdminSafehouseExtension": "Advanced admin safehouse creation",
     "Sandbox_SafehouseVehicleProtection": "Protect vehicles in safehouse",
     "Sandbox_ElevatedStaffPermissions": "Elevated Staff Permissions",
-    "Sandbox_BrushToolFix": "Fix Brush Tool synchronization"
+    "Sandbox_BrushToolFix": "Fix Brush Tool synchronization",
+    "Sandbox_TweakOverlayText": "Tweak overlay text in right bottom corner"
 }
