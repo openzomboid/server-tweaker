@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2023 outdead.
+-- Copyright (c) 2026 outdead.
 -- Use of this source code is governed by the MIT license
 -- that can be found in the LICENSE file.
 --
@@ -10,9 +10,13 @@ TweakOverlayText = {
     }
 }
 
+function TweakOverlayText.IsEnabledOnServer()
+    return SandboxVars.ServerTweaker.TweakOverlayText
+end
+
 -- Adds server public name, hides strange serverTime and 32 players warning.
 function TweakOverlayText.WaterMarkUI_render(self)
-    if not SandboxVars.ServerTweaker.TweakOverlayText then
+    if not TweakOverlayText.IsEnabledOnServer() then
         TweakOverlayText.OriginalFunctions.WaterMarkUI_render(self)
         return
     end
@@ -40,11 +44,13 @@ function TweakOverlayText.WaterMarkUI_render(self)
             tmpY = tmpY + 25
         end
 
+        -- Ping
         if isShowServerInfo() then
             local lastPing = tonumber(statusData.lastPing)
             local r = 0.8
             local g = 0.8
             local b = 0.8
+
             if lastPing > 300 then
                 r = 1
                 g = 0.5
@@ -55,7 +61,8 @@ function TweakOverlayText.WaterMarkUI_render(self)
                 g = 0.5
                 b = 0.5
             end
-            self:drawTextRight(getText("UI_Ping", tostring(lastPing)), maxX-50, maxY-tmpY , r, g, b, 1, UIFont.Small);
+
+            self:drawTextRight(getText("UI_Ping", tostring(lastPing)), maxX-50, maxY-tmpY , r, g, b, 1, UIFont.Small)
             tmpY = tmpY + 25
         end
     end
@@ -65,7 +72,7 @@ end
 function TweakOverlayText.OnGameStart()
     if SandboxVars.ServerTweaker.TweakOverlayText then
         setShowConnectionInfo(true)
-        setShowServerInfo(true)
+        setShowServerInfo(true) -- ping
     end
 end
 
