@@ -7,7 +7,9 @@ All notable changes to this project will be documented in this file.
 
 ## [v0.8.0] - Unreleased
 ### Added
-- Added Tweak Overlay Text (WIP)
+- Added Tweak Overlay Text
+  - The overlay text has been made more informative and compact
+  - Added "You're in a non pvp zone" text to the right bottom screen
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed

@@ -6,7 +6,8 @@
 
 TweakOverlayText = {
     OriginalFunctions = {
-        WaterMarkUI_render = WaterMarkUI.render
+        WaterMarkUI_render = WaterMarkUI.render,
+        ISServerSandboxOptionsUI_onButtonApply = ISServerSandboxOptionsUI.onButtonApply
     }
 }
 
@@ -32,6 +33,7 @@ function TweakOverlayText.WaterMarkUI_render(self)
         local maxY = getCore():getScreenHeight()
         local maxX = getCore():getScreenWidth()
         local statusData = getMPStatus()
+        local version = statusData.version:match("(.*) ")
 
         if NonPvpZone.getNonPvpZone(character:getX(), character:getY()) then
             self:drawTextRight(getText("IGUI_PvpZone_NonPvpZone"), maxX-50, maxY-120, 0, 1, 0, 1, UIFont.Small)
@@ -39,13 +41,13 @@ function TweakOverlayText.WaterMarkUI_render(self)
 
         local tmpY = 40
 
-        if isShowConnectionInfo() then
-            self:drawTextRight(getServerOptions():getOption("PublicName") .. " - Build " .. statusData.version, maxX-50, maxY-tmpY, 0.8, 0.8, 0.8, 1, UIFont.Small)
+        if isShowServerInfo() then
+            self:drawTextRight(getServerOptions():getOption("PublicName") .. " - Build " .. version, maxX-50, maxY-tmpY, 0.8, 0.8, 0.8, 1, UIFont.Small)
             tmpY = tmpY + 25
         end
 
         -- Ping
-        if isShowServerInfo() then
+        if isShowConnectionInfo() then
             local lastPing = tonumber(statusData.lastPing)
             local r = 0.8
             local g = 0.8
@@ -68,14 +70,23 @@ function TweakOverlayText.WaterMarkUI_render(self)
     end
 end
 
+function TweakOverlayText.ISServerSandboxOptionsUI_onButtonApply(self)
+    TweakOverlayText.OriginalFunctions.ISServerSandboxOptionsUI_onButtonApply(self)
+
+    if TweakOverlayText.IsEnabledOnServer then
+        ISVersionWaterMark.doMsg()
+    end
+end
+
 -- OnGameStart adds callback for OnGameStart global event.
 function TweakOverlayText.OnGameStart()
     if SandboxVars.ServerTweaker.TweakOverlayText then
-        setShowConnectionInfo(true)
-        setShowServerInfo(true) -- ping
+        setShowConnectionInfo(false) -- ping
+        setShowServerInfo(true)
     end
 end
 
 WaterMarkUI.render = TweakOverlayText.WaterMarkUI_render
+ISServerSandboxOptionsUI.onButtonApply = TweakOverlayText.ISServerSandboxOptionsUI_onButtonApply
 
 Events.OnGameStart.Add(TweakOverlayText.OnGameStart)
