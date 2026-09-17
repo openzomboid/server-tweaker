@@ -4,6 +4,8 @@
 -- that can be found in the LICENSE file.
 --
 
+-- TweakOverlayText is a global module table for managing overlay text tweaks
+-- (ping, server name, and build version).
 TweakOverlayText = {
     OriginalFunctions = {
         WaterMarkUI_render = WaterMarkUI.render,
@@ -11,11 +13,16 @@ TweakOverlayText = {
     }
 }
 
+-- IsEnabledOnServer сhecks if the TweakOverlayText module is enabled in the server's Sandbox settings.
+-- @return boolean
 function TweakOverlayText.IsEnabledOnServer()
     return SandboxVars.ServerTweaker.TweakOverlayText
 end
 
--- Adds server public name, hides strange serverTime and 32 players warning.
+-- WaterMarkUI_render overrides the the watermark UI rendering.
+-- Replaces default PZ overlay data (hides 32-player warnings/serverTime) with clean public server name,
+-- custom build number, and an optimized ping display.
+-- @param self WaterMarkUI
 function TweakOverlayText.WaterMarkUI_render(self)
     if not TweakOverlayText.IsEnabledOnServer() then
         TweakOverlayText.OriginalFunctions.WaterMarkUI_render(self)
@@ -28,11 +35,13 @@ function TweakOverlayText.WaterMarkUI_render(self)
     end
 
     if isClient() then
+        -- Hide the redundant "Review" bug-report button for players on the server
         self.revButton:setVisible(false)
 
         local maxY = getCore():getScreenHeight()
         local maxX = getCore():getScreenWidth()
         local statusData = getMPStatus()
+        -- Strips extra text from the version string using regex (e.g., "42.20.4 somethrashtext" -> "42.20.4")
         local version = statusData.version:match("(.*) ")
 
         if NonPvpZone.getNonPvpZone(character:getX(), character:getY()) then
@@ -43,7 +52,7 @@ function TweakOverlayText.WaterMarkUI_render(self)
 
         if isShowServerInfo() then
             self:drawTextRight(getServerOptions():getOption("PublicName") .. " - Build " .. version, maxX-50, maxY-tmpY, 0.8, 0.8, 0.8, 1, UIFont.Small)
-            tmpY = tmpY + 25
+            tmpY = tmpY + 30
         end
 
         -- Ping
@@ -70,6 +79,9 @@ function TweakOverlayText.WaterMarkUI_render(self)
     end
 end
 
+-- ISServerSandboxOptionsUI_onButtonApply triggers watermark refreshing on-the-fly when
+-- server options are updated.
+-- @param self ISServerSandboxOptionsUI
 function TweakOverlayText.ISServerSandboxOptionsUI_onButtonApply(self)
     TweakOverlayText.OriginalFunctions.ISServerSandboxOptionsUI_onButtonApply(self)
 
