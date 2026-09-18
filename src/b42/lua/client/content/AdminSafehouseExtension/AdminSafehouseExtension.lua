@@ -189,8 +189,8 @@ function AdminSafehouseExtension.ISAddSafeZoneUI_onClick(self, button)
         local args = {
             x       = math.floor(math.min(self.X1, self.X2)),
             y       = math.floor(math.min(self.Y1, self.Y2)),
-            w       = math.floor(math.abs(self.X1 - self.X2) + 1),
-            h       = math.floor(math.abs(self.Y1 - self.Y2) + 1),
+            w       = math.floor(math.abs(self.X1 - self.X2)),
+            h       = math.floor(math.abs(self.Y1 - self.Y2)),
             owner   = self.ownerEntry:getInternalText(),
             title   = self.titleEntry:getInternalText(),
             members = self.membersEntry:getInternalText()

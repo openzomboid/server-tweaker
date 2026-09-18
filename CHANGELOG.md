@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## [v0.8.0] - Unreleased
+### Fixed
+- Fixed extra size of admin safezone.
+
 ### Added
 - Added Tweak Overlay Text
   - The overlay text has been made more informative and compact
