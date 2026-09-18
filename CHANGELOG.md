@@ -10,9 +10,9 @@ All notable changes to this project will be documented in this file.
 - Fixed extra size of admin safezone.
 
 ### Added
-- Added Tweak Overlay Text
+- Added EnhancedOverlay sandbox option:
   - The overlay text has been made more informative and compact
-  - Added "You're in a non pvp zone" text to the right bottom screen
+  - Added "You're in a non pvp zone" overlay text to the right bottom screen
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed

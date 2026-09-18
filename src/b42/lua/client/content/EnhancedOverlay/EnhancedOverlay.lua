@@ -4,28 +4,28 @@
 -- that can be found in the LICENSE file.
 --
 
--- TweakOverlayText is a global module table for managing overlay text tweaks
+-- EnhancedOverlay is a global module table for managing overlay text tweaks
 -- (ping, server name, and build version).
-TweakOverlayText = {
+EnhancedOverlay = {
     OriginalFunctions = {
         WaterMarkUI_render = WaterMarkUI.render,
         ISServerSandboxOptionsUI_onButtonApply = ISServerSandboxOptionsUI.onButtonApply
     }
 }
 
--- IsEnabledOnServer сhecks if the TweakOverlayText module is enabled in the server's Sandbox settings.
+-- IsEnabledOnServer сhecks if the EnhancedOverlay module is enabled in the server's Sandbox settings.
 -- @return boolean
-function TweakOverlayText.IsEnabledOnServer()
-    return SandboxVars.ServerTweaker.TweakOverlayText
+function EnhancedOverlay.IsEnabledOnServer()
+    return SandboxVars.ServerTweaker.EnhancedOverlay
 end
 
 -- WaterMarkUI_render overrides the the watermark UI rendering.
 -- Replaces default PZ overlay data (hides 32-player warnings/serverTime) with clean public server name,
 -- custom build number, and an optimized ping display.
 -- @param self WaterMarkUI
-function TweakOverlayText.WaterMarkUI_render(self)
-    if not TweakOverlayText.IsEnabledOnServer() then
-        TweakOverlayText.OriginalFunctions.WaterMarkUI_render(self)
+function EnhancedOverlay.WaterMarkUI_render(self)
+    if not EnhancedOverlay.IsEnabledOnServer() then
+        EnhancedOverlay.OriginalFunctions.WaterMarkUI_render(self)
         return
     end
 
@@ -82,23 +82,23 @@ end
 -- ISServerSandboxOptionsUI_onButtonApply triggers watermark refreshing on-the-fly when
 -- server options are updated.
 -- @param self ISServerSandboxOptionsUI
-function TweakOverlayText.ISServerSandboxOptionsUI_onButtonApply(self)
-    TweakOverlayText.OriginalFunctions.ISServerSandboxOptionsUI_onButtonApply(self)
+function EnhancedOverlay.ISServerSandboxOptionsUI_onButtonApply(self)
+    EnhancedOverlay.OriginalFunctions.ISServerSandboxOptionsUI_onButtonApply(self)
 
-    if TweakOverlayText.IsEnabledOnServer then
+    if EnhancedOverlay.IsEnabledOnServer then
         ISVersionWaterMark.doMsg()
     end
 end
 
 -- OnGameStart adds callback for OnGameStart global event.
-function TweakOverlayText.OnGameStart()
-    if SandboxVars.ServerTweaker.TweakOverlayText then
+function EnhancedOverlay.OnGameStart()
+    if SandboxVars.ServerTweaker.EnhancedOverlay then
         setShowConnectionInfo(false) -- ping
         setShowServerInfo(true)
     end
 end
 
-WaterMarkUI.render = TweakOverlayText.WaterMarkUI_render
-ISServerSandboxOptionsUI.onButtonApply = TweakOverlayText.ISServerSandboxOptionsUI_onButtonApply
+WaterMarkUI.render = EnhancedOverlay.WaterMarkUI_render
+ISServerSandboxOptionsUI.onButtonApply = EnhancedOverlay.ISServerSandboxOptionsUI_onButtonApply
 
-Events.OnGameStart.Add(TweakOverlayText.OnGameStart)
+Events.OnGameStart.Add(EnhancedOverlay.OnGameStart)

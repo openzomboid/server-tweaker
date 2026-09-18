@@ -49,9 +49,9 @@ option ServerTweaker.BrushToolFix {
   translation = BrushToolFix
 }
 
-option ServerTweaker.TweakOverlayText {
+option ServerTweaker.EnhancedOverlay {
   type        = boolean,
   default     = true,
   page        = ServerTweaker,
-  translation = TweakOverlayText
+  translation = EnhancedOverlay
 }
