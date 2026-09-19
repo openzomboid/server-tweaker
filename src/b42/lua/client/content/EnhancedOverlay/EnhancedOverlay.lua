@@ -9,11 +9,12 @@
 EnhancedOverlay = {
     OriginalFunctions = {
         WaterMarkUI_render = WaterMarkUI.render,
-        ISServerSandboxOptionsUI_onButtonApply = ISServerSandboxOptionsUI.onButtonApply
+        ISServerSandboxOptionsUI_onButtonApply = ISServerSandboxOptionsUI.onButtonApply,
+        ISUserPanelUI_create = ISUserPanelUI.create
     }
 }
 
--- IsEnabledOnServer сhecks if the EnhancedOverlay module is enabled in the server's Sandbox settings.
+-- IsEnabledOnServer checks if the EnhancedOverlay module is enabled in the server's Sandbox settings.
 -- @return boolean
 function EnhancedOverlay.IsEnabledOnServer()
     return SandboxVars.ServerTweaker.EnhancedOverlay
@@ -35,7 +36,6 @@ function EnhancedOverlay.WaterMarkUI_render(self)
     end
 
     if isClient() then
-        -- Hide the redundant "Review" bug-report button for players on the server
         self.revButton:setVisible(false)
 
         local maxY = getCore():getScreenHeight()
@@ -90,6 +90,30 @@ function EnhancedOverlay.ISServerSandboxOptionsUI_onButtonApply(self)
     end
 end
 
+function EnhancedOverlay.ISUserPanelUI_create(self)
+    EnhancedOverlay.OriginalFunctions.ISUserPanelUI_create(self)
+
+    if not EnhancedOverlay.IsEnabledOnServer() then
+        return
+    end
+
+    ---- Disable server options button.
+    --if SandboxVars.ServerTweaker.HideServerOptionsFromPlayers then
+    --    self.serverOptionBtn.enable = false;
+    --end
+
+    ---- Disable tickets button.
+    --if SandboxVars.ServerTweaker.HideTicketsFromPlayers then
+    --    self.ticketsBtn.enable = false;
+    --end
+
+    -- Disable showConnectionInfo and showServerInfo.
+    if SandboxVars.ServerTweaker.EnhancedOverlayPinServerInfo then
+        --self.showConnectionInfo.enable = false
+        self.showServerInfo.enable = false
+    end
+end
+
 -- OnGameStart adds callback for OnGameStart global event.
 function EnhancedOverlay.OnGameStart()
     if SandboxVars.ServerTweaker.EnhancedOverlay then
@@ -100,5 +124,6 @@ end
 
 WaterMarkUI.render = EnhancedOverlay.WaterMarkUI_render
 ISServerSandboxOptionsUI.onButtonApply = EnhancedOverlay.ISServerSandboxOptionsUI_onButtonApply
+ISUserPanelUI.create = EnhancedOverlay.ISUserPanelUI_create
 
 Events.OnGameStart.Add(EnhancedOverlay.OnGameStart)

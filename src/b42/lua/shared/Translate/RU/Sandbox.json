@@ -8,5 +8,6 @@
     "Sandbox_ElevatedStaffPermissions": "Повышение прав персоналу",
     "Sandbox_BrushToolFix": "Исправить синхронизацию Brush Tool",
     "Sandbox_EnhancedOverlay": "Улучшения наложенного текста в правом нижнем углу экрана",
-    "Sandbox_StoreAdminPowers": "StoreAdminPowers"
+    "Sandbox_EnhancedOverlayPinServerInfo": "Заблокировать изменение настройки наложенного текста о сервере",
+    "Sandbox_StoreAdminPowers": "Сохранять способности администратора"
 }

@@ -10,9 +10,11 @@ All notable changes to this project will be documented in this file.
 - Fixed extra size of admin safezone.
 
 ### Added
-- Added EnhancedOverlay sandbox option:
-  - The overlay text has been made more informative and compact
-  - Added "You're in a non pvp zone" overlay text to the right bottom screen
+- Added "Enhanced overlay text in right bottom corner" sandbox option. The overlay text has been made more informative and compact:
+  - Removes useless info from text such as 32 max players server
+  - Removes huge admin powers text
+  - Adds "You're in a non pvp zone" overlay text to the right bottom screen
+- Added "Pin overlay server info text" option.
 - Added sandbox option to store admin powers.
 
 ## [v0.7.1] - 2026-08-21

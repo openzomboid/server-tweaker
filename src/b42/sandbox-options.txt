@@ -56,6 +56,13 @@ option ServerTweaker.EnhancedOverlay {
   translation = EnhancedOverlay
 }
 
+option ServerTweaker.EnhancedOverlayPinServerInfo {
+  type        = boolean,
+  default     = false,
+  page        = ServerTweaker,
+  translation = EnhancedOverlayPinServerInfo
+}
+
 option ServerTweaker.StoreAdminPowers {
   type        = boolean,
   default     = true,
