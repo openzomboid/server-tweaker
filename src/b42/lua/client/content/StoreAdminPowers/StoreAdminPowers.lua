@@ -23,64 +23,77 @@ function StoreAdminPowers.SetAdminPower()
         return
     end
 
+    logger.Debug("StoreAdminPowers: called SetAdminPower")
+
     local character = getPlayer()
 
-    if StoreAdminPowers.AdminOptions == nil then
-        StoreAdminPowers.AdminOptions = OptionsStorage:new("admin-powers", {})
-    end
-
     if isClient() and character then
-        logger.Debug("called StoreAdminPowers.SetAdminPower")
+        if StoreAdminPowers.AdminOptions == nil then
+            logger.Debug("SetAdminPowers: init AdminOptions")
+
+            StoreAdminPowers.AdminOptions = OptionsStorage:new("admin-powers", {})
+        end
 
         for _, option in ipairs(ISAdminPowerUI.OptionList) do
-            if character:getRole():hasCapability(option.capability) then
-                logger.Debug("StoreAdminPowers.SetAdminPower: " .. option.id)
+            if isDebugEnabled() or character:getRole():hasCapability(option.capability) then
+                if character:getRole():hasCapability(option.capability) then
+                    logger.Debug("SetAdminPowers: user " .. character:getUsername() .. " has capability " .. option.id)
+                else
+                    logger.PrintOnce("debug", "SetAdminPowers: user " .. character:getUsername() .. " is in debug mode")
+                end
+
                 local value = StoreAdminPowers.AdminOptions.GetBool(option.id)
 
+                option.player = character
                 option:setValue(value)
             end
         end
     end
 end
 
-function StoreAdminPowers.ISAdminPowerUI_addOptionLeft(self, option)
-    logger.Debug("StoreAdminPowers.addOptionLeft")
+function StoreAdminPowers.doOption(option)
+    if not StoreAdminPowers.IsEnabledOnServer() then
+        return
+    end
 
-    StoreAdminPowers.OriginalFunctions.ISAdminPowerUI_addOptionLeft(self, option)
+    local character = getPlayer()
 
-    if StoreAdminPowers.IsEnabledOnServer() then
-        if self.player:getRole():hasCapability(option.capability) then
-            if StoreAdminPowers.AdminOptions then
-                local value = option:getValue()
+    if not (isDebugEnabled() or character:getRole():hasCapability(option.capability)) then
+        logger.Debug("doOption: general user, no need to apply admin options")
+        return
+    end
 
-                logger.Debug("StoreAdminPowers.addOption: set option id = " .. option.id .. " to value " .. tostring(value))
+    if not StoreAdminPowers.AdminOptions then
+        logger.Error("doOption: no AdminOptions")
+        return
+    end
 
-                StoreAdminPowers.AdminOptions.SetBool(option.id, value)
-            else
-                logger.Debug("StoreAdminPowers.addOption: no AdminOptions")
-            end
-        end
+    option.player = character
+
+    local value = option:getValue()
+
+    if StoreAdminPowers.AdminOptions.GetBool(option.id) ~= value then
+        logger.Debug("doOption: set option " .. option.id .. " to value " .. tostring(value))
+        StoreAdminPowers.AdminOptions.SetBool(option.id, value)
+    else
+        logger.Debug("doOption: option " .. option.id .. " was already stored")
     end
 end
 
+function StoreAdminPowers.ISAdminPowerUI_addOptionLeft(self, option)
+    logger.Debug("StoreAdminPowers: called addOptionLeft")
+
+    StoreAdminPowers.OriginalFunctions.ISAdminPowerUI_addOptionLeft(self, option)
+
+    StoreAdminPowers.doOption(option)
+end
+
 function StoreAdminPowers.ISAdminPowerUI_addOptionRight(self, option)
-    logger.Debug("StoreAdminPowers.addOptionRight")
+    logger.Debug("StoreAdminPowers: called addOptionRight")
 
     StoreAdminPowers.OriginalFunctions.ISAdminPowerUI_addOptionRight(self, option)
 
-    if StoreAdminPowers.IsEnabledOnServer() then
-        if self.player:getRole():hasCapability(option.capability) then
-            if StoreAdminPowers.AdminOptions then
-                local value = option:getValue()
-
-                logger.Debug("StoreAdminPowers.addOption: set option id = " .. option.id .. " to value " .. tostring(value))
-
-                StoreAdminPowers.AdminOptions.SetBool(option.id, value)
-            else
-                logger.Debug("StoreAdminPowers.addOption: no AdminOptions")
-            end
-        end
-    end
+    StoreAdminPowers.doOption(option)
 end
 
 -- OnCreatePlayer adds callback for player OnCreatePlayer event.

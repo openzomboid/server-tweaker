@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 - Added EnhancedOverlay sandbox option:
   - The overlay text has been made more informative and compact
   - Added "You're in a non pvp zone" overlay text to the right bottom screen
-- Added sandbox option to store admin powers (WIP).
+- Added sandbox option to store admin powers.
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed
