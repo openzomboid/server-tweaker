@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - Added "Pin overlay server info text" option.
 - Added sandbox option to store admin powers.
 - Added "Hide tickets from players" option.
+- Added satellite view to map.
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed

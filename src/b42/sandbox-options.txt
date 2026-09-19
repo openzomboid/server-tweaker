@@ -76,3 +76,10 @@ option ServerTweaker.StoreAdminPowers {
   page        = ServerTweaker,
   translation = StoreAdminPowers
 }
+
+option ServerTweaker.AddSatelliteViewToMap {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = AddSatelliteViewToMap
+}
