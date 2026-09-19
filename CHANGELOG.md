@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
   - Adds "You're in a non pvp zone" overlay text to the right bottom screen
 - Added "Pin overlay server info text" option.
 - Added sandbox option to store admin powers.
+- Added "Hide tickets from players" option.
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed

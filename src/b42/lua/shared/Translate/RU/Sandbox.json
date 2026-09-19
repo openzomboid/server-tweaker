@@ -9,5 +9,6 @@
     "Sandbox_BrushToolFix": "Исправить синхронизацию Brush Tool",
     "Sandbox_EnhancedOverlay": "Улучшения наложенного текста в правом нижнем углу экрана",
     "Sandbox_EnhancedOverlayPinServerInfo": "Заблокировать изменение настройки наложенного текста о сервере",
+    "Sandbox_HideTickets": "Скрыть тикеты от игроков",
     "Sandbox_StoreAdminPowers": "Сохранять способности администратора"
 }

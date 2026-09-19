@@ -63,6 +63,13 @@ option ServerTweaker.EnhancedOverlayPinServerInfo {
   translation = EnhancedOverlayPinServerInfo
 }
 
+option ServerTweaker.HideTickets {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = HideTickets
+}
+
 option ServerTweaker.StoreAdminPowers {
   type        = boolean,
   default     = true,

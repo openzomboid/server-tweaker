@@ -97,19 +97,8 @@ function EnhancedOverlay.ISUserPanelUI_create(self)
         return
     end
 
-    ---- Disable server options button.
-    --if SandboxVars.ServerTweaker.HideServerOptionsFromPlayers then
-    --    self.serverOptionBtn.enable = false;
-    --end
-
-    ---- Disable tickets button.
-    --if SandboxVars.ServerTweaker.HideTicketsFromPlayers then
-    --    self.ticketsBtn.enable = false;
-    --end
-
     -- Disable showConnectionInfo and showServerInfo.
     if SandboxVars.ServerTweaker.EnhancedOverlayPinServerInfo then
-        --self.showConnectionInfo.enable = false
         self.showServerInfo.enable = false
     end
 end

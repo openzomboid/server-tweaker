@@ -9,5 +9,6 @@
     "Sandbox_BrushToolFix": "Fix Brush Tool synchronization",
     "Sandbox_EnhancedOverlay": "Enhanced overlay text in right bottom corner",
     "Sandbox_EnhancedOverlayPinServerInfo": "Pin overlay server info text",
+    "Sandbox_HideTickets": "Hide tickets from players",
     "Sandbox_StoreAdminPowers": "Save admin powers"
 }
