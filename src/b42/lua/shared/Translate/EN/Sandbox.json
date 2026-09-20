@@ -5,6 +5,7 @@
     "Sandbox_EnableSuicideCommand": "Enable suicide command in chat",
     "Sandbox_AdminSafehouseExtension": "Advanced admin safehouse creation",
     "Sandbox_SafehouseVehicleProtection": "Protect vehicles in safehouse",
+    "Sandbox_SafehouseProtectionFromDestroyCursor": "Protect buildings in safehouse from destroy by sledgehammer",
     "Sandbox_ElevatedStaffPermissions": "Elevated Staff Permissions",
     "Sandbox_BrushToolFix": "Fix Brush Tool synchronization",
     "Sandbox_EnhancedOverlay": "Enhanced overlay text in right bottom corner",

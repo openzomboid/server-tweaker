@@ -35,6 +35,13 @@ option ServerTweaker.SafehouseVehicleProtection {
   translation = SafehouseVehicleProtection
 }
 
+option ServerTweaker.SafehouseProtectionFromDestroyCursor {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = SafehouseProtectionFromDestroyCursor
+}
+
 option ServerTweaker.ElevatedStaffPermissions {
   type        = boolean,
   default     = false,

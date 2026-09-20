@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 - Added sandbox option to store admin powers.
 - Added "Hide tickets from players" option.
 - Added satellite view to map.
+- Added buildings protection in safehouse from destroy by sledgehammer.
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed
