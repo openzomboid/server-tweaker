@@ -6,6 +6,7 @@
     "Sandbox_AdminSafehouseExtension": "Advanced admin safehouse creation",
     "Sandbox_SafehouseVehicleProtection": "Protect vehicles in safehouse",
     "Sandbox_SafehouseProtectionFromDestroy": "Protect buildings in safehouse from destroy by sledgehammer",
+    "Sandbox_SafehouseProtectionFromForaging": "Protect items in safehouse from foraging search mode",
     "Sandbox_ElevatedStaffPermissions": "Elevated Staff Permissions",
     "Sandbox_BrushToolFix": "Fix Brush Tool synchronization",
     "Sandbox_EnhancedOverlay": "Enhanced overlay text in right bottom corner",

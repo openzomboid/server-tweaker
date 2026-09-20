@@ -42,6 +42,13 @@ option ServerTweaker.SafehouseProtectionFromDestroy {
   translation = SafehouseProtectionFromDestroy
 }
 
+option ServerTweaker.SafehouseProtectionFromForaging {
+  type        = boolean,
+  default     = true,
+  page        = ServerTweaker,
+  translation = SafehouseProtectionFromForaging
+}
+
 option ServerTweaker.ElevatedStaffPermissions {
   type        = boolean,
   default     = false,

@@ -3,5 +3,6 @@
     "IGUI_Coordinates": "Coordinates",
     "IGUI_SafehouseUI_Members": "Members:",
     "IGUI_PlayerText_VehicleInteractionUnavailable": "I can't interact with this vehicle",
+    "IGUI_PlayerText_PickupUnavailable": "I can't pickup this item",
     "IGUI_PlayerText_VehicleSafe": "The vehicle is safe"
 }

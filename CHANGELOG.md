@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - Added "Hide tickets from players" option.
 - Added satellite view to map.
 - Added buildings protection in safehouse from destroy by sledgehammer.
+- Added items protection in safehouse from foraging search mode.
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed

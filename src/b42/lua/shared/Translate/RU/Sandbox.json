@@ -6,6 +6,7 @@
     "Sandbox_AdminSafehouseExtension": "Продвинутое создание убежищ админом",
     "Sandbox_SafehouseVehicleProtection": "Защищать транспорт в убежище",
     "Sandbox_SafehouseProtectionFromDestroy": "Защищать строения в убежищах от разрушения кувалдой",
+    "Sandbox_SafehouseProtectionFromForaging": "Защитить предметы в убежище от подбора собирательством",
     "Sandbox_ElevatedStaffPermissions": "Повышение прав персоналу",
     "Sandbox_BrushToolFix": "Исправить синхронизацию Brush Tool",
     "Sandbox_EnhancedOverlay": "Улучшения наложенного текста в правом нижнем углу экрана",
