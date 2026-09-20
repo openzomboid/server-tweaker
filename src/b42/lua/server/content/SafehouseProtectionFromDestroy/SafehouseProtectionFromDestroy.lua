@@ -4,20 +4,20 @@
 -- that can be found in the LICENSE file.
 --
 
-SafehouseProtectionFromDestroyCursor = {
+SafehouseProtectionFromDestroy = {
     OriginalFunctions = {
         ISDestroyCursor_isValid = ISDestroyCursor.isValid
     },
 }
 
-function SafehouseProtectionFromDestroyCursor.IsEnabledOnServer()
-    return SandboxVars.ServerTweaker.SafehouseProtectionFromDestroyCursor
+function SafehouseProtectionFromDestroy.IsEnabledOnServer()
+    return SandboxVars.ServerTweaker.SafehouseProtectionFromDestroy
 end
 
-function SafehouseProtectionFromDestroyCursor.ISDestroyCursor_isValid(self, square)
-    local valid = SafehouseProtectionFromDestroyCursor.OriginalFunctions.ISDestroyCursor_isValid(self, square)
+function SafehouseProtectionFromDestroy.ISDestroyCursor_isValid(self, square)
+    local valid = SafehouseProtectionFromDestroy.OriginalFunctions.ISDestroyCursor_isValid(self, square)
 
-    if not valid or not SafehouseProtectionFromDestroyCursor.IsEnabledOnServer then
+    if not valid or not SafehouseProtectionFromDestroy.IsEnabledOnServer then
         return valid
     end
 
@@ -41,4 +41,4 @@ function SafehouseProtectionFromDestroyCursor.ISDestroyCursor_isValid(self, squa
     return true
 end
 
-ISDestroyCursor.isValid = SafehouseProtectionFromDestroyCursor.ISDestroyCursor_isValid;
+ISDestroyCursor.isValid = SafehouseProtectionFromDestroy.ISDestroyCursor_isValid;
