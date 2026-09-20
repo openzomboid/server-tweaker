@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 - Added "Enhanced overlay text in right bottom corner" sandbox option. The overlay text has been made more informative and compact:
   - Removes useless info from text such as 32 max players server
   - Removes huge admin powers text
-  - Adds "You're in a non pvp zone" overlay text to the right bottom screen
+  - Adds "YOU'RE IN A NON PVP ZONE" overlay text to the right bottom screen
 - Added "Pin overlay server info text" option.
 - Added sandbox option to store admin powers.
 - Added "Hide tickets from players" option.

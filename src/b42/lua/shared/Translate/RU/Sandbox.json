@@ -12,5 +12,5 @@
     "Sandbox_EnhancedOverlayPinServerInfo": "Заблокировать изменение настройки наложенного текста о сервере",
     "Sandbox_HideTickets": "Скрыть тикеты от игроков",
     "Sandbox_StoreAdminPowers": "Сохранять способности администратора",
-    "Sandbox_AddSatelliteViewToMap": "Добавить отображение со спутника на карте"
+    "Sandbox_MapSatelliteView": "Добавить отображение со спутника на карте"
 }

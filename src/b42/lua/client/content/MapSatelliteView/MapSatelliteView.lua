@@ -5,7 +5,7 @@
 --
 
 -- Global module table for managing satellite/terrain view injection into Build 42 world maps.
-AddSatelliteViewToMap = {
+MapSatelliteView = {
     OriginalFunctions = {
         ISWorldMap_createChildren = ISWorldMap.createChildren,
         WorldMapOptions_getVisibleOptions = WorldMapOptions.getVisibleOptions,
@@ -18,27 +18,27 @@ AddSatelliteViewToMap = {
 --- IsEnabledOnServer checks if the satellite map view tweak is enabled in sandbox settings
 --- and debug mode is off.
 --- @return boolean
-function AddSatelliteViewToMap.IsEnabledOnServer()
-    return SandboxVars.ServerTweaker.AddSatelliteViewToMap and not getDebug()
+function MapSatelliteView.IsEnabledOnServer()
+    return SandboxVars.ServerTweaker.MapSatelliteView and not getDebug()
 end
 
 --- checkTerrainImage monitors state alignment inside the frame loop to catch and sync
 --- external option menu changes.
 --- @param mapUI ISWorldMap
-function AddSatelliteViewToMap.checkTerrainImage(mapUI)
+function MapSatelliteView.checkTerrainImage(mapUI)
     if mapUI.isTerrainImage ~= mapUI.mapAPI:getBoolean("TerrainImage") then
-        AddSatelliteViewToMap.onToggleTerrainImage(mapUI)
+        MapSatelliteView.onToggleTerrainImage(mapUI)
     end
 end
 
 --- onToggleTerrainImage operates as the core state machine switcher to swap map render
 --- styles between satellite files and paper shaders.
 --- @param mapUI ISWorldMap
-function AddSatelliteViewToMap.onToggleTerrainImage(mapUI)
+function MapSatelliteView.onToggleTerrainImage(mapUI)
     mapUI.isTerrainImage = not mapUI.isTerrainImage
 
     if mapUI.isTerrainImage then
-        AddSatelliteViewToMap.showTerrainImage(mapUI)
+        MapSatelliteView.showTerrainImage(mapUI)
     else
         MapUtils.initDefaultStyleV3(mapUI)
         MapUtils.overlayPaper(mapUI)
@@ -50,7 +50,7 @@ end
 --- showTerrainImage rebuilds the map's low-level layout cache by clearing vector graphics
 --- and inserting a custom raw texture PyramidLayer.
 --- @param mapUI ISWorldMap
-function AddSatelliteViewToMap.showTerrainImage(mapUI)
+function MapSatelliteView.showTerrainImage(mapUI)
     local styleAPI = mapUI.mapAPI:getStyleAPI()
     styleAPI:clear()
 
@@ -64,18 +64,18 @@ end
 --- onButtonToggleTerrainImage acts as a click proxy handler to bridge the vanilla button
 --- target system into our module scope.
 --- @param mapUI ISWorldMap
-function AddSatelliteViewToMap.onButtonToggleTerrainImage(mapUI)
-    AddSatelliteViewToMap.onToggleTerrainImage(mapUI)
+function MapSatelliteView.onButtonToggleTerrainImage(mapUI)
+    MapSatelliteView.onToggleTerrainImage(mapUI)
 end
 
 --- ISWorldMap_createChildren attaches the custom terrain toggle button directly to the
 --- main map window layout.
 --- Is hooked function for creating map UI children.
 --- @param self ISWorldMap
-function AddSatelliteViewToMap.ISWorldMap_createChildren(self)
-    AddSatelliteViewToMap.OriginalFunctions.ISWorldMap_createChildren(self)
+function MapSatelliteView.ISWorldMap_createChildren(self)
+    MapSatelliteView.OriginalFunctions.ISWorldMap_createChildren(self)
 
-    if not AddSatelliteViewToMap.IsEnabledOnServer() then
+    if not MapSatelliteView.IsEnabledOnServer() then
         return
     end
 
@@ -84,7 +84,7 @@ function AddSatelliteViewToMap.ISWorldMap_createChildren(self)
     local btnX = self.buttonPanel:getX() - 10 - btnSize
     local btnY = self.buttonPanel:getY()
 
-    self.terrainBtn2 = ISButton:new(btnX, btnY, btnSize, btnSize, "", self, AddSatelliteViewToMap.onButtonToggleTerrainImage)
+    self.terrainBtn2 = ISButton:new(btnX, btnY, btnSize, btnSize, "", self, MapSatelliteView.onButtonToggleTerrainImage)
     self.terrainBtn2:setImage(self.texViewTerrainImage)
     self:addChild(self.terrainBtn2)
 
@@ -99,10 +99,10 @@ end
 --- Is hooked option filtering method for map configuration sub-menus.
 --- @param self WorldMapOptions
 --- @return table
-function AddSatelliteViewToMap.WorldMapOptions_getVisibleOptions(self)
-    local result = AddSatelliteViewToMap.OriginalFunctions.WorldMapOptions_getVisibleOptions(self)
+function MapSatelliteView.WorldMapOptions_getVisibleOptions(self)
+    local result = MapSatelliteView.OriginalFunctions.WorldMapOptions_getVisibleOptions(self)
 
-    if not AddSatelliteViewToMap.IsEnabledOnServer() then
+    if not MapSatelliteView.IsEnabledOnServer() then
         return result
     end
 
@@ -124,23 +124,23 @@ end
 --- ISWorldMap_prerender adds terrain image check.
 --- Is hooked map prerender sequence that handles per-frame check triggers.
 --- @param self ISWorldMap
-function AddSatelliteViewToMap.ISWorldMap_prerender(self)
-    AddSatelliteViewToMap.OriginalFunctions.ISWorldMap_prerender(self)
+function MapSatelliteView.ISWorldMap_prerender(self)
+    MapSatelliteView.OriginalFunctions.ISWorldMap_prerender(self)
 
-    if not AddSatelliteViewToMap.IsEnabledOnServer() then
+    if not MapSatelliteView.IsEnabledOnServer() then
         return
     end
 
-    AddSatelliteViewToMap.checkTerrainImage(self)
+    MapSatelliteView.checkTerrainImage(self)
 end
 
 --- ISWorldMap_saveSettings writes configuration directly into native WorldMapSettings profiles.
 --- is hooked serialization function that persists user map layer states.
 --- @param self ISWorldMap
-function AddSatelliteViewToMap.ISWorldMap_saveSettings(self)
-    AddSatelliteViewToMap.OriginalFunctions.ISWorldMap_saveSettings(self)
+function MapSatelliteView.ISWorldMap_saveSettings(self)
+    MapSatelliteView.OriginalFunctions.ISWorldMap_saveSettings(self)
 
-    if not AddSatelliteViewToMap.IsEnabledOnServer() then
+    if not MapSatelliteView.IsEnabledOnServer() then
         return
     end
 
@@ -153,10 +153,10 @@ end
 --- loading if historical state dictates.
 --- is hooked initialization/load function that restores historical map view profiles.
 --- @param self ISWorldMap
-function AddSatelliteViewToMap.ISWorldMap_restoreSettings(self)
-    AddSatelliteViewToMap.OriginalFunctions.ISWorldMap_restoreSettings(self)
+function MapSatelliteView.ISWorldMap_restoreSettings(self)
+    MapSatelliteView.OriginalFunctions.ISWorldMap_restoreSettings(self)
 
-    if not AddSatelliteViewToMap.IsEnabledOnServer() then
+    if not MapSatelliteView.IsEnabledOnServer() then
         return
     end
 
@@ -166,12 +166,12 @@ function AddSatelliteViewToMap.ISWorldMap_restoreSettings(self)
     self.isTerrainImage = terrainImage
     self.mapAPI:setBoolean("TerrainImage", terrainImage)
     if terrainImage then
-        AddSatelliteViewToMap.showTerrainImage(self)
+        MapSatelliteView.showTerrainImage(self)
     end
 end
 
-ISWorldMap.createChildren = AddSatelliteViewToMap.ISWorldMap_createChildren
-WorldMapOptions.getVisibleOptions = AddSatelliteViewToMap.WorldMapOptions_getVisibleOptions
-ISWorldMap.prerender = AddSatelliteViewToMap.ISWorldMap_prerender
-ISWorldMap.saveSettings = AddSatelliteViewToMap.ISWorldMap_saveSettings
-ISWorldMap.restoreSettings = AddSatelliteViewToMap.ISWorldMap_restoreSettings
+ISWorldMap.createChildren = MapSatelliteView.ISWorldMap_createChildren
+WorldMapOptions.getVisibleOptions = MapSatelliteView.WorldMapOptions_getVisibleOptions
+ISWorldMap.prerender = MapSatelliteView.ISWorldMap_prerender
+ISWorldMap.saveSettings = MapSatelliteView.ISWorldMap_saveSettings
+ISWorldMap.restoreSettings = MapSatelliteView.ISWorldMap_restoreSettings
