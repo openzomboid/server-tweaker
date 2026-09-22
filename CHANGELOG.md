@@ -7,19 +7,19 @@ All notable changes to this project will be documented in this file.
 
 ## [v0.8.0] - Unreleased
 ### Fixed
-- Fixed extra size of admin safezone.
+- Fixed an issue in the admin shelter creation interface where extra tiles were added to the south and east; the shelter is now created exactly within the visible boundaries.
 
 ### Added
-- Added "Enhanced overlay text in right bottom corner" sandbox option. The overlay text has been made more informative and compact:
-  - Removes useless info from text such as 32 max players server
-  - Removes huge admin powers text
-  - Adds "YOU'RE IN A NON PVP ZONE" overlay text to the right bottom screen
-- Added "Pin overlay server info text" option.
-- Added sandbox option to store admin powers.
-- Added "Hide tickets from players" option.
-- Added satellite view to map.
-- Added buildings protection in safehouse from destroy by sledgehammer.
-- Added items protection in safehouse from foraging search mode.
+- Added an option to enable improvements for the on-screen text overlay in the bottom-right corner:
+- the text has been decluttered and made more informative and compact
+- server name display can now be toggled in the server settings
+- removed the large text overlay displaying active admin abilities
+- added a green text notification ("YOU ARE IN A NON-PVP ZONE") when entering a PvE zone on a PvP server
+- Added an option to save selected active admin abilities so they persist after reconnecting to the server.
+- Added an option to disable the in-game ticketing system found in the client menu.
+- Added an option to view the map in "satellite" mode (similar to online map services).
+- Added protection against sledgehammer damage for structures located on the outermost tiles of a protected area.
+- Added protection against picking up items via the "forage" action if they are located on the outermost tiles of a protected area.
 
 ## [v0.7.1] - 2026-08-21
 ### Fixed
