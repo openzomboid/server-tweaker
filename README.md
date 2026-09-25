@@ -18,8 +18,15 @@ Server Tweaker contains careful edits that do not affect significant game mechan
   - The Savezone creation interface now allows you to specify all Safezone members. A comma is used as a separator.
   - Added the ability to create a Savezone for a player who is not online on the server.
 * **SafehouseVehicleProtection** `(default=false)` - Protects vehicles wholly or partly in a safehouse. Hidden the radial menu of these vehicles for a non-Hideout character and disabled the ability to enter the vehicle and open the mechanics menu. Also, such cars cannot be towed by another car. In the original game, such cars are often stolen or parts are twisted from them, which causes discomfort on PVE servers. Enabling this setting will improve this user experience.
+* **SafehouseProtectionFromDestroy** `(default=true)` - Protect buildings in safehouse from destroy by sledgehammer. In the original game, sledgehammer destruction is available on the outermost lines of a shelter. This setting forces the sledgehammer destruction cursor to disable when targeting a tile inside another player's safehouse, making destruction impossible.
+* **SafehouseProtectionFromForaging** `(default=true)` - Protect items in safehouse from foraging search mode. In the original game, it is possible to pick up items inside another player's safehouse via scavenging. Enabling this setting makes that impossible.
 * **ElevatedStaffPermissions** `(default=false)` - Currently, this only enables the context menu on the global map for roles with the "SeeWorldMap" permission. Roles with the "TeleportToCoordinates" permission now have the ability to freely teleport on the global map.
 * **BrushToolFix** `(default=false)` - Fixes synchronization issues with objects placed using the Brush Tool. Objects are now synchronized between players and are not deleted when rejoining the server. Special thanks to James "J" Kelly and his Astaroth server for their assistance in development.
+* **EnhancedOverlay** `(default=false)` - Enhanced overlay text in right bottom corner.
+* **EnhancedOverlayPinServerInfo** `(default=false)` - Pin overlay server info text.
+* **HideTickets** `(default=false)` - Hide tickets from players.
+* **StoreAdminPowers** `(default=false)` - Save admin powers. In the original game, selected active admin powers are not saved when rejoining the server. With this setting enabled, selected admin powers are restored upon rejoining the server.
+* **MapSatelliteView** `(default=true)` - Add satellite view to map.
 
 ### Modules for modders
 * [ConsoleLogger.lua](src/b42/lua/shared/openutils/ConsoleLogger/ConsoleLogger.lua) - Allows to write debug information to the client and server consoles (depending on where you run it). Logging levels range from Debug to Error. It can parse and print objects, which can be useful for viewing logs during debugging.

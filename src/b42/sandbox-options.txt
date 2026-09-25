@@ -65,7 +65,7 @@ option ServerTweaker.BrushToolFix {
 
 option ServerTweaker.EnhancedOverlay {
   type        = boolean,
-  default     = true,
+  default     = false,
   page        = ServerTweaker,
   translation = EnhancedOverlay
 }
@@ -79,14 +79,14 @@ option ServerTweaker.EnhancedOverlayPinServerInfo {
 
 option ServerTweaker.HideTickets {
   type        = boolean,
-  default     = true,
+  default     = false,
   page        = ServerTweaker,
   translation = HideTickets
 }
 
 option ServerTweaker.StoreAdminPowers {
   type        = boolean,
-  default     = true,
+  default     = false,
   page        = ServerTweaker,
   translation = StoreAdminPowers
 }
