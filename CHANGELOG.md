@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [v0.8.0] - 2026-9-29
+## [v0.8.0] - 2026-09-29
 ### Fixed
 - Fixed an issue in the admin shelter creation interface where extra tiles were added to the south and east; the shelter is now created exactly within the visible boundaries.
 
