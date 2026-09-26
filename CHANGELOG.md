@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [v0.8.0] - Unreleased
+## [v0.8.0] - 2026-9-29
 ### Fixed
 - Fixed an issue in the admin shelter creation interface where extra tiles were added to the south and east; the shelter is now created exactly within the visible boundaries.
 
@@ -157,7 +157,8 @@ All notable changes to this project will be documented in this file.
 - Added renaming light bulbs to improve sorting (English). Cannot be disabled.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
-[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.7.1...HEAD
+[Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.8.0...HEAD
+[v0.7.1]: https://github.com/openzomboid/server-tweaker/compare/v0.7.1...v0.8.0
 [v0.7.1]: https://github.com/openzomboid/server-tweaker/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/openzomboid/server-tweaker/compare/v0.6.1...v0.7.0
 [v0.6.1]: https://github.com/openzomboid/server-tweaker/compare/v0.6.0...v0.6.1
