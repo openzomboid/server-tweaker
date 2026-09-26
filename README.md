@@ -9,6 +9,12 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * All improvements can be turned off in the sandbox settings. Don't require a server restart, and most of them don't require a client restart either.
 * Provided libraries for use as API in other mods. The utilities located in the shared/openutils, client/clientutils and server/serverutils directories are designed in such a way that they can be easily used in other mods. There is no need to copy pieces of code, just call the functions themselves from shared libraries.
 
+## Modules for modders
+* [ConsoleLogger.lua](src/b42/lua/shared/openutils/ConsoleLogger/ConsoleLogger.lua) - Allows to write debug information to the client and server consoles (depending on where you run it). Logging levels range from Debug to Error. It can parse and print objects, which can be useful for viewing logs during debugging.
+* [OptionsStorage.lua](src/b42/lua/shared/openutils/OptionsStorage/OptionsStorage.lua) - Wraps Project Zomboid's native Java File I/O Streams to create an isolated, lightweight key-value configuration reader and writer. It parses and formats raw plain-text .ini data documents saved directly into the 'C:\Users\Username\Zomboid\Lua\' system user directories.
+* [ClientOptions.lua](src/b42/lua/client/clientutils/ClientOptions/ClientOptions.lua) - Allows you to add client-side checkboxes to the UserPanel, allowing you to display your mods settings there so players can toggle them without having to go to the game's settings menu.
+* [openutils.lua](src/b42/lua/shared/openutils/openutils.lua) - Swiss Army Knife with different functions.
+
 ## Server Sandbox Options
 * **HighlightSafehouse** `(default=true)` - Shows color highlight of area of players Safehouse to members. If the HighlightSafehouse option is enabled in the server sandbox settings, then the same setting becomes available to the player in the client settings. Each player will be able to choose for himself whether to highlight the territory or not.
 * **ShowCoordinates** (default=true)` - Adds coordinates to the character view interface (J). The player must have any watch that displays the date.
@@ -27,12 +33,6 @@ Server Tweaker contains careful edits that do not affect significant game mechan
 * **HideTickets** `(default=false)` - Hide tickets from players.
 * **StoreAdminPowers** `(default=false)` - Save admin powers. In the original game, selected active admin powers are not saved when rejoining the server. With this setting enabled, selected admin powers are restored upon rejoining the server.
 * **MapSatelliteView** `(default=true)` - Add satellite view to map.
-
-### Modules for modders
-* [ConsoleLogger.lua](src/b42/lua/shared/openutils/ConsoleLogger/ConsoleLogger.lua) - Allows to write debug information to the client and server consoles (depending on where you run it). Logging levels range from Debug to Error. It can parse and print objects, which can be useful for viewing logs during debugging.
-* [OptionsStorage.lua](src/b42/lua/shared/openutils/OptionsStorage/OptionsStorage.lua) - Wraps Project Zomboid's native Java File I/O Streams to create an isolated, lightweight key-value configuration reader and writer. It parses and formats raw plain-text .ini data documents saved directly into the 'C:\Users\Username\Zomboid\Lua\' system user directories.
-* [ClientOptions.lua](src/b42/lua/client/clientutils/ClientOptions/ClientOptions.lua) - Allows you to add client-side checkboxes to the UserPanel, allowing you to display your mods settings there so players can toggle them without having to go to the game's settings menu.
-* [openutils.lua](src/b42/lua/shared/openutils/openutils.lua) - Swiss Army Knife with different functions.
 
 ## Compatibility
 Game version: Build 44.20+ (Multiplayer)  
