@@ -158,7 +158,7 @@ All notable changes to this project will be documented in this file.
 - Added renaming seeds and seeds packets to improve sorting (English). Cannot be disabled.
 
 [Unreleased]: https://github.com/openzomboid/server-tweaker/compare/v0.8.0...HEAD
-[v0.7.1]: https://github.com/openzomboid/server-tweaker/compare/v0.7.1...v0.8.0
+[v0.8.0]: https://github.com/openzomboid/server-tweaker/compare/v0.7.1...v0.8.0
 [v0.7.1]: https://github.com/openzomboid/server-tweaker/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/openzomboid/server-tweaker/compare/v0.6.1...v0.7.0
 [v0.6.1]: https://github.com/openzomboid/server-tweaker/compare/v0.6.0...v0.6.1
